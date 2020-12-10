@@ -23,6 +23,8 @@ class CreateBlog extends Migration
             $table->foreign('blog_status_id')->references('id')->on('blog_status');
             $table->integer('blog_category_id')->unsigned();
             $table->foreign('blog_category_id')->references('id')->on('blog_category');
+            $table->integer('language_id')->unsigned();
+            $table->foreign('language_id')->references('id')->on('language');
             $table->timestamps();
         });
     }

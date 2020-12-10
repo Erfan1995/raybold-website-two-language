@@ -17,6 +17,8 @@ class CreateServices extends Migration
             $table->increments('id');
             $table->integer('service_category_id')->unsigned();
             $table->foreign('service_category_id')->references('id')->on('service_category');
+            $table->integer('language_id')->unsigned();
+            $table->foreign('language_id')->references('id')->on('language');
             $table->string('title');
             $table->timestamps();
         });
