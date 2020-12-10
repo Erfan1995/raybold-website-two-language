@@ -1,0 +1,165 @@
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body"><!-- page user profile start -->
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="tab-pane active" id="feed" aria-labelledby="feed-tab" role="tabpanel">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="card-body">
+                          <h3 class="ml-5">{{productTitle}}</h3>
+                          <h5 class="ml-5"><small>شما می توانید در قسمت پایین برای محصول بالا محتوا بنوسید </small>
+                          </h5>
+                          <br>
+                          <div class="tab-content pl-0">
+                            <div class="tab-pane active" id="user-status" aria-labelledby="user-status-tab"
+                                 role="tabpanel">
+                              <div>
+                                <div class="col-12">
+                                  <form [formGroup]="addProductContentForm"
+                                        (ngSubmit)="addProductContentFunc(addProductContentForm.value)">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group text-left">
+                                          <label>عنوان</label>
+                                          <input type="text" class="form-control is-valid"
+                                                 placeholder="عنوان فرعی محصول"
+                                                 formControlName="title">
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group text-left">
+                                          <label>محتوای محصول<span class="required">&nbsp;*</span></label>
+                                          <ckeditor formControlName="content"
+                                                    tagName="textarea" config="" [editor]="Editor"
+                                                    data="<p>محتوای محصول را اینجا بنویسید</p>">
+
+                                          </ckeditor>
+                                          <div *ngIf=" f.content.errors" class="invalid-feedback text-left">
+                                            <div *ngIf="f.content.errors.required"> {{errorMessages.required}}</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group text-left">
+                                          <label>فایل</label>
+                                          <input type="file" class="form-control is-valid" formControlName="file_path"
+                                                 placeholder="فایل مربوط به محصول" (change)="onFileChange($event)"
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-2">
+                                        <div class="form-group ">
+                                          <label>فایل اصلی است</label>
+                                          <input type="checkbox" class="form-control "
+                                                 formControlName="is_main_file" placeholder="main file"
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-12 padding-10">
+                                        <img width="500" height="400" class="margin-top-20 contentImage" [src]="fileSrc">
+<!--                                        <img width="500" height="400" class="margin-top-20 contentImage" [src]="fileSrc"-->
+<!--                                             *ngIf="fileSrc && fileType[0] === 'image'">-->
+<!--                                        <video width="500" height="420" controls-->
+<!--                                               *ngIf="fileSrc && fileType[0]==='video'"-->
+<!--                                               class="margin-top-20">-->
+<!--                                          <source [src]="fileSrc">-->
+<!--                                        </video>-->
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-12 col-sm-12 col-lg-3  d-flex align-items-end ">
+                                        <button type="submit" [disabled]="!isValid()"
+                                                class="btn btn-primary btn-block glow users-list-clear mb-0">{{addOrUpdateButton}}
+                                        </button>
+                                      </div>
+                                      <div class="col-12 col-sm-12 col-lg-3 d-flex align-items-end">
+
+                                        <button type="reset" (click)="reset()"
+                                                class="btn btn-secondary btn-block glow users-list-clear mb-0">لغو
+                                        </button>
+                                      </div>
+
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+
+                      <div class="card-body py-0">
+
+                        <div class="card-header user-profile-header margin-top-20">
+                          <div class="d-inline-block mt-25" *ngFor="let content of productContent">
+
+                            <div class="btn-group dropup dropdown-icon-wrapper mr-1 mb-1 cursor-pointer float-right">
+                              <a class="dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                 aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded dropdown-icon"></i>
+                              </a>
+                              <div class="dropdown-menu width-100">
+                                      <span class="dropdown-item" (click)="updateProductContent(content)">
+                                        <i class="bx bx-edit"></i>
+                                        ویرایش
+                                      </span>
+                                <span class="dropdown-item">
+                                        <i class="bx bxs-trash" (click)="deleteThisSection(content)"></i> حذف </span>
+                              </div>
+                            </div>
+                            <h4 class="margin-top-20">{{content?.title}}</h4>
+                            <p><span class="text-left" [innerHTML]=" content?.content  |sanitizeHtml "></span></p>
+                            <img *ngIf="content?.file_path!== null"
+                                 class="margin-top-20 "
+                                 src="{{content?.file_path}}"
+                                 alt=""
+                                 style=" height: 300px; width:500px">
+<!--                            <img *ngIf="content.file_path!== null-->
+<!--                            && (content.file_path.split('.')[1]==='jpg' || content.file_path.split('.')[1]==='png' )"-->
+<!--                                 class="margin-top-20 "-->
+<!--                                 src="{{content.file_path}}"-->
+<!--                                 alt=""-->
+<!--                                 style=" height: 300px; width:500px">-->
+<!--                            <video width="500" height="420" controls-->
+<!--                                   *ngIf="content.file_path !== null &&-->
+<!--                                    (content.file_path.split('.')[1]==='mp4' || content.file_path.split('.')[1]==='ogg')"-->
+<!--                                   class="margin-top-20">-->
+<!--                              <source src="{{content.file_path}}" type="video/mp4">-->
+<!--                              <source src="{{content.file_path}}" type="video/ogg">-->
+<!--                            </video>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

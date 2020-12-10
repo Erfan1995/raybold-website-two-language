@@ -1,0 +1,513 @@
+<div class="main-content-wrapper">
+
+  <section class="crumina-stunning-header stunning-header-bg6 pb60">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
+          <h1 class="page-title text-white">ما کی هستیم؟</h1>
+          <p class="page-text text-white right-direction">ما یک تیم از انجنیران نرم افزار و دیزاینرهای گرافیک می باشیم
+            که در دو بخش خدمات نرم افزاری و گرافیکی فعالیت می کنیم.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="crumina-breadcrumbs breadcrumbs--blue-themes">
+    <div class="container right-direction">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs-item float-right">
+              <a href="../home">خانه</a>
+              <span class="crumina-icon">»</span>
+            </li>
+            <li class="breadcrumbs-item float-right">
+              <a>درباره ما</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="large-section-padding bg-grey">
+    <div class="container">
+      <div class="row" *ngFor="let aboutUs of aboutUsInfo">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center mb-5 ml-auto mr-auto">
+          <h2>در باره ما بیشتربدانید</h2>
+          <p class="fs-18 fw-medium" [innerHTML]="aboutUs.content"></p>
+          <img [src]="aboutUs.path" alt="">
+        </div>
+      </div>
+      <div class="row tabs tabs--time-line align-items-center">
+
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="time-2018" role="tabpanel" aria-labelledby="time-2018-tab">
+              <div class="row align-items-center">
+                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                  <div class="tabs--time-line-content text-right">
+                    <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2018</div>-->
+                    <h3 class="tabs--time-line-title">بنیانگذاری شرکت</h3>
+                    <p class="right-direction">
+                      شرکت نرم افزار و گرافیک ری بولد در سال ۲۰۱۸ میلادی توسط سه تن از فارغ التحصیلان رشته کمپیوتر ساینس
+                      دانشگاه پولی تخنیک کابل بنیانگذاری شد.
+
+                    </p>
+                    <p class="right-direction">
+                      با آنکه مسیر رشد برای شرکتها خصوصا شرکتهای نوپا در افغانستان بسیار ناهموار میباشد طوریکه اکثر
+                      شرکتهای نوپا در کمتر از یکسال شکست می خورند. اما شرکت ما با باورمندی بر توانایی ها ،‌ اراده،‌ و
+                      تلاش بنیانگذاران آن توانست براین ناهمواری غلبه ومسیرش را برای رسیدن به اهداف بزرگش هموار کند.
+                    </p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 mb-4 mb-lg-0">
+                  <div class="tabs--time-line-thumb">
+                    <img [defaultImage]="'assets/img/loader-2.svg'"
+                         lazyLoad="assets/img/demo-content/icons/a2.png" alt="blog">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="time-2019" role="tabpanel" aria-labelledby="time-2019-tab">
+              <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 mb-4 mb-lg-0">
+                  <div class="tabs--time-line-thumb">
+                    <img [defaultImage]="'assets/img/loader-2.svg'"
+                         lazyLoad="assets/img/demo-content/icons/a3.png" alt="about us">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                  <div class="tabs--time-line-content text-right">
+                    <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2017</div>-->
+                    <h3 class="tabs--time-line-title">دست آوردها</h3>
+                    <p class="right-direction">
+                      سال ۲۰۱۹ یک سال پر از دستاورد برای ما بود. برعلاوه اجرای پروژهای خورد و بزرگ دگر،‌ موفق به انجام
+                      پروژه های بزرگ در سطح کشور شویم.به عنوان نمونه می توان از سیستم مدیریت انتخابات سال ۲۰۱۹ که برای
+                      تیم دولت ساز ساخته بودیم نام برد. این سیستم که به منظور جمع آوری گزارشات نتایج انتخابات از تمام
+                      ولایات کشور ساخته شده بود متشکل از اپلیشکن موبایل(اندروید و آیفون) و اپلیکشن وب بود.
+                      یکی از دستاورد مهم دگر ما ساخت سافتویر زیتون بود. این سافتویر برای مدیریت حاضری الکترونیکی ساخته
+                      شده بود. دلیل ساخت آن مشکلاتی بود که کاربران و مسؤلان مدیریت حاضری روبرو می شدند.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="time-2020" role="tabpanel" aria-labelledby="time-2020-tab">
+              <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 mb-4 mb-lg-0">
+                  <div class="tabs--time-line-thumb">
+                    <img [defaultImage]="'assets/img/loader-2.svg'"
+                         lazyLoad="assets/img/demo-content/tabs-time-line/time-thumb.png" alt="blog">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 text-right right-direction">
+                  <div class="tabs--time-line-content">
+                    <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2019</div>-->
+                    <h3 class="tabs--time-line-title">شروع خدمات گرافیکی</h3>
+                    <p>
+                      در اوایل سال ۲۰۲۰ به دنبال ارائه موفق خدمات نرم افزاری، ما با در نظرداشت ضروریات جامعه و صاحبان
+                      کسب و کار تصمیم به آغاز ارائه خدمات گرافیکی گرفتیم. خوشبختانه در این مدت توانیستیم رضایت مشتریان
+                      را جلب کنیم.افتخار داریم که دامنه خدمات ما هرروز گسترده تر می شود.
+                    </p>
+                    <p>
+                      اکنون ما در تمام بخشهای گرافیکی با داشتن تیم توانا و باتجربه آماده هرگونه همکاری جهت رشد بهتر کسب
+                      و کار مشتریان خویش می باشیم.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 mb-4 mb-lg-0">
+          <div class="nav nav-tabs" id="myTab" role="tablist">
+            <a class="nav-item nav-link active" id="time-2018-tab" data-toggle="tab" href="#time-2018" role="tab"
+               aria-controls="time-2018" aria-selected="false">
+              2018
+              <div class="nav-item--point">
+                <div class="nav-item--arrow-wrap">
+                  <svg class="crumina-icon">
+                    <use xlink:href="#icon-arrow-left"></use>
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a class="nav-item nav-link" id="time-2019-tab" data-toggle="tab" href="#time-2019" role="tab"
+               aria-controls="time-2019" aria-selected="false">
+              2019
+              <div class="nav-item--point">
+                <div class="nav-item--arrow-wrap">
+                  <svg class="crumina-icon">
+                    <use xlink:href="#icon-arrow-left"></use>
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a class="nav-item nav-link" id="time-2020-tab" data-toggle="tab" href="#time-2020" role="tab"
+               aria-controls="time-2020" aria-selected="false">
+              2020
+              <div class="nav-item--point">
+                <div class="nav-item--arrow-wrap">
+                  <svg class="crumina-icon">
+                    <use xlink:href="#icon-arrow-left"></use>
+                  </svg>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="large-section-padding bg-green-themes">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center mb-5 ml-auto mr-auto">
+          <h2 class="text-white">تا به امروز در ری بولد چی گذشته است</h2>
+          <p class="fs-18 fw-medium text-white">ما با افتخار دست آوردهای تیم خودرا به شکل مختصر به شما نشان میدهیم</p>
+        </div>
+      </div>
+
+      <div class="row  right-direction">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="tabs tabs--style6">
+            <div class="nav nav-tabs" id="tabs-with-slider" role="tablist">
+              <a class="nav-item nav-link active " id="simplified-cloud-tab" data-toggle="tab" href="#simplified-cloud"
+                 role="tab" aria-controls="simplified-cloud" aria-selected="true">
+                <img [defaultImage]="'assets/img/loader-2.svg'"
+                     lazyLoad="assets/img/demo-content/icons/tab-icon2.png" alt="customers">
+
+                مشتری ها
+                <span class="font-size-large">
+                  +40
+                </span>
+              </a>
+              <a class="nav-item nav-link" id="instant-setup-tab" data-toggle="tab" href="#instant-setup" role="tab"
+                 aria-controls="instant-setup" aria-selected="false">
+                <img [defaultImage]="'assets/img/loader-2.svg'"
+                     lazyLoad="assets/img/demo-content/icons/tab-icon3.png" alt="customers">
+                محصولات
+                <span class="font-size-large">
+                  +5
+                </span>
+              </a>
+              <a class="nav-item nav-link " id="boost-website-speed-tab" data-toggle="tab"
+                 href="#boost-website-speed" role="tab" aria-controls="boost-website-speed" aria-selected="false">
+                <img [defaultImage]="'assets/img/loader-2.svg'"
+                     lazyLoad="assets/img/demo-content/icons/tab-icon4.png" alt="customers">
+                پروژه ها
+                <span class="font-size-large">
+                  +30
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="tab-content right-direction" id="myTabContent6">
+            <div class="tab-pane fade show active" id="simplified-cloud" role="tabpanel"
+                 aria-labelledby="simplified-cloud-tab">
+              <div class="crumina-module crumina-module-slider pagination-bottom-center">
+                <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
+                  <div class="swiper-wrapper">
+                    <div class="row align-items-center">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                        <h3 class="text-white">مشتریان ما</h3>
+                        <p class="text-white">ری بولد در طول چندین سال خدمات موفق خویش توانسته است اعتماد تعداد زیادی از
+                          مشتریانش را جلب کرده و روابط دوامدار و دوستانه ای را شکل دهد. </p>
+                        <p class="text-white">این مشتریان در بخشهای ذیل کتگوری بندی می شود:</p>
+                        <ul class="list--standard list--icon-blue">
+                          <li>
+                            <svg class="crumina-icon">
+                              <use xlink:href="#icon-single-arrow"></use>
+                            </svg>
+                            <span>&nbsp;&nbsp;</span>
+                            <span class="text-white">مشتریان خدمات نرم افزاری</span>
+                          </li>
+                          <li>
+                            <svg class="crumina-icon">
+                              <use xlink:href="#icon-single-arrow"></use>
+                            </svg>
+                            <span>&nbsp;&nbsp;</span>
+                            <span class="text-white">مشتریان خدمات گرافیکی</span>
+                          </li>
+                          <li>
+                            <svg class="crumina-icon">
+                              <use xlink:href="#icon-single-arrow"></use>
+                            </svg>
+                            <span>&nbsp;&nbsp;</span>
+                            <span class="text-white">مشتریان خدمات مشاوره</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4 mb-md-0">
+                        <img [defaultImage]="'assets/img/loader-2.svg'"
+                             lazyLoad="assets/img/demo-content/icons/tab-icon5.png" alt="customers">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="instant-setup" role="tabpanel" aria-labelledby="instant-setup-tab">
+              <div class="crumina-module crumina-module-slider pagination-bottom-center">
+
+                <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                      <h3 class="text-white">محصولات</h3>
+                      <p class="text-white">تیم ری بولد با در نظرداشت ضرورت های نرم افزاری جامعه و ایجاد سهولت برای
+                        صاحبان کسب وکار و سازمانها تعدادی از سیستم های کاربردی را تهیه کرده است</p>
+                      <p class="text-white">این سیستم ها </p>
+                      <ul class="list--standard list--icon-blue">
+                        <li>
+                          <svg class="crumina-icon">
+                            <use xlink:href="#icon-single-arrow"></use>
+                          </svg>
+                          <span>&nbsp;&nbsp;</span>
+                          <span class="text-white">سیستم حاضری بایومتریک</span>
+                        </li>
+                        <li>
+                          <svg class="crumina-icon">
+                            <use xlink:href="#icon-single-arrow"></use>
+                          </svg>
+                          <span>&nbsp;&nbsp;</span>
+                          <span class="text-white">سیستم مدیریت شفاخانه</span>
+                        </li>
+                        <li>
+                          <svg class="crumina-icon">
+                            <use xlink:href="#icon-single-arrow"></use>
+                          </svg>
+                          <span>&nbsp;&nbsp;</span>
+                          <span class="text-white">سیستم مدیریت رستورانت</span>
+                        </li>
+                        <li>
+                          <svg class="crumina-icon">
+                            <use xlink:href="#icon-single-arrow"></use>
+                          </svg>
+                          <span>&nbsp;&nbsp;</span>
+                          <span class="text-white">سیستم مدیریت مکتب</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-md-0">
+                      <img [defaultImage]="'assets/img/loader-2.svg'"
+                           lazyLoad="assets/img/demo-content/icons/tab-icon5.png" alt="customers">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="boost-website-speed" role="tabpanel"
+                 aria-labelledby="boost-website-speed-tab">
+              <div class="crumina-module crumina-module-slider pagination-bottom-center">
+
+                <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                      <h3 class="text-white">پروژه ها</h3>
+                      <p class="text-white">تیم ری بولد افتخار دارد که از آغاز کار خویش به عنوان شرکت نرم افزاری و
+                        گرافیکی
+                        تا اکنون توانسته است پروژه های با کیفیت و مورد پسند مشتریان خویش را در بخش نرم افزار و گرافیک به
+                        موفقیت تکمیل کند. </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-md-0">
+                      <img [defaultImage]="'assets/img/loader-2.svg'"
+                           lazyLoad="assets/img/demo-content/icons/tab-icon5.png" alt="customers">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Team Members -->
+
+
+  <!--  <section class="large-section-padding bg-grey">-->
+  <!--    <div class="container">-->
+  <!--      <div class="row direction-rtl">-->
+  <!--        <div class="col-lg-4"></div>-->
+  <!--        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 mb-5 text-right">-->
+  <!--          <h2> تیم ما را بشناسید</h2>-->
+  <!--          <p class="fs-18 fw-medium"></p>-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="row">-->
+  <!--        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4 mb-lg-0">-->
+  <!--          <div class="crumina-module crumina-teammember-item">-->
+  <!--            <div class="teammembers-thumb bg-blue-themes">-->
+
+
+  <!--              <img loading="lazy" src="assets/img/demo-content/teammembers/teammember1.png" alt="team member">-->
+
+  <!--            </div>-->
+  <!--            <div class="teammember-content">-->
+  <!--              <a href="#" class="h6 teammembers-item-name">JONATHAN SIMPSON</a>-->
+  <!--              <div class="teammembers-item-prof">Company Founder</div>-->
+  <!--              <p class="teammembers-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+  <!--              <ul class="socials socials&#45;&#45;grey">-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="10px" height="20px">-->
+  <!--                      <use xlink:href="#icon-facebook"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="20px" height="16px">-->
+  <!--                      <use xlink:href="#icon-twitter"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="20px" height="20px">-->
+  <!--                      <use xlink:href="#icon-instagram"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="20px" height="14px">-->
+  <!--                      <use xlink:href="#icon-youtube"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="16px" height="20px">-->
+  <!--                      <use xlink:href="#icon-pinterest"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--              </ul>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">-->
+  <!--          <div class="crumina-module crumina-teammember-item">-->
+  <!--            <div class="teammembers-thumb bg-white">-->
+
+
+  <!--              <img loading="lazy" src="assets/img/demo-content/teammembers/teammember4.png" alt="team member">-->
+
+  <!--            </div>-->
+  <!--            <div class="teammember-content">-->
+  <!--              <a href="#" class="h6 teammembers-item-name">BRITNEY SIMPSON</a>-->
+  <!--              <div class="teammembers-item-prof">Head of Marketing</div>-->
+  <!--              <p class="teammembers-description">Nam aliquam sem et tortor consequat id porta.</p>-->
+  <!--              <ul class="socials socials&#45;&#45;grey">-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="10px" height="20px">-->
+  <!--                      <use xlink:href="#icon-facebook"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="20px" height="16px">-->
+  <!--                      <use xlink:href="#icon-twitter"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="20px" height="20px">-->
+  <!--                      <use xlink:href="#icon-instagram"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="20px" height="14px">-->
+  <!--                      <use xlink:href="#icon-youtube"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--                <li>-->
+  <!--                  <a href="#">-->
+  <!--                    <svg class="crumina-icon" width="16px" height="20px">-->
+  <!--                      <use xlink:href="#icon-pinterest"></use>-->
+  <!--                    </svg>-->
+  <!--                  </a>-->
+  <!--                </li>-->
+  <!--              </ul>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </section>-->
+
+
+  <!--  Customer Review-->
+  <section class="large-section-padding">
+    <div class="container right-direction ">
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto align-center">
+          <h2>مشتریان ما درباره ما چه می گویند</h2>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 right-direction">
+          <div
+            class="crumina-module crumina-module-slider crumina-slider--testimonial navigation-center-both-sides pagination-bottom-center">
+
+            <div class="swiper-btn-prev">
+              <svg class="crumina-icon icon-line-arrow-left">
+                <use xlink:href="#icon-arrow-left"></use>
+              </svg>
+            </div>
+
+            <div class="swiper-btn-next">
+              <svg class="crumina-icon icon-line-arrow-right">
+                <use xlink:href="#icon-arrow-right"></use>
+              </svg>
+            </div>
+
+            <div class="swiper-container" data-show-items="2" data-prev-next="1">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let customer of customerReview">
+                  <div class="crumina-module crumina-testimonial-item testimonial--with-border">
+                    <div class="avatar">
+                      <img width="100" height="100" [defaultImage]="'assets/img/loader-2.svg'"
+                           [lazyLoad]="customer?.path.toString()" alt="customers">
+
+                    </div>
+                    <h6 class="testimonial-text" [innerHTML]="customer.review">
+                    </h6>
+
+                    <div class="author-content">
+                      <a class="author-name h6">{{customer.title}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>

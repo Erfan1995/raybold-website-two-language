@@ -1,0 +1,258 @@
+<nav id="navigation" class="site-header navigation navigation-justified header--sticky " >
+  <div class="container">
+    <div class="navigation-header" >
+      <div class="navigation-logo">
+      </div>
+      <div class="navigation-button-toggler" >
+        <i class="hamburger-icon"></i>
+      </div>
+    </div>
+    <div class="navigation-body ">
+      <div class="navigation-body-section navigation-additional-menu">
+      </div>
+      <ul class="navigation-menu right-direction">
+        <li class="navigation-item  is-active">
+          <a class="navigation-link" routerLink="/home">
+            صفحه اصلی
+          </a>
+        </li>
+        <!--services-->
+        <li class="navigation-item">
+          <a class="navigation-link " routerLink="../services">
+            خدمات
+            <span class="submenu-indicator"></span>
+          </a>
+          <div class="navigation-megamenu">
+            <div class="navigation-megamenu-container">
+              <div class="navigation-row">
+                <div class="navigation-col-3 p-2" *ngFor="let service of services">
+                  <h5 class="text-right">{{service.service_category_name}}</h5>
+                  <ul class="navigation-list">
+                    <li *ngFor="let serviceItem of service.services">
+                      <a class="cursor-pointer"
+                         routerLink="../services/services-details/{{serviceItem.service_id}}/{{serviceItem.title}}/{{service.category_id}}">{{serviceItem.title}}</a>
+                    </li>
+
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!--projects-->
+        <li class="navigation-item">
+          <a class="navigation-link " routerLink="../projects">
+            نمونه کارها
+            <span class="submenu-indicator"></span>
+          </a>
+          <div class="navigation-megamenu">
+            <div class="navigation-megamenu-container">
+              <div class="navigation-row">
+
+                <div class="navigation-col-3 p-2" *ngFor="let project of serviceCategory">
+                  <ul class="navigation-list">
+                    <li *ngFor="let service of project">
+                      <a class="cursor-pointer"
+                         routerLink="../projects/{{service.service_id}}/{{service.title}}">{{service.title}}</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </li>
+
+        <!--products-->
+        <li class="navigation-item ">
+          <a class="navigation-link" routerLink="../products">
+            محصولات
+          </a>
+        </li>
+        <!--blog-->
+        <li class="navigation-item">
+          <a class="navigation-link" routerLink="../blog">بلاگ</a>
+        </li>
+        <!--contact-->
+        <li class="navigation-item">
+          <a class="navigation-link" routerLink="../contact-us">ارتباط با ما</a>
+        </li>
+        <!--about us-->
+        <li class="navigation-item">
+          <a class="navigation-link" routerLink="../about-us">درباره ما</a>
+        </li>
+
+        <li class="navigation-item">
+          <a class="navigation-link" href="#">
+            زبان
+          </a>
+          <ul class="navigation-dropdown">
+            <li class="navigation-dropdown-item"  *ngFor="let lang of translate.getLangs()">
+              <a class="navigation-dropdown-link" (click)="changeLang(lang)" >{{ lang | language | translate }}</a>
+            </li>
+          </ul>
+        </li>
+<!--        <li class="navigation-item">-->
+<!--          <select #langSelect class="language-select" (change)="" >-->
+<!--            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>-->
+<!--          </select>-->
+<!--        </li>-->
+
+      </ul>
+      <div class="navigation-body-header">
+        <div class="navigation-logo">
+          <a routerLink="/home">
+            <img loading="lazy" src="assets/img/demo-content/list-item/white-logo.png" alt="logo">
+          </a>
+        </div>
+        <span class="navigation-body-close-button">&#10005;</span>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ... end Main Header -->
+
+
+<!-- Popup Search -->
+
+<!--<div class="modal fade window-popup popup-search" id="popupSearch" tabindex="-1" role="dialog" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--              <div class="modal-close-btn-wrapper">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>-->
+<!--                <svg class="crumina-icon">-->
+<!--                  <use xlink:href="#icon-close"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <div class="navigation-search-popup">-->
+<!--          <div class="container">-->
+<!--            <div class="row">-->
+<!--              <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto">-->
+<!--                <h2 class="fw-medium text-white">WHAT ARE YOU LOOKING FOR?</h2>-->
+<!--                &lt;!&ndash;                <form class="search-popup-form">&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="input-btn&#45;&#45;inline">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <input class="input&#45;&#45;dark" type="text" placeholder="Choose your new web address…">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <button type="button" class="crumina-button button&#45;&#45;primary button&#45;&#45;l">SEARCH</button>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </form>&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- ... end Popup Search -->
+
+
+<!-- User Menu Popup -->
+
+<!--<div class="modal fade window-popup user-menu-popup" id="userMenuPopup" tabindex="-1" role="dialog" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--              <div class="modal-close-btn-wrapper">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>-->
+<!--                <svg class="crumina-icon">-->
+<!--                  <use xlink:href="#icon-close"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <div class="user-menu">-->
+<!--          <div class="container">-->
+<!--            <div class="row">-->
+<!--              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 m-auto">-->
+<!--                <a href="index.html" class="site-logo">-->
+<!--                  <img loading="lazy" src="assets/img/demo-content/list-item/color-logo.png" alt="logo" width="185">-->
+<!--                </a>-->
+<!--                <p class="fw-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor-->
+<!--                  incididunt ut labore et dolore magna aliqua.</p>-->
+<!--                &lt;!&ndash;                <form class="sign-in-form">&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <h6 class="text-white">SIGN IN TO YOUR ACCOUNT</h6>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="form-item">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <input class="input&#45;&#45;dark input&#45;&#45;squared" type="text" placeholder="Username or email">&ndash;&gt;-->
+<!--                &lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="form-item">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <input class="input&#45;&#45;dark input&#45;&#45;squared" type="password" placeholder="Password">&ndash;&gt;-->
+<!--                &lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="form-item">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <div class="remember-wrapper text-white">&ndash;&gt;-->
+<!--                &lt;!&ndash;                      <div class="checkbox">&ndash;&gt;-->
+<!--                &lt;!&ndash;                        <label>&ndash;&gt;-->
+<!--                &lt;!&ndash;                          <input type="checkbox" name="optionsCheckboxes4">&ndash;&gt;-->
+<!--                &lt;!&ndash;                          Remember Me&ndash;&gt;-->
+<!--                &lt;!&ndash;                        </label>&ndash;&gt;-->
+<!--                &lt;!&ndash;                      </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                      <a href="#">Lost your password?</a>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  <div class="form-item">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <button type="button" class="crumina-button button&#45;&#45;primary button&#45;&#45;l w-100">Sign In</button>&ndash;&gt;-->
+<!--                &lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </form>&ndash;&gt;-->
+
+<!--                <p class="text-white fw-medium">Sign In with social networks:</p>-->
+<!--                <ul class="socials">-->
+<!--                  <li>-->
+<!--                    <a href="#">-->
+
+
+<!--                      <img class="crumina-icon " loading="lazy"-->
+<!--                           src="assets/img/theme-content/social-icons/facebook.png" alt="facebook">-->
+
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <a href="#">-->
+
+
+<!--                      <img class="crumina-icon " loading="lazy"-->
+<!--                           src="assets/img/theme-content/social-icons/twitter.png" alt="twitter">-->
+
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <a href="#">-->
+
+
+<!--                      <img class="crumina-icon " loading="lazy"-->
+<!--                           src="assets/img/theme-content/social-icons/google.png" alt="google">-->
+
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                </ul>-->
+
+<!--                <button type="button" class="crumina-button button&#45;&#45;grey button&#45;&#45;l button&#45;&#45;bordered w-100">CREATE AN-->
+<!--                  ACCOUNT-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- ... end User Menu Popup -->

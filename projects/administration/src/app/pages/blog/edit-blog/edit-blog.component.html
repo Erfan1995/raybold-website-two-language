@@ -1,0 +1,81 @@
+<div class="row direction-rtl">
+  <div class="modal-content">
+    <div class="modal-header bg-dark">
+      <h5 class="modal-title white">بروز رسانی مشخصات بلاگ</h5>
+      <span class="pull-right bx bx-x-circle cursor-pointer font-size t-w-hover" (click)="closeDialog()">
+      </span>
+    </div>
+    <div class="modal-body  bg-dark">
+      <div class="col-md-12 col-12">
+        <form [formGroup]="updateBlogInfoForm" (ngSubmit)="editBlogInfo(updateBlogInfoForm.value)">
+          <div class="row">
+            <div class="col-12">
+              <label class="text-bold-600"> عنوان بلاگ <span
+                class="required">&nbsp;*</span></label>
+              <div class="form-group row">
+                <div class="col-sm-11 col-10">
+                  <input class="form-control border-0 shadow-none is-invalid"
+                         formControlName="title" [ngClass]="{'is-invalid': (updateBlogInfoForm.get('title').dirty ||
+                                                        updateBlogInfoForm.get('title').touched) && f.title.errors}"
+                         required
+                         placeholder="عنوان بلاگ"/>
+                  <div *ngIf=" f.title.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.title.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label>نوعیت بلاگ<span class="required">&nbsp;*</span></label>
+              <div class="form-group row">
+                <div class=" col-sm-11 col-10">
+                  <select class="form-control border-0 shadow-none is-invalid"
+                          formControlName="blog_category_id"
+                          [ngClass]="{'is-invalid': (updateBlogInfoForm.get('blog_category_id').dirty ||
+                                                        updateBlogInfoForm.get('blog_category_id').touched) && f.blog_category_id.errors}"
+                          required>
+                    <option selected disabled value="">نوعیت بلاگ</option>
+                    <option *ngFor="let item of blogCategory" [value]="item.id">
+                      {{item?.title}}
+                    </option>
+                  </select>
+                  <div *ngIf=" f.blog_category_id.errors" class="invalid-feedback text-left">
+                    <div
+                      *ngIf="f.blog_category_id.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label class="text-bold-600"> منبع </label>
+              <div class="form-group row">
+                <div class="col-sm-11 col-10">
+                  <input class="form-control border-0 shadow-none" formControlName="blog_resource"
+                         placeholder="منبع بلاگ"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="card-footer p-0">
+              <span class=" float-sm-left flex-sm-row flex-column ">
+                                            <button class="btn btn-primary " type="submit" [disabled]="!isValid()">بروز رسانی</button>
+              </span>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

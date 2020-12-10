@@ -1,0 +1,112 @@
+<div class="row direction-rtl">
+  <div class="modal-content">
+    <div class="modal-header bg-dark">
+      <h5 class="modal-title white">بروز رسانی اطلاعات کاربر</h5>
+      <span class="pull-right bx bx-x-circle cursor-pointer font-size t-w-hover" (click)="closeDialog()">
+      </span>
+    </div>
+    <div class="modal-body  bg-dark">
+      <section id="floating-label-layouts">
+        <div class="row match-height">
+          <div class="col-md-12 col-12">
+
+            <!-- users edit account form start -->
+            <form [formGroup]="userUpdateFrom" (ngSubmit)="updateUser(userUpdateFrom.value)">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label class="text-bold-600"> نام کامل <span class="required">&nbsp;*</span></label>
+                  <div class="form-group">
+                    <input type="text" class="is-invalid form-control" placeholder="نام کامل"
+                           formControlName="full_name" [ngClass]="{'is-invalid': (userUpdateFrom.get('full_name').dirty ||
+                                                userUpdateFrom.get('full_name').touched) && f.full_name.errors}">
+                    <div *ngIf=" f.full_name.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.full_name.errors.required"> {{errorMessages.required}}</div>
+                      <div *ngIf="f.full_name.errors.minlength"> {{errorMessages.minLength}}</div>
+                      <div *ngIf="f.full_name.errors.maxlength"> {{errorMessages.maxLength}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" col-sm-6">
+                  <label class="text-bold-600"> ایمیل <span class="required">&nbsp;*</span></label>
+                  <div class="form-group">
+                    <input type="email" class="is-invalid form-control" placeholder="ایمیل"
+                           formControlName="email" [ngClass]="{'is-invalid': (userUpdateFrom.get('email').dirty ||
+                                                userUpdateFrom.get('email').touched) && f.email.errors}">
+                    <div *ngIf=" f.email.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.email.errors.required"> {{errorMessages.required}}</div>
+                      <div *ngIf="f.email.errors.maxlength"> {{errorMessages.maxLength}}</div>
+                      <div *ngIf="f.email.errors.minlength"> {{errorMessages.minLength}}</div>
+                      <div *ngIf="f.email.errors.email"> {{errorMessages.email}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-sm-6">
+                  <label class="text-bold-600"> شماره تماس <span class="required">&nbsp;*</span></label>
+                  <div class="form-group">
+                    <input type="email" class="is-invalid form-control" placeholder="شماره تماس"
+                           formControlName="phone" [ngClass]="{'is-invalid': (userUpdateFrom.get('phone').dirty ||
+                                                userUpdateFrom.get('phone').touched) && f.phone.errors}">
+                    <div *ngIf=" f.phone.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.phone.errors.required"> {{errorMessages.required}}</div>
+                      <div *ngIf="f.phone.errors.maxlength"> {{errorMessages.phone_number_max_length}}</div>
+                      <div *ngIf="f.phone.errors.minlength"> {{errorMessages.phone_number_min_length}}</div>
+                      <div *ngIf="f.phone.errors.email"> {{errorMessages.number}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" col-sm-6">
+                  <div class="form-group">
+                    <label>صلاحیت<span class="required">&nbsp;*</span></label>
+                    <select class="form-control is-invalid" formControlName="privilege_id"
+                            [ngClass]="{'is-invalid': (userUpdateFrom.get('privilege_id').dirty ||
+                                                userUpdateFrom.get('privilege_id').touched) && f.privilege_id.errors}"
+                            required>
+                      <option selected disabled value="">role</option>
+                      <option *ngFor="let item of roles" [value]="item.id">
+                        {{item?.title}}
+                      </option>
+                    </select>
+                    <div *ngIf=" f.privilege_id.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.privilege_id.errors.required"> {{errorMessages.required}}</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-sm-6">
+                  <div class="form-group">
+                    <label>حالت کاربر<span class="required">&nbsp;*</span></label>
+
+                    <select class="form-control is-invalid" formControlName="user_status_id"
+                            [ngClass]="{'is-invalid': (userUpdateFrom.get('user_status_id').dirty ||
+                                                userUpdateFrom.get('user_status_id').touched) && f.user_status_id.errors}"
+                            required>
+                      <option selected disabled value="">user status</option>
+                      <option *ngFor="let item of userStatus" [value]="item.id">
+                        {{item?.status}}
+                      </option>
+                    </select>
+                    <div *ngIf=" f.user_status_id.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.user_status_id.errors.required"> {{errorMessages.required}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="ml-auto mr-auto">
+                  <button type="submit" [disabled]="!isValid()" class="btn btn-primary">
+                    بروز رسانی
+                  </button>
+                </div>
+              </div>
+            </form>
+            <!-- users edit account form ends -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

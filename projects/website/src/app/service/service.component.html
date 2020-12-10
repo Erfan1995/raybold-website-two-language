@@ -1,0 +1,74 @@
+<div class="main-content-wrapper">
+
+  <section class="crumina-stunning-header stunning-header-bg4 pb60">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
+          <h1 class="page-title text-white"> خدمات ما</h1>
+          <p class="fw-medium text-white text-center right-direction">
+            شرکت خدمات سافتویر و گرافیک ری بولد با خدمات متفاوت خویش به دنبال ایجاد سهولت برای مشتریان و افراد جامعه می
+            باشد. ما با داشتن تیم کاری با تجربه و عالی که در اختیار داریم قادر به ایجاد و تطبیق طرحها و خدمات خویش بصورت
+            استندرد می باشیم که این امر سبب تمایز ما با سایر شرکت ها می گردد.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="crumina-breadcrumbs breadcrumbs--yellow-themes">
+    <div class="container right-direction">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs-item float-right">
+              <a href="../home">خانه</a>
+              <span class="crumina-icon">»</span>
+            </li>
+            <li class="breadcrumbs-item float-right">
+              <a>خدمات</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="medium-section-padding pb120 ">
+    <div class="container right-direction">
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let service of services">
+          <div class="swiper-slide">
+            <div class="crumina-module crumina-testimonial-item testimonial--with-border">
+              <div class="avatar">
+                <img [defaultImage]="'assets/img/loader-2.svg'" [lazyLoad]="service.path.toString()" alt="blog">
+<!--                <img *ngIf="service.path!== null-->
+<!--                            && (service.path.split('.')[1]==='jpg' || service.path.split('.')[1]==='png') "-->
+<!--                     [src]="service.path" alt="blog">-->
+<!--                <video class="wp-caption alignnone " controls-->
+<!--                       *ngIf="service.path !== null &&-->
+<!--                                    (service.path.split('.')[1]==='mp4' || service.path.split('.')[1]==='ogg')"-->
+<!--                       class="margin-top-20">-->
+<!--                  <source src="{{service.path}}" type="video/mp4">-->
+<!--                  <source src="{{service.path}}" type="video/ogg">-->
+<!--                </video>-->
+              </div>
+              <h5>{{service.title}}</h5>
+              <P  [innerHTML]="service.content"></P>
+              <div class="author-content">
+                <a class="author-name h6"
+                   routerLink="services-details/{{service.service_id}}/{{service.title}}/{{service.service_category_id}}">
+                  بیشتر بخوانید ...
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+

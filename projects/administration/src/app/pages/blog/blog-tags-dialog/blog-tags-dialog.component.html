@@ -1,0 +1,81 @@
+<div class="row direction-rtl">
+  <div class="modal-content">
+    <div class="modal-header bg-dark">
+      <h5 class="modal-title white">بروز رسانی مشخصات بلاگ</h5>
+      <span class="pull-right bx bx-x-circle cursor-pointer font-size t-w-hover" (click)="closeDialog()">
+      </span>
+    </div>
+    <div class="modal-body  bg-dark">
+      <div class="col-md-12 col-12">
+        <form [formGroup]="blogTagForm" (ngSubmit)="addBlogTag(blogTagForm.value)">
+          <div class="row">
+            <div class="col-12">
+              <label class="text-bold-600"> نام تگ <span
+                class="required">&nbsp;*</span></label>
+              <div class="form-group row">
+                <div class="col-sm-11 col-10">
+                  <input class="form-control border-0 shadow-none is-invalid"
+                         formControlName="name" [ngClass]="{'is-invalid': (blogTagForm.get('name').dirty ||
+                                                        blogTagForm.get('name').touched) && f.name.errors}"
+                         required
+                         placeholder="تگ بلاگ"/>
+                  <div *ngIf=" f.name.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.name.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-lg-3  d-flex align-items-end">
+              <button type="submit" [disabled]="!isValid()"
+                      class="btn btn-primary btn-block glow users-list-clear mb-0">{{addOrUpdateButton}}
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="table-responsive">
+        <table class="table dt-responsive nowrap">
+          <thead>
+          <tr>
+            <th>
+              <span class="align-middle">شماره</span>
+            </th>
+            <th>نام تگ</th>
+            <th>ویرایش تگ</th>
+            <th>حذف تگ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let tag of blogTags;let i=index">
+            <td>
+              <span class="bullet bullet-success bullet-sm"></span>
+              <small class="text-muted">{{i + 1 }}</small>
+            </td>
+            <td>{{tag?.name}}</td>
+            <td>
+              <button title="ویرایش" (click)="editBlogTag(tag)"
+                      class="btn btn-outline-success"><i
+                class="bx bx-edit-alt"></i></button>
+            </td>
+            <td>
+              <button (click)="deleteBlogTag(tag)" title="حذف"
+                      class="btn btn-outline-danger"><i
+                class="bx bx-trash c-red"></i></button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+

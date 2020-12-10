@@ -1,0 +1,7 @@
+.pointer-event:hover {
+  cursor: pointer !important;
+}
+
+.font-size-large {
+  font-size: 25px!important;
+}

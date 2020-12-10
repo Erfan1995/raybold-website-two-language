@@ -1,0 +1,74 @@
+<!-- BEGIN: Main Menu-->
+<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow " data-scroll-to-active="true">
+  <div class="navbar-header">
+    <ul class="nav navbar-nav flex-row">
+      <li class="nav-item mr-auto"><a class="navbar-brand" href="#">
+        <div class="brand-logo"><img class="logo" src="assets/images/logo/logo.png"/></div>
+        <h2 class="brand-text mb-0">Raybold</h2></a></li>
+      <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
+        class="bx bx-x d-block d-xl-none font-medium-4 primary"></i><i
+        class="toggle-icon bx bx-disc font-medium-4 d-none d-xl-block primary" data-ticon="bx-disc"></i></a></li>
+    </ul>
+  </div>
+  <div class="main-menu-content">
+    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation"
+        data-icon-style="lines">
+      <li class=" nav-item"><a><i class="bx " data-icon="desktop"></i><span class="menu-title" data-i18n="Dashboard">پنل مدیریتی</span><span
+        class="badge badge-light-danger badge-pill badge-round float-right mr-2">2</span></a>
+      </li>
+      <li *ngIf="authService.getCurrentUser.role_slug === 'blogger' || authService.getCurrentUser.role_slug === 'admin'"
+          class=" nav-item cursor-pointer"><a><i
+        class="bx bx-arrow-back"></i><span class="menu-title">بلاگ ها</span></a>
+        <ul class="menu-content border">
+          <li><a routerLink="blog/add-blog"><i class="bx bx-left-arrow-alt"></i><span
+            class="menu-item">اضافه نمودن بلاگ</span></a>
+          </li>
+          <li *ngIf="authService.getCurrentUser.role_slug === 'admin'"><a routerLink="blog/view-blog"><i
+            class="bx bx-left-arrow-alt"></i><span class="menu-item">مشاهده نمودن بلاگها</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="navigation navigation-main" *ngIf="authService.getCurrentUser.role_slug === 'admin'"
+        data-menu="menu-navigation">
+      <li class=" nav-item cursor-pointer"><a><i class="bx bx-arrow-back"></i><span class="menu-title">خدمات</span></a>
+        <ul class="menu-content border">
+          <!--          <li><a routerLink="services/add-service-category"><i class="bx bx-left-arrow-alt"></i><span class="menu-item">اضافه نمودن دسته خدمات</span></a>-->
+          <!--          </li>-->
+          <li><a routerLink="services/add-service"><i class="bx bx-left-arrow-alt"></i><span class="menu-item">اضافه نمودن خدمات</span></a>
+          </li>
+          <li><a routerLink="services/view-service"><i class="bx bx-left-arrow-alt"></i><span class="menu-item">مشاهده نمودن خدمات</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class=" nav-item"><a routerLink="customers"><i class="bx bx-collection"></i><span
+        class="menu-title">مشتریان  </span></a>
+      </li>
+      <li class=" nav-item"><a routerLink="partners"><i class="bx bx-collection"></i><span
+        class="menu-title">همکاران  </span></a>
+      </li>
+      <li class=" nav-item cursor-pointer"><a><i class="bx bx-arrow-back"></i><span
+        class="menu-title">محصولات</span></a>
+        <ul class="menu-content border">
+          <li><a routerLink="products/add-products"><i class="bx bx-left-arrow-alt"></i><span
+            class="menu-item">اضافه نمودن محصولات</span></a>
+          </li>
+          <li><a routerLink="products/view-products"><i class="bx bx-left-arrow-alt"></i><span class="menu-item">مشاهده نمودن محصولات</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class=" nav-item"><a routerLink="projects"><i class="bx bx-collection"></i><span
+        class="menu-title">پروژه ها  </span></a>
+      </li>
+      <li class=" nav-item"><a routerLink="users"><i class="bx bx-collection"></i><span
+        class="menu-title"> کاربران  </span></a>
+      </li>
+      <li class=" nav-item"><a routerLink="about-us"><i class="bx bx-collection"></i><span
+        class="menu-title"> درباره ما  </span></a>
+      </li>
+      <li class=" nav-item"><a routerLink="contact-us"><i class="bx bx-collection"></i><span class="menu-title"> ارتباط با ما  </span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- END: Main Menu-->

@@ -1,0 +1,93 @@
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body"><!-- login page start -->
+      <section id="auth-login" class="row flexbox-container">
+        <div class="col-xl-10 col-12">
+          <div class="card bg-authentication mb-0">
+            <div class="row m-0">
+              <!-- left section-login -->
+              <div class="col-md-6 col-12 px-0">
+                <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
+                  <div class="card-header pb-1">
+                    <div class="card-title">
+                      <h4 class="text-center mb-2">ورود به سیستم</h4>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="d-flex flex-md-row flex-column justify-content-around">
+                        <a href="#"
+                           class="btn btn-social btn-google btn-block font-small-3 mr-md-1 mb-md-0 mb-1">
+                          <i class="bx bxl-google font-medium-3"></i><span
+                          class="pl-50 d-block text-center">Google</span></a>
+                        <a href="#"
+                           class="btn btn-social btn-block mt-0 btn-facebook font-small-3">
+                          <i class="bx bxl-facebook-square font-medium-3"></i><span
+                          class="pl-50 d-block text-center">Facebook</span></a>
+                      </div>
+                      <div class="divider">
+                        <div class="divider-text text-uppercase text-muted"><small>یا به واسطه حساب کاربری تان
+                        </small>
+                        </div>
+                      </div>
+                      <form [formGroup]="loginForm" (ngSubmit)="loginUsers(loginForm.value)">
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-50">
+                            <label class="text-bold-600">ایمیل <span class="required">&nbsp;*</span>
+                            </label>
+                            <input type="email" class="form-control" formControlName="email"
+                                   [ngClass]="{'is-invalid': (loginForm.get('email').dirty ||
+                                                loginForm.get('email').touched) && f.email.errors}"
+                                   required
+                                   placeholder="ایمیل">
+                            <div *ngIf=" f.email.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.email.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.email.errors.maxlength"> {{errorMessages.maxLength}}</div>
+                              <div *ngIf="f.email.errors.minlength"> {{errorMessages.minLength}}</div>
+                              <div *ngIf="f.email.errors.email"> {{errorMessages.email}}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-50">
+                            <label class="text-bold-600"
+                            >رمزعبور</label>
+                            <input type="password" class="form-control" formControlName="password"
+                                   [ngClass]="{'is-invalid': (loginForm.get('password').dirty ||
+                                              loginForm.get('password').touched) && f.password.errors}"
+                                   placeholder="رمز عبور">
+                            <div *ngIf=" f.password.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.password.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.password.errors.minlength"> {{errorMessages.passwordMinLength}}</div>
+                              <div *ngIf="f.password.errors.maxlength"> {{errorMessages.passwordMaxLength}}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" [disabled]="!isValid()"
+                                class="btn btn-primary glow position-relative w-100">ورود به ریبولد<i
+                          id="icon-arrow" class="bx bx-left-arrow-alt"></i></button>
+                      </form>
+                      <hr>
+                      <div class="text-center"><small class="mr-25">حساب کاربری ندارید؟</small><a
+                        routerLink="../register"><small>ساخت حساب کاربری جدید
+                      </small></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- right section image -->
+              <div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
+                <div class="card-content">
+                  <img class="img-fluid" src="assets/images/pages/login.png" alt="branding logo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

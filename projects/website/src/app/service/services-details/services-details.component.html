@@ -1,0 +1,120 @@
+<div class="main-content-wrapper">
+
+  <section class="crumina-stunning-header stunning-header-bg8 pb60">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
+          <div class="page-category">
+            <h6></h6>
+          </div>
+          <h1 class="page-title text-white">{{serviceName}}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="crumina-breadcrumbs breadcrumbs--dark-themes ">
+    <div class="container right-direction">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs-item float-right">
+              <a href="../../home">خانه</a>
+              <span class="crumina-icon">»</span>
+            </li>
+            <li class="breadcrumbs-item float-right">
+              <a href="../services">خدمات</a>
+              <span class="crumina-icon">»</span>
+            </li>
+            <li class="breadcrumbs-item float-right ">
+              <a>{{serviceName}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="medium-section-padding pb120 ">
+    <div class="container right-direction">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mb-4 mb-md-0 wp-caption">
+          <article class="entry  post post-standard has-post-thumbnail post-standard-details text-right"
+                   *ngFor="let service of serviceDetails">
+            <div *ngIf="service.is_main_file!= 1">
+              <h4 class="ml-3 mr-3 mt-3">{{service.subtitle}}</h4>
+              <div class="ml-3 mr-3 lef  " [innerHTML]="service.content">
+              </div>
+              <div>
+                <img class="full-width" *ngIf="service.file_path!== null" [defaultImage]="'assets/img/loader-2.svg'"
+                     [lazyLoad]="service?.file_path.toString()" alt="service">
+                <!--                <img class="full-width" *ngIf="service.file_path!== null-->
+                <!--                            && isServiceDetailsImage ===  true"-->
+                <!--                     [src]="service.file_path" alt="blog">-->
+                <!--                <video class="full-width alignnone" controls-->
+                <!--                       *ngIf="service.file_path !== null && isServiceDetailsImage === false"-->
+                <!--                       class="margin-top-20">-->
+                <!--                  <source src="{{service.file_path}}" type="video/mp4">-->
+                <!--                  <source src="{{service.file_path}}" type="video/ogg">-->
+                <!--                </video>-->
+              </div>
+
+            </div>
+
+          </article>
+          <div class="col-12 m-5">
+            <div class="text-center padding-10 fw-medium">
+              <a href="../../contact-us" class="crumina-button button--dark button--l">
+                با ما ارتباط بر قرار کنید
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <aside aria-label="sidebar" class="sidebar sidebar-right">
+
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto align-center m-0">
+                <h4 style="background-color: #eee;border-radius: 5px " class="p-3">خدمات دیگر</h4>
+              </div>
+
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4 sorting-item technology business text-right "
+                   data-mh="blog-item" *ngFor="let service of serviceList">
+                <article *ngIf="service.service_id!== serviceId" class="entry post post-standard has-post-thumbnail">
+                  <div class="post-thumb">
+                    <img *ngIf="service.path!== null" [defaultImage]="'assets/img/loader-2.svg'"
+                         [lazyLoad]="service.path.toString()" alt="blog">
+
+                    <!--                    <img *ngIf="service.path!== null-->
+                    <!--                            && isServiceListImage === true"-->
+                    <!--                         [src]="service.path" alt="blog">-->
+                    <!--                    <video class="wp-caption alignnone" controls-->
+                    <!--                           *ngIf="service.path !== null && isServiceListImage === false"-->
+                    <!--                           class="margin-top-20">-->
+                    <!--                      <source src="{{service.path}}" type="video/mp4">-->
+                    <!--                      <source src="{{service.path}}" type="video/ogg">-->
+                    <!--                    </video>-->
+                  </div>
+
+                  <div class="post-content">
+                    <a (click)="getServiceDetails(service.service_id,service.title)"
+                       class="post-title h6">{{service.title}}</a>
+
+                    <div class="post-text">
+                      <p><span [innerHTML]="service.content"></span></p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>

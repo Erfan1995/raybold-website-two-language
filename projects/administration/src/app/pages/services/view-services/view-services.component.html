@@ -1,0 +1,95 @@
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+
+    <section class="faq-search">
+      <div class="row">
+        <div class="col-12">
+          <div class="card faq-bg bg-transparent box-shadow-0 p-1 p-md-5">
+            <div class="card-content">
+              <div class="card-body p-0">
+                <h1 class="faq-title text-center mb-3">مشاهده خدمات</h1>
+                <p class="card-text text-center mt-3 font-medium-1 text-muted">
+                  برای مشاهده جزئیات خدمات روی هر کدام کلیک کنید</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="content-body">
+      <!-- Decks section start -->
+      <section id="decks">
+        <div class="row">
+          <div class="col-12">
+            <div class="card-deck-wrapper">
+              <div class="card-deck">
+                <div class="row no-gutters">
+                  <div class="col-md-3 col-sm-6 mb-5" *ngFor="let service of serviceList">
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="card-body">
+                          <div class="d-inline-flex">
+                            <div class="avatar mr-50">
+                              <img src="assets/images/slider/02.jpg" alt="avtar images" height="32"
+                                   width="32">
+                            </div>
+                            <h6 class="mb-0 d-flex align-items-center"> حبیب</h6>
+                          </div>
+                          <div
+                            class="btn-group dropup dropdown-icon-wrapper mr-1 mb-1 cursor-pointer float-right width-20">
+                            <a class="dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                              <i class="bx bx-dots-vertical-rounded dropdown-icon"></i>
+                            </a>
+                            <div class="dropdown-menu width-100" style="direction: rtl!important;">
+                              <span class="dropdown-item" (click)="deleteService(service)">
+                                        <i class="bx bxs-trash"></i>
+                                        حذف
+                                      </span>
+                            </div>
+                          </div>
+                          <div class="text-center p-1" *ngFor="let file of service.service_details">
+                            <img *ngIf="file?.is_main_file"
+                                 class="img-fluid"
+                                 src="{{file?.file_path}}" alt="image">
+                            <!--                            <img *ngIf="file.is_main_file  &&-->
+                            <!--                            (file.file_path.split('.')[1]==='jpg' || file.file_path.split('.')[1]==='png' )"-->
+                            <!--                                 class="img-fluid"-->
+                            <!--                                 src="{{file.file_path}}" alt="image">-->
+                            <!--                            <video controls class="img-fluid" width="200"-->
+                            <!--                                   *ngIf="file.is_main_file &&-->
+                            <!--                                    (file.file_path.split('.')[1]==='mp4' || file.file_path.split('.')[1]==='ogg')"-->
+                            <!--                                   class="margin-top-20">-->
+                            <!--                              <source src="{{file.file_path}}" type="video/mp4">-->
+                            <!--                              <source src="{{file.file_path}}" type="video/ogg">-->
+                            <!--                            </video>-->
+                          </div>
+                          <div class="user-profile-birthday-footer text-center text-lg-left">
+                            <h4>{{service.title}}</h4>
+                            <p *ngIf="service.service_details.length >0" class="mb-0"><small><span
+                              [innerHTML]=" service.service_details[0]?.content | formatString |sanitizeHtml "></span></small>
+                            </p>
+
+                          </div>
+                          <div class="user-profile-birthday-footer text-center text-lg-right align-content-center">
+                            <button class="btn btn-sm btn-light-primary mt-50"
+                                    (click)="openServiceDetailsDialog(service)">
+                              مشاهده بیشتر
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- END: Content-->

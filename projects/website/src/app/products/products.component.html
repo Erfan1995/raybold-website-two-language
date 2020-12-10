@@ -1,0 +1,74 @@
+<div class="main-content-wrapper">
+
+  <section class="crumina-stunning-header stunning-header-bg9 pb60">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
+          <h1 class="page-title text-white">محصولات ری بولد</h1>
+          <br>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto">
+              <p class="fw-medium text-white text-center right-direction">
+                شرکت ری بولد با در نظرداشت ضرورتهای جامعه و مشتریان خویش تعدادی از محصولات ساوفتویری کاربردی خودرا به
+                شما معرفی می کند.این سیستم ها از لحاظ کیفی، کاربردی، و سهولت در استفاده رضایت اکثر مشتریان خویش را کسب
+                کرده است.
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="crumina-breadcrumbs breadcrumbs--blue ">
+    <div class="container right-direction">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs-item float-right">
+              <a href="../home">خانه</a>
+              <span class="crumina-icon">»</span>
+            </li>
+            <li class="breadcrumbs-item float-right">
+              <a href="#">محصولات</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="small-section-padding crumina-pricings bg-grey text-right">
+    <div class="container right-direction">
+      <div class="row pricing-tables-wrap">
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-5 no-padding mb-4 mb-lg-0 text-right"
+             *ngFor="let product of products">
+          <div>
+            <div class="crumina-module crumina-pricing-tables-item pricing-table--style3 ">
+              <div class="bg-layer full-block"></div>
+              <div class="main-pricing-content">
+
+                <h6 class="c-blue-dark">{{product.title}}</h6>
+                <img class="full-width" *ngIf="product.path!== null" [defaultImage]="'assets/img/loader-2.svg'"
+                     [lazyLoad]="product.path.toString()" alt="products">
+                <div class="pricing-notice mt-3" [innerHTML]="product.content"></div>
+
+                <a routerLink="./products-details/{{product.product_id}}/{{product.title}}"
+                   class="crumina-button button--lime button--bordered button--xl w-100">جزییات</a>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

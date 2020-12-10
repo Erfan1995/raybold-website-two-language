@@ -1,0 +1,55 @@
+<div class="col-12 px-0 direction-rtl">
+  <div class="card mb-0 p-2 h-100 d-flex justify-content-center" (click)="closeDialog()">
+    <div class="bx-pull-left">
+       <span class=" bx bx-x-circle cursor-pointer font-size t-w-hover">
+              </span>
+    </div>
+
+    <div class="card-content">
+      <div class="card-header user-profile-header">
+        <div class="avatar mr-50 align-top">
+          <img src="assets/images/slider/01.jpg" alt="avtar images"
+               width="32" height="32">
+          <span class="avatar-status-online"></span>
+        </div>
+        <div class="d-inline-block mt-25">
+          <p class="text-muted"><small>{{services.created_date | date: 'dd/MM/yyyy'}}</small></p>
+        </div>
+      </div>
+      <div class="card-body py-0">
+        <div class="text-center">
+          <h4 class="text-center mb-2">{{services.title}}</h4>
+          <hr>
+        </div>
+        <div *ngFor="let serviceDetails of services.service_details">
+
+          <h4 class="margin-top-20">{{serviceDetails?.subtitle}}</h4>
+          <p>
+            <span
+              [innerHTML]=" serviceDetails?.content |sanitizeHtml "></span>
+          </p>
+          <img *ngIf="serviceDetails?.file_path!== null"
+               class="margin-top-20 "
+               src="{{serviceDetails?.file_path}}"
+               alt=""
+               style=" height: 300px; width:500px">
+          <!--          <img *ngIf="serviceDetails.file_path!== null-->
+          <!--                            && (serviceDetails.file_path.split('.')[1]==='jpg' || serviceDetails.file_path.split('.')[1]==='png' )"-->
+          <!--               class="margin-top-20 "-->
+          <!--               src="{{serviceDetails.file_path}}"-->
+          <!--               alt=""-->
+          <!--               style=" height: 300px; width:500px">-->
+          <!--          <video width="500" height="420" controls-->
+          <!--                 *ngIf="serviceDetails.file_path !== null &&-->
+          <!--                                    (serviceDetails.file_path.split('.')[1]==='mp4' || serviceDetails.file_path.split('.')[1]==='ogg')"-->
+          <!--                 class="margin-top-20">-->
+          <!--            <source src="{{serviceDetails.file_path}}" type="video/mp4">-->
+          <!--            <source src="{{serviceDetails.file_path}}" type="video/ogg">-->
+          <!--          </video>-->
+        </div>
+        <br>
+      </div>
+
+    </div>
+  </div>
+</div>

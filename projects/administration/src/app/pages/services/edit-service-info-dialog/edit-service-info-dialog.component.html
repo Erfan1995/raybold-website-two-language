@@ -1,0 +1,68 @@
+<div class="row direction-rtl">
+  <div class="modal-content">
+    <div class="modal-header bg-dark">
+      <h5 class="modal-title white">بروز رسانی مشخصات بلاگ</h5>
+      <span class="pull-right bx bx-x-circle cursor-pointer font-size t-w-hover" (click)="closeDialog()">
+      </span>
+    </div>
+    <div class="modal-body  bg-dark">
+      <div class="col-md-12 col-12">
+        <form [formGroup]="editServiceInfoForm" (ngSubmit)="updateServiceInfo(editServiceInfoForm.value)">
+          <div class="row">
+            <div class="col-12">
+              <label>نوعیت سرویس<span class="required">&nbsp;*</span></label>
+              <div class="form-group row">
+                <div class=" col-sm-11 col-10">
+                  <select class="form-control border-0 shadow-none is-invalid"
+                          formControlName="service_category_id"
+                          [ngClass]="{'is-invalid': (editServiceInfoForm.get('service_category_id').dirty ||
+                                                editServiceInfoForm.get('service_category_id').touched) && f.service_category_id.errors}"
+                          required>
+                    <option selected disabled value="">نوعیت سرویس</option>
+                    <option *ngFor="let item of serviceCategory" [value]="item.id">
+                      {{item?.title}}
+                    </option>
+                  </select>
+                  <div *ngIf=" f.service_category_id.errors" class="invalid-feedback text-left">
+                    <div
+                      *ngIf="f.service_category_id.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label class="text-bold-600"> نام سرویس </label>
+              <div class="form-group row">
+                <div class="col-sm-11 col-10">
+                  <input class="form-control border-0 shadow-none" formControlName="title"
+                         [ngClass]="{'is-invalid': (editServiceInfoForm.get('title').dirty ||
+                                                editServiceInfoForm.get('title').touched) && f.title.errors}"
+                         required
+                         placeholder="نام سرویس"/>
+                  <div *ngIf=" f.title.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.title.errors.required"> {{errorMessages.required}}</div>
+                    <div *ngIf="f.title.errors.maxLength"> {{errorMessages.passwordMaxLength}}</div>
+                    <div *ngIf="f.title.errors.minLength"> {{errorMessages.minLength}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10 d-flex justify-content-end">
+              <button class="btn btn-primary " type="submit"
+                      [disabled]="!isValid()">بروز رسانی</button>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,54 @@
+<div class="row direction-rtl">
+  <div class="modal-content">
+    <div class="modal-header bg-dark">
+      <h5 class="modal-title white">بروز رسانی حالت بلاگ</h5>
+      <span class="pull-right bx bx-x-circle cursor-pointer font-size t-w-hover" (click)="closeDialog()">
+      </span>
+    </div>
+    <div class="modal-body  bg-dark">
+      <div class="col-md-12 col-12">
+        <form [formGroup]="blogStatusForm" (ngSubmit)="updateBlogStatus(blogStatusForm.value)">
+
+          <div class="row">
+            <div class="col-12">
+              <label>حالت بلاگ<span class="required">&nbsp;*</span></label>
+              <div class="form-group row">
+                <div class=" col-sm-11 col-10">
+                  <select class="form-control border-0 shadow-none is-invalid"
+                          formControlName="blog_status_id"
+                          [ngClass]="{'is-invalid': (blogStatusForm.get('blog_status_id').dirty ||
+                                                blogStatusForm.get('blog_status_id').touched) && f.blog_status_id.errors}"
+                          required>
+                    <option selected disabled value="">نوعیت بلاگ</option>
+                    <option *ngFor="let item of blogStatus" [value]="item.id">
+                      {{item?.status}}
+                    </option>
+                  </select>
+                  <div *ngIf=" f.blog_status_id.errors" class="invalid-feedback text-left">
+                    <div
+                      *ngIf="f.blog_status_id.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="card-footer p-0 ">
+
+              <button class="btn btn-primary " type="submit"
+                      [disabled]="!isValid()">بروز رسانی
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

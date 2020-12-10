@@ -1,0 +1,12 @@
+@font-face {
+    font-family: IRANSans;
+    src: url(hamyarwp.com/wp-content/themes/HamyarWp/assets/public/fonts/IRANSansWeb.woff) format('woff'), 
+    	 url(../fonts/IRANSansWeb.ttf) format('truetype');
+    font-weight: 400
+}
+@font-face {
+    font-family: IRANSans;
+    src: url(../fonts/IRANSansWeb_Bold.woff) format('woff'), 
+         url(../fonts/IRANSansWeb_Bold.ttf) format('truetype');
+    font-weight: 700
+}

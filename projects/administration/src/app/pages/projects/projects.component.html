@@ -1,0 +1,236 @@
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body"><!-- users list start -->
+      <section class="users-list-wrapper">
+        <div *ngIf="isInsertMode" class="users-list-filter px-1">
+          <form [formGroup]="projectForm" (ngSubmit)="addOrUpdateProject(projectForm)">
+            <div class="row border rounded py-2 mb-2">
+              <div class="col-12 col-sm-6 col-lg-6">
+                <label for="project_name">عنوان پروژه</label>
+                <fieldset class="form-group">
+                  <input type="text" class="form-control" [ngClass]="{'is-invalid': (projectForm.get('title').dirty ||
+                          projectForm.get('title').touched) && f.title.errors}" formControlName="title"
+                         id="project_name"/>
+                  <div *ngIf=" f.title.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.title.errors.required"> {{errorMessages.required}}</div>
+                    <div *ngIf="f.title.errors.minlength"> {{errorMessages.minLength}}</div>
+                    <div *ngIf="f.title.errors.maxlength"> {{errorMessages.bigMaxLength}}</div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-12 col-sm-6 col-lg-6">
+                <label for="customer_link">لینک </label>
+                <fieldset class="form-group">
+                  <input type="text" class="form-control" [ngClass]="{'is-invalid': (projectForm.get('link').dirty ||
+                          projectForm.get('link').touched) && f.link.errors}" formControlName="link"
+                         id="customer_link">
+                  <div *ngIf=" f.link.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.link.errors.minlength"> {{errorMessages.minLength}}</div>
+                    <div *ngIf="f.link.errors.maxlength"> {{errorMessages.bigMaxLength}}</div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-6">
+                <label for="customer_link">سرویس </label>
+                <fieldset class="form-group">
+                  <select class="form-control border-0 shadow-none is-invalid"
+                          formControlName="service_id"
+                          [ngClass]="{'is-invalid': (projectForm.get('service_id').dirty ||
+                                                projectForm.get('service_id').touched) && f.service_id.errors}"
+                          required>
+                    <option selected disabled value="">نوع سرویس</option>
+                    <option *ngFor="let item of services" [value]="item.id">
+                      {{item?.title}}
+                    </option>
+                  </select>
+                </fieldset>
+              </div>
+
+              <div class="col-12 col-sm-6 col-lg-2  d-flex align-items-center">
+                <button type="submit" [disabled]="!isValid()"
+                        class="btn btn-primary btn-block glow users-list-clear mb-0">{{addOrUpdateButton}}
+                </button>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-2 d-flex align-items-center">
+
+                <button type="reset"
+                        class="btn btn-secondary btn-block glow users-list-clear mb-0">لغو
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="isInsertFileMode" class="users-list-filter px-1">
+          <form [formGroup]="projectFileForm" (ngSubmit)="storeFile(projectFileForm)">
+            <div class="row border rounded py-2 mb-2">
+              <div class="col-12 col-sm-6 col-lg-4">
+                <label for="isMainFile">فایل اصلی</label>
+                <fieldset class="form-group">
+                  <select class="form-control" [ngClass]="{'is-invalid': (projectFileForm.get('isMainFile').dirty ||
+                          projectFileForm.get('isMainFile').touched) && pf.isMainFile.errors}"
+                          formControlName="isMainFile"
+                          id="isMainFile">
+                    <option [value]="true">بلی</option>
+                    <option [value]="false">نخیر</option>
+                  </select>
+                  <div *ngIf="pf.isMainFile.errors" class="invalid-feedback text-left">
+                    <div *ngIf="pf.isMainFile.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <label for="file">فایل</label>
+                <fieldset class="form-group">
+                  <input type="file" (change)="onFileChange($event)" class="form-control"
+                         [ngClass]="{'is-invalid': (projectFileForm.get('file').dirty ||
+                          projectFileForm.get('file').touched) && pf.file.errors}" formControlName="file" id="file">
+                  <div *ngIf=" pf.file.errors" class="invalid-feedback text-left">
+                    <div *ngIf="pf.file.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-center">
+                <button type="submit" [disabled]="!isFileValid()"
+                        class="btn btn-primary btn-block glow users-list-clear mb-0">ثبت
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="users-list-table" *ngIf="!isFileMode">
+          <div class="card">
+            <div class="card-content">
+              <div *ngIf="!isInsertMode" class="text-right pt-2 pr-2">
+                <button class="btn btn-secondary" (click)="insertMode()">
+                  اضافه کردن پروژه جدید
+                </button>
+              </div>
+              <div class="card-body">
+                <!-- datatable start -->
+                <div class="table-responsive">
+                  <table id="users-list-datatable" class="table">
+                    <thead>
+                    <tr>
+                      <th>نمر</th>
+                      <th>اسم پروژه</th>
+                      <th>لینک</th>
+                      <th>نوع سرویس</th>
+                      <th>فایل ها</th>
+                      <th>بروزرسانی</th>
+                      <th>حذف</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of projects;let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>{{item.title}}</td>
+                      <td>{{item.link}}</td>
+                      <td>
+                        {{getServiceName(item.service_id).title}}
+                      </td>
+                      <td>
+                        <button class="btn btn-warning" (click)="fileMode(item.id)">
+                          فایل
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-success" (click)="updateMode(item)"><i
+                          class="bx bx-edit-alt"></i></button>
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-danger" (click)="deleteProject(item.id)"><i
+                          class="bx bx-trash c-red"></i></button>
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- datatable ends -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="isFileMode" class="users-list-table">
+          <div class="card">
+            <div class="card-content">
+              <div *ngIf="!isInsertFileMode" class="text-right float-right p-2">
+                <button class="btn btn-secondary" (click)="insertFileMode()">
+                  اضافه کردن فایل جدید
+                </button>
+              </div>
+
+              <div class="text-left float-left p-2">
+                <button class="btn btn-secondary" (click)="back()">
+                  برگشت
+                </button>
+              </div>
+              <div class="card-body">
+                <!-- datatable start -->
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>نمر</th>
+                      <th>فایل</th>
+                      <th>فایل اصلی</th>
+                      <th>حذف</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of projectFiles;let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>
+                        <img class="img-thumbnail img-table-size" *ngIf="item?.path!== null"
+                             [src]="item?.path" alt="blog">
+<!--                        <img class="img-thumbnail img-table-size" *ngIf="item.path!== null-->
+<!--                            && (item.path.split('.')[1]==='jpg' || item.path.split('.')[1]==='png') "-->
+<!--                             [src]="item.path" alt="blog">-->
+<!--                        <video class="wp-caption alignnone" controls width="300"-->
+<!--                               *ngIf="item.path !== null &&-->
+<!--                                    (item.path.split('.')[1]==='mp4' || item.path.split('.')[1]==='ogg')"-->
+<!--                               class="margin-top-20">-->
+<!--                          <source src="{{item.path}}" type="video/mp4">-->
+<!--                          <source src="{{item.path}}" type="video/ogg">-->
+<!--                        </video>-->
+                      </td>
+
+                      <td>
+                        <button class="btn btn-success" *ngIf="item?.isMainFile">
+                          <i class="bx bx-check"></i>
+                        </button>
+                        <button class="btn btn-danger" *ngIf="!item?.isMainFile">
+                          <i class="bx bx-x"></i>
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-danger" (click)="deleteProjectFile(item.id,item.project_file_id)"><i
+                          class="bx bx-trash c-red"></i></button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- datatable ends -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- users list ends -->
+    </div>
+  </div>
+</div>
+<!-- END: Content-->

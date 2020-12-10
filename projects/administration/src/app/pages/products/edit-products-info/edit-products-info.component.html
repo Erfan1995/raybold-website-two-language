@@ -1,0 +1,64 @@
+<div class="row direction-rtl">
+  <div class="modal-content">
+    <div class="modal-header bg-dark">
+      <h5 class="modal-title white">بروز رسانی مشخصات بلاگ</h5>
+      <span class="pull-right bx bx-x-circle cursor-pointer font-size t-w-hover" (click)="closeDialog()">
+      </span>
+    </div>
+    <div class="modal-body  bg-dark">
+      <div class="col-md-12 col-12">
+        <form [formGroup]="editProductInfoForm" (ngSubmit)="updateProductInfo(editProductInfoForm.value)">
+          <div class="row">
+            <div class="col-12">
+              <label>نوعیت سرویس<span class="required">&nbsp;*</span></label>
+              <div class="form-group row">
+                <div class=" col-sm-11 col-10">
+                  <input class="form-control border-0 shadow-none" formControlName="title"
+                         [ngClass]="{'is-invalid': (editProductInfoForm.get('title').dirty ||
+                          editProductInfoForm.get('title').touched) && f.title.errors}"
+                         placeholder="نام محصول"/>
+                  <div *ngIf=" f.title.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.title.errors.required"> {{errorMessages.required}}</div>
+                    <div *ngIf="f.title.errors.minlength"> {{errorMessages.minLength}}</div>
+                    <div *ngIf="f.title.errors.maxlength"> {{errorMessages.bigMaxLength}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label class="text-bold-600"> لینک</label>
+              <div class="form-group row">
+                <div class="col-sm-11 col-10">
+                  <input class="form-control border-0 shadow-none" formControlName="link"
+                         [ngClass]="{'is-invalid': (editProductInfoForm.get('link').dirty ||
+                                                editProductInfoForm.get('link').touched) && f.link.errors}"
+                         required
+                         placeholder="لینک"/>
+                  <div *ngIf=" f.link.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.link.errors.required"> {{errorMessages.required}}</div>
+                    <div *ngIf="f.link.errors.maxLength"> {{errorMessages.passwordMaxLength}}</div>
+                    <div *ngIf="f.link.errors.minLength"> {{errorMessages.minLength}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10 d-flex justify-content-end">
+              <button class="btn btn-primary " type="submit"
+                      [disabled]="!isValid()">بروز رسانی
+              </button>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

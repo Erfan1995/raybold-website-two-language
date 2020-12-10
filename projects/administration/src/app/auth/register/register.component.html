@@ -1,0 +1,135 @@
+<!-- BEGIN: Content-->
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body"><!-- register section starts -->
+      <section class="row flexbox-container">
+        <div class="col-xl-10 col-12">
+          <div class="card bg-authentication mb-0">
+            <div class="row m-0">
+              <!-- register section left -->
+              <div class="col-md-6 col-12 px-0">
+                <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
+                  <div class="card-header pb-1">
+                    <div class="card-title">
+                      <h4 class="text-center mb-2">ایجاد حساب کاربری</h4>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <p><small> لطفا جهت ایجاد حساب کاربری مشخصات خودرا وارد نمایید. </small>
+                    </p>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-body">
+                      <form [formGroup]="registerForm" (ngSubmit)="registerUsers(registerForm.value)">
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-50">
+                            <label>نام <span class="required">&nbsp;*</span></label>
+                            <input type="text" class="form-control is-invalid" formControlName="name"
+                                   [ngClass]="{'is-invalid': (registerForm.get('name').dirty ||
+                                                registerForm.get('name').touched) && f.name.errors}"
+                                   required
+                                   placeholder="نام">
+                            <div *ngIf=" f.name.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.name.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.name.errors.minlength"> {{errorMessages.minLength}}</div>
+                              <div *ngIf="f.name.errors.maxlength"> {{errorMessages.maxLength}}</div>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6 mb-50">
+                            <label>تخلص <span class="required">&nbsp;*</span></label>
+                            <input type="text" class="form-control is-invalid" formControlName="last_name"
+                                   [ngClass]="{'is-invalid': (registerForm.get('last_name').dirty ||
+                                                registerForm.get('last_name').touched) && f.last_name.errors}"
+                                   placeholder="تخلص">
+                            <div *ngIf=" f.last_name.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.last_name.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.last_name.errors.minlength"> {{errorMessages.minLength}}</div>
+                              <div *ngIf="f.last_name.errors.maxlength"> {{errorMessages.maxLength}}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-50">
+                            <label class="text-bold-600">ایمیل <span class="required">&nbsp;*</span>
+                            </label>
+                            <input type="email" class="form-control" formControlName="email"
+                                   [ngClass]="{'is-invalid': (registerForm.get('email').dirty ||
+                                                registerForm.get('email').touched) && f.email.errors}"
+                                   required
+                                   placeholder="ایمیل">
+                            <div *ngIf=" f.email.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.email.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.email.errors.maxlength"> {{errorMessages.maxLength}}</div>
+                              <div *ngIf="f.email.errors.minlength"> {{errorMessages.minLength}}</div>
+                              <div *ngIf="f.email.errors.email"> {{errorMessages.email}}</div>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6 mb-50">
+                            <label class="text-bold-600">شماره تماس <span class="required">&nbsp;*</span>
+                            </label>
+                            <input type="text" class="form-control" formControlName="phone"
+                                   [ngClass]="{'is-invalid': (registerForm.get('phone').dirty ||
+                                              registerForm.get('phone').touched) && f.phone.errors}"
+                                   placeholder="شماره تماس">
+                            <div *ngIf=" f.phone.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.phone.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.phone.errors.pattern"> {{errorMessages.number}}</div>
+                              <div *ngIf="f.phone.errors.minlength"> {{errorMessages.phone_number_min_length}}</div>
+                              <div *ngIf="f.phone.errors.maxlength"> {{errorMessages.phone_number_max_length}}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-50">
+                            <label class="text-bold-600"
+                            >رمزعبور</label>
+                            <input type="password" class="form-control" formControlName="password"
+                                   [ngClass]="{'is-invalid': (registerForm.get('password').dirty ||
+                                              registerForm.get('password').touched) && f.password.errors}"
+                                   placeholder="رمز عبور">
+                            <div *ngIf=" f.password.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.password.errors.required"> {{errorMessages.required}}</div>
+                              <div *ngIf="f.password.errors.minlength"> {{errorMessages.passwordMinLength}}</div>
+                              <div *ngIf="f.password.errors.maxlength"> {{errorMessages.passwordMaxLength}}</div>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6 mb-50">
+                            <label class="text-bold-600"
+                            >تکرار رمزعبور</label>
+                            <input type="password" class="form-control" formControlName="confirm_password"
+                                   [ngClass]="{'is-invalid': (registerForm.get('confirm_password').dirty ||
+                                              registerForm.get('confirm_password').touched) && f.confirm_password.errors}"
+                                   placeholder="تکرار رمز عبور">
+                            <div *ngIf=" f.password.errors" class="invalid-feedback text-left">
+                              <div *ngIf="f.password.errors.required"> {{errorMessages.required}}</div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <button type="submit" [disabled]="!isValid()"
+                                class="btn btn-primary glow position-relative w-100">ایجاد حساب کاربری<i
+                          id="icon-arrow" class="bx bx-left-arrow-alt"></i></button>
+                      </form>
+                      <hr>
+                      <div class="text-center"><small class="mr-25">قبلا حساب ایجاد نمود اید؟</small><a
+                        routerLink="../login"><small>ورود به سیستم</small> </a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- image section right -->
+              <div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
+                <img class="img-fluid" src="assets/images/pages/register.png"
+                     alt="branding logo">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- register section endss -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<!-- BEGIN: Content-->
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body"><!-- page user profile start -->
+      <section class="page-user-profile">
+        <div class="row">
+          <div class="col-12">
+            <!-- user profile content section start -->
+            <div class="row">
+              <!-- user profile nav tabs content start -->
+              <div class="col-lg-12">
+                <div class="row">
+
+                  <!-- user profile nav tabs feed middle section start -->
+                  <div class="col-lg-12">
+                    <!-- user profile nav tabs feed middle section post card start -->
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="card-body">
+                          <h2 class="mb-2">افزودن خدمات جدید</h2>
+                          <br>
+                          <form [formGroup]="serviceForm" (ngSubmit)="addServices(serviceForm.value)">
+                            <div class="row">
+                              <div class="col-6">
+                                <label>نوعیت سرویس<span class="required">&nbsp;*</span></label>
+                                <div class="form-group row">
+                                  <div class=" col-sm-11 col-10">
+                                    <select class="form-control border-0 shadow-none is-invalid"
+                                            formControlName="service_category_id"
+                                            [ngClass]="{'is-invalid': (serviceForm.get('service_category_id').dirty ||
+                                                serviceForm.get('service_category_id').touched) && f.service_category_id.errors}"
+                                            required>
+                                      <option selected disabled value="">نوعیت سرویس</option>
+                                      <option *ngFor="let item of serviceCategory" [value]="item.id">
+                                        {{item?.title}}
+                                      </option>
+                                    </select>
+                                    <div *ngIf=" f.service_category_id.errors" class="invalid-feedback text-left">
+                                      <div
+                                        *ngIf="f.service_category_id.errors.required"> {{errorMessages.required}}</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <label class="text-bold-600"> نام سرویس </label>
+                                <div class="form-group row">
+                                  <div class="col-sm-11 col-10">
+                                    <input class="form-control border-0 shadow-none" formControlName="title"
+                                           placeholder="نام سرویس"/>
+                                    <div *ngIf=" f.title.errors" class="invalid-feedback text-left">
+                                      <div *ngIf="f.title.errors.required"> {{errorMessages.required}}</div>
+                                      <div *ngIf="f.title.errors.maxLength"> {{errorMessages.passwordMaxLength}}</div>
+                                      <div *ngIf="f.title.errors.minLength"> {{errorMessages.minLength}}</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-lg-3  d-flex align-items-end ">
+                                <button type="submit" [disabled]="!isValid()"
+                                        class="btn btn-primary btn-block glow users-list-clear mb-0">ثبت
+                                </button>
+                              </div>
+                              <div class="col-12 col-sm-12 col-lg-3 d-flex align-items-end">
+
+                                <button type="reset" (click)="reset()"
+                                        class="btn btn-secondary btn-block glow users-list-clear mb-0">لغو
+                                </button>
+                              </div>
+
+                            </div>
+                          </form>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="content-body"><!-- invoice list -->
+                          <section class="invoice-list-wrapper">
+                            <!-- create invoice button-->
+                            <!-- Options and filter dropdown button-->
+                            <div class="table-responsive">
+                              <table class="table dt-responsive nowrap">
+                                <thead>
+                                <tr>
+                                  <th>
+                                    <span class="align-middle">شماره</span>
+                                  </th>
+                                  <th>عنوان دسته بندی</th>
+                                  <th>عنوان خدمات</th>
+                                  <th>اضافه نمودن محتوا</th>
+                                  <th>ویرایش خدمات</th>
+                                  <th>حذف خدمات</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let service of servicesList;let i=index">
+                                  <td>
+                                    <span class="bullet bullet-success bullet-sm"></span>
+                                    <small class="text-muted">{{i + 1 }}</small>
+                                  </td>
+                                  <td>{{service?.service_category}}</td>
+                                  <td>{{service?.title}}</td>
+                                  <td>
+                                    <button class="btn btn-warning"
+                                            routerLink="../add-service-content/{{service.id}}/{{service.title}}">
+                                      محتوای خدمات
+                                    </button>
+                                  </td>
+                                  <td>
+                                    <button title="ویرایش" (click)="editServiceInfo(service)"
+                                            class="btn btn-outline-success"><i
+                                      class="bx bx-edit-alt"></i></button>
+                                  </td>
+                                  <td>
+                                    <button (click)="deleteService(service)" title="حذف"
+                                            class="btn btn-outline-danger"><i
+                                      class="bx bx-trash c-red"></i></button>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
