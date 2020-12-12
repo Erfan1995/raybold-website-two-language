@@ -17,8 +17,7 @@ class CreateProducts extends Migration
             $table->increments('id');
             $table->string('link')->nullable();
             $table->string('title');
-            $table->integer('language_id')->unsigned();
-            $table->foreign('language_id')->references('id')->on('language');
+            $table->string('language')->unsigned();
             $table->timestamps();
         });
     }

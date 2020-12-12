@@ -19,8 +19,7 @@ class CreateCustomers extends Migration
             $table->string('review',500);
             $table->integer('file_id')->unsigned();
             $table->foreign('file_id')->references('id')->on('files');
-            $table->integer('language_id')->unsigned();
-            $table->foreign('language_id')->references('id')->on('language');
+            $table->string('language')->unsigned();
             $table->string('link');
             $table->timestamps();
         });

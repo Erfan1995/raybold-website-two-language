@@ -14,13 +14,13 @@ class LanguageSeed extends Seeder
         //
         DB::table('language')->insert([
             [
-                'name' => 'en',
-
+                'name' => 'da',
             ],
             [
-                'name' => 'da',
-
+                'name' => 'en',
             ]
+
         ]);
+
     }
 }
