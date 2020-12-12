@@ -45,6 +45,11 @@ export class AddServicesComponent implements OnInit {
           Validators.required
         ]
       ],
+      language: ['',
+        [
+          Validators.required
+        ]
+      ],
       title: ['',
         [
           Validators.required,

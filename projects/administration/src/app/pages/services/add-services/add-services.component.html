@@ -24,7 +24,7 @@
                           <br>
                           <form [formGroup]="serviceForm" (ngSubmit)="addServices(serviceForm.value)">
                             <div class="row">
-                              <div class="col-6">
+                              <div class="col-4">
                                 <label>نوعیت سرویس<span class="required">&nbsp;*</span></label>
                                 <div class="form-group row">
                                   <div class=" col-sm-11 col-10">
@@ -45,7 +45,31 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-6">
+                              <div class="col-4">
+                                <label>زبان<span class="required">&nbsp;*</span></label>
+                                <div class="form-group row">
+                                  <div class=" col-sm-11 col-10">
+                                    <select class="form-control border-0 shadow-none is-invalid"
+                                            formControlName="language"
+                                            [ngClass]="{'is-invalid': (serviceForm.get('language').dirty ||
+                                                serviceForm.get('language').touched) && f.language.errors}"
+                                            required>
+                                      <option selected disabled value="">نوعیت زبان</option>
+                                      <option>
+                                        da
+                                      </option>
+                                      <option>
+                                        en
+                                      </option>
+                                    </select>
+                                    <div *ngIf=" f.language.errors" class="invalid-feedback text-left">
+                                      <div
+                                        *ngIf="f.language.errors.required"> {{errorMessages.required}}</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-4">
                                 <label class="text-bold-600"> نام سرویس </label>
                                 <div class="form-group row">
                                   <div class="col-sm-11 col-10">

@@ -17,6 +17,5 @@ class DatabaseSeeder extends Seeder
         $this->call(UserStatus::class);
         $this->call(BlogStatus::class);
         $this->call(UserSeeder::class);
-        $this->call(LanguageSeed::class);
     }
 }
