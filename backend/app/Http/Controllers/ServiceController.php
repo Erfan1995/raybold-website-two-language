@@ -19,7 +19,7 @@ class ServiceController extends Controller
     public function listServiceInfo()
     {
         try {
-            $data = ServiceInfoModel::select('services.title','', 'services.id', 'service_category_id', 'service_category.title as service_category')
+            $data = ServiceInfoModel::select('services.title','services.language', 'services.id', 'service_category_id', 'service_category.title as service_category')
                 ->join('service_category', 'services.service_category_id', '=', 'service_category.id')
                 ->latest('services.created_at')->get();
             return response()->json($data);
@@ -36,10 +36,12 @@ class ServiceController extends Controller
         try {
             $insertedData = ServiceInfoModel::create([
                 'title' => $request->get('title'),
+                'language' => $request->get('language'),
                 'service_category_id' => $request->get('service_category_id')
             ]);
             return response()->json([
                 'title' => $insertedData->title,
+                'language' => $insertedData->language,
                 'id' => $insertedData->id,
                 'service_category_id' => $insertedData->service_category_id
             ]);

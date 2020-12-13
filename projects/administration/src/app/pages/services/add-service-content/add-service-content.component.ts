@@ -20,6 +20,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class AddServiceContentComponent implements OnInit {
   serviceId;
   serviceTitle;
+  language;
   fileSrc;
   addServiceContentForm: FormGroup;
   public Editor = ClassicEditor;
@@ -44,6 +45,7 @@ export class AddServiceContentComponent implements OnInit {
   ngOnInit(): void {
     this.serviceId = this.activatedRoute.snapshot.params.id;
     this.serviceTitle = this.activatedRoute.snapshot.params.title;
+    this.language = this.activatedRoute.snapshot.params.language;
     this.initAddServiceContent();
     this.listServiceContent();
   }

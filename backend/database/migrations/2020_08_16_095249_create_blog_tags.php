@@ -16,6 +16,7 @@ class CreateBlogTags extends Migration
         Schema::create('blog_tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('language');
             $table->integer('blog_id')->unsigned();
             $table->foreign('blog_id')->references('id')->on('blog');
             $table->timestamps();

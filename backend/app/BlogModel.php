@@ -14,5 +14,6 @@ class BlogModel extends Model
         'blog_resource',
         'blog_status_id',
         'blog_category_id',
+        'language'
     ];
 }

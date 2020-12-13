@@ -19,6 +19,7 @@ class CreateServicesDetails extends Migration
             $table->foreign('service_id')->references('id')->on('services');
             $table->text('content');
             $table->string('subtitle')->nullable();
+            $table->string('language');
             $table->timestamps();
         });
     }

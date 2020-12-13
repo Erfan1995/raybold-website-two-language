@@ -16,6 +16,7 @@ class CreateBlogDetails extends Migration
         Schema::create('blog_details', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
+            $table->string('language');
             $table->integer('blog_id')->unsigned();
             $table->foreign('blog_id')->references('id')->on('blog');
             $table->text('content');

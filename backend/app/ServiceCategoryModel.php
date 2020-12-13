@@ -9,6 +9,7 @@ class ServiceCategoryModel extends Model
     //
     protected $table = "service_category";
     protected $fillable = [
-        'title'
+        'title',
+        'language'
     ];
 }

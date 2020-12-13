@@ -16,6 +16,7 @@ class CreateServiceCategory extends Migration
         Schema::create('service_category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('language');
             $table->timestamps();
         });
     }

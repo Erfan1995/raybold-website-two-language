@@ -11,6 +11,7 @@ class BlogDetailsModel extends Model
     protected $fillable = [
         'title',
         'blog_id',
-        'content'
+        'content',
+        'language'
     ];
 }

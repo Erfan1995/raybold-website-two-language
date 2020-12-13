@@ -12,5 +12,6 @@ class Customer extends Model
         'title',
         'file_id',
         'review',
+        'language'
     ];
 }
