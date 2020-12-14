@@ -8,7 +8,7 @@
         <div *ngIf="isInsertMode" class="users-list-filter px-1">
           <form [formGroup]="projectForm" (ngSubmit)="addOrUpdateProject(projectForm)">
             <div class="row border rounded py-2 mb-2">
-              <div class="col-12 col-sm-6 col-lg-6">
+              <div class="col-12 col-sm-4 col-lg-4">
                 <label for="project_name">عنوان پروژه</label>
                 <fieldset class="form-group">
                   <input type="text" class="form-control" [ngClass]="{'is-invalid': (projectForm.get('title').dirty ||
@@ -22,7 +22,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-12 col-sm-6 col-lg-6">
+              <div class="col-12 col-sm-4 col-lg-4">
                 <label for="customer_link">لینک </label>
                 <fieldset class="form-group">
                   <input type="text" class="form-control" [ngClass]="{'is-invalid': (projectForm.get('link').dirty ||
@@ -32,6 +32,24 @@
                     <div *ngIf="f.link.errors.minlength"> {{errorMessages.minLength}}</div>
                     <div *ngIf="f.link.errors.maxlength"> {{errorMessages.bigMaxLength}}</div>
                   </div>
+                </fieldset>
+              </div>
+              <div class="col-12 col-sm-4 col-lg-4">
+                <label for="customer_link">زبان </label>
+                <fieldset class="form-group">
+                  <select class="form-control border-0 shadow-none is-invalid"
+                          formControlName="language"
+                          [ngClass]="{'is-invalid': (projectForm.get('language').dirty ||
+                                                projectForm.get('language').touched) && f.language.errors}"
+                          required>
+                    <option selected disabled value="">نوع زبان</option>
+                    <option>
+                      da
+                    </option>
+                    <option>
+                      en
+                    </option>
+                  </select>
                 </fieldset>
               </div>
               <div class="col-12 col-sm-6 col-lg-6">
@@ -50,12 +68,12 @@
                 </fieldset>
               </div>
 
-              <div class="col-12 col-sm-6 col-lg-2  d-flex align-items-center">
+              <div class="col-12 col-sm-6 col-lg-3  d-flex align-items-center">
                 <button type="submit" [disabled]="!isValid()"
                         class="btn btn-primary btn-block glow users-list-clear mb-0">{{addOrUpdateButton}}
                 </button>
               </div>
-              <div class="col-12 col-sm-6 col-lg-2 d-flex align-items-center">
+              <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center">
 
                 <button type="reset"
                         class="btn btn-secondary btn-block glow users-list-clear mb-0">لغو
@@ -68,22 +86,7 @@
         <div *ngIf="isInsertFileMode" class="users-list-filter px-1">
           <form [formGroup]="projectFileForm" (ngSubmit)="storeFile(projectFileForm)">
             <div class="row border rounded py-2 mb-2">
-              <div class="col-12 col-sm-6 col-lg-4">
-                <label for="isMainFile">فایل اصلی</label>
-                <fieldset class="form-group">
-                  <select class="form-control" [ngClass]="{'is-invalid': (projectFileForm.get('isMainFile').dirty ||
-                          projectFileForm.get('isMainFile').touched) && pf.isMainFile.errors}"
-                          formControlName="isMainFile"
-                          id="isMainFile">
-                    <option [value]="true">بلی</option>
-                    <option [value]="false">نخیر</option>
-                  </select>
-                  <div *ngIf="pf.isMainFile.errors" class="invalid-feedback text-left">
-                    <div *ngIf="pf.isMainFile.errors.required"> {{errorMessages.required}}</div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
+              <div class="col-12 col-sm-6 col-lg-6">
                 <label for="file">فایل</label>
                 <fieldset class="form-group">
                   <input type="file" (change)="onFileChange($event)" class="form-control"
@@ -95,7 +98,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-center">
+              <div class="col-12 col-sm-6 col-lg-6 d-flex align-items-center">
                 <button type="submit" [disabled]="!isFileValid()"
                         class="btn btn-primary btn-block glow users-list-clear mb-0">ثبت
                 </button>
@@ -194,16 +197,16 @@
                       <td>
                         <img class="img-thumbnail img-table-size" *ngIf="item?.path!== null"
                              [src]="item?.path" alt="blog">
-<!--                        <img class="img-thumbnail img-table-size" *ngIf="item.path!== null-->
-<!--                            && (item.path.split('.')[1]==='jpg' || item.path.split('.')[1]==='png') "-->
-<!--                             [src]="item.path" alt="blog">-->
-<!--                        <video class="wp-caption alignnone" controls width="300"-->
-<!--                               *ngIf="item.path !== null &&-->
-<!--                                    (item.path.split('.')[1]==='mp4' || item.path.split('.')[1]==='ogg')"-->
-<!--                               class="margin-top-20">-->
-<!--                          <source src="{{item.path}}" type="video/mp4">-->
-<!--                          <source src="{{item.path}}" type="video/ogg">-->
-<!--                        </video>-->
+                        <!--                        <img class="img-thumbnail img-table-size" *ngIf="item.path!== null-->
+                        <!--                            && (item.path.split('.')[1]==='jpg' || item.path.split('.')[1]==='png') "-->
+                        <!--                             [src]="item.path" alt="blog">-->
+                        <!--                        <video class="wp-caption alignnone" controls width="300"-->
+                        <!--                               *ngIf="item.path !== null &&-->
+                        <!--                                    (item.path.split('.')[1]==='mp4' || item.path.split('.')[1]==='ogg')"-->
+                        <!--                               class="margin-top-20">-->
+                        <!--                          <source src="{{item.path}}" type="video/mp4">-->
+                        <!--                          <source src="{{item.path}}" type="video/ogg">-->
+                        <!--                        </video>-->
                       </td>
 
                       <td>

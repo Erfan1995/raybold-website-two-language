@@ -46,6 +46,28 @@
             </div>
           </div>
           <div class="row">
+            <div class="col-12">
+              <label class="text-bold-600"> زبان </label>
+              <div class="form-group row">
+                <div class="col-sm-11 col-10">
+                  <select class="form-control" [ngClass]="{'is-invalid': (editProductInfoForm.get('language').dirty ||
+                          editProductInfoForm.get('language').touched) && f.language.errors}" formControlName="language" required>
+                    <option selected disabled value="">نوعیت زبان</option>
+                    <option>
+                      da
+                    </option>
+                    <option>
+                      en
+                    </option>
+                  </select>
+                  <div *ngIf=" f.language.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.language.errors.required"> {{errorMessages.required}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-10 d-flex justify-content-end">
               <button class="btn btn-primary " type="submit"
                       [disabled]="!isValid()">بروز رسانی

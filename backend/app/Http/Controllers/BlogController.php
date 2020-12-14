@@ -23,6 +23,7 @@ class BlogController extends Controller
             return response()->json([
                 'id' => $insertedData['id'],
                 'title' => $insertedData['title'],
+                'language' => $insertedData['language'],
                 'blog_category_id' => $insertedData['blog_category_id'],
                 'blog_status_id' => $insertedData['blog_status_id'],
                 'blog_resource' => $insertedData['blog_resource'],
@@ -39,7 +40,7 @@ class BlogController extends Controller
     public function listBlogInfo($blogListItemRange, $userId)
     {
         try {
-            $data = BlogModel::select('title', 'user_id', 'blog_status_id', 'blog_category_id', 'blog_resource', 'created_at', 'id')
+            $data = BlogModel::select('title', 'user_id', 'blog_status_id', 'language', 'blog_category_id', 'blog_resource', 'created_at', 'id')
                 ->take($blogListItemRange)
                 ->where('user_id', $userId)
                 ->latest('created_at')
@@ -63,6 +64,8 @@ class BlogController extends Controller
                 'title' => $request->get('title'),
                 'blog_category_id' => $request->get('blog_category_id'),
                 'blog_resource' => $request->get('blog_resource'),
+                'language' => $request->get('language'),
+
             ]);
         } catch (\Exception $exception) {
             return response()->json([
@@ -234,7 +237,7 @@ class BlogController extends Controller
     {
         try {
             DB::beginTransaction();
-            $data = BlogModel::select('blog_details.title', 'blog_id', 'content', 'blog_details_files.is_main_file','full_name','blog.created_at',
+            $data = BlogModel::select('blog_details.title', 'blog_id', 'content', 'blog_details_files.is_main_file', 'full_name', 'blog.created_at',
                 'blog_details_files.id as blog_details_files_id', 'path as image_path', 'blog_details.id as content_id', 'files.id as file_id')
                 ->join('blog_details', 'blog.id', '=', 'blog_details.blog_id')
                 ->leftJoin('blog_details_files', 'blog_details.id', '=', 'blog_details_files.blog_details_id')

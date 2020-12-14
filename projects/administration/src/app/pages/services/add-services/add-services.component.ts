@@ -77,6 +77,7 @@ export class AddServicesComponent implements OnInit {
           service_category_id: result.service_category_id,
           title: result.title,
           id: result.id,
+          language: result.language,
           service_category: this.dropDownServices.get('serviceCategory', result.service_category_id).title
         });
         this.notificationService.success(generalMessages.successInserted);
@@ -105,6 +106,7 @@ export class AddServicesComponent implements OnInit {
             if (result.id === item.id) {
               item.title = result.title;
               item.service_category_id = result.service_category_id;
+              item.langugae = result.language;
               item.service_category = this.dropDownServices.get('serviceCategory', result.service_category_id).title;
             }
           });

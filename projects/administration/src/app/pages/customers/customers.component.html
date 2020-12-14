@@ -24,7 +24,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div class="col-12 col-sm-6 col-lg-6">
+              <div class="col-12 col-sm-4 col-lg-4">
                 <label for="customer_name">عنوان همکار</label>
                 <fieldset class="form-group">
                   <input type="text" class="form-control" [ngClass]="{'is-invalid': (customerForm.get('title').dirty ||
@@ -38,7 +38,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-12 col-sm-6 col-lg-6">
+              <div class="col-12 col-sm-4 col-lg-4">
                 <label for="customer_link">لینک همکار</label>
                 <fieldset class="form-group">
                   <input type="text" class="form-control" [ngClass]="{'is-invalid': (customerForm.get('link').dirty ||
@@ -48,6 +48,25 @@
                     <div *ngIf="f.link.errors.required"> {{errorMessages.required}}</div>
                     <div *ngIf="f.link.errors.minlength"> {{errorMessages.minLength}}</div>
                     <div *ngIf="f.link.errors.maxlength"> {{errorMessages.bigMaxLength}}</div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-12 col-sm-4 col-lg-4">
+                <label for="language">زبان</label>
+                <fieldset class="form-group">
+                  <select type="text" class="form-control" [ngClass]="{'is-invalid': (customerForm.get('language').dirty ||
+                          customerForm.get('language').touched) && f.language.errors}" formControlName="language"
+                          id="language">
+                    <option selected disabled value="">زبان</option>
+                    <option>
+                      da
+                    </option>
+                    <option>
+                      en
+                    </option>
+                  </select>
+                  <div *ngIf=" f.language.errors" class="invalid-feedback text-left">
+                    <div *ngIf="f.language.errors.required"> {{errorMessages.required}}</div>
                   </div>
                 </fieldset>
               </div>
@@ -95,6 +114,7 @@
                       <th>نمر</th>
                       <th>اسم محصول</th>
                       <th>لینک</th>
+                      <th>زبان</th>
                       <th>نظریه</th>
                       <th>فایل ها</th>
                       <th>بروزرسانی</th>
@@ -106,6 +126,7 @@
                       <td>{{i + 1}}</td>
                       <td>{{item.title}}</td>
                       <td>{{item.link}}</td>
+                      <td>{{item.language}}</td>
                       <td [innerHTML]="item?.review | sanitizeHtml"></td>
                       <td>
                         <button class="btn btn-warning" (click)="fileMode(item?.path)">

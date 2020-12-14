@@ -33,7 +33,7 @@ Route::post('blog/delete-blog-info', 'BlogController@deleteBlogInfo');
 Route::post('blog/update-blog-status', 'BlogController@updateBlogStatus');
 
 Route::post('blog/add-blog-tag', 'BlogTagController@addBlogTag');
-Route::get('blog/get-blog-tag/{blogId}', 'BlogTagController@listBlogTag');
+Route::get('blog/get-blog-tag/{blogId}/{lan}', 'BlogTagController@listBlogTag');
 Route::post('blog/update-blog-tag', 'BlogTagController@updateBlogTag');
 Route::post('blog/delete-blog-tag', 'BlogTagController@deleteBlogTag');
 
@@ -60,7 +60,7 @@ Route::get('service/list-service-info', 'ServiceController@listServiceInfo');
 //service Content
 Route::post('service/add-service-content', 'ServiceContentController@addServiceContent');
 Route::post('service/update-service-content', 'ServiceContentController@updateServiceContent');
-Route::get('service/list-service-content/{serviceId}', 'ServiceContentController@listServiceContent');
+Route::get('service/list-service-content/{serviceId}/{language}', 'ServiceContentController@listServiceContent');
 Route::get('website-service/list-service-content/{serviceId}', 'ServiceContentController@listServiceContent');
 Route::post('service/delete-service-content', 'ServiceContentController@deleteServiceContent');
 Route::get('service/list-all-service', 'ServiceContentController@listAllServices');
@@ -86,7 +86,7 @@ Route::get('products/list-products', 'ProductController@productList');
 //product content
 Route::post('products/add-product-content', 'ProductContentController@addProductContent');
 Route::post('products/update-product-content', 'ProductContentController@updateProductContent');
-Route::get('products/list-product-content/{productId}', 'ProductContentController@listProductContent');
+Route::get('products/list-product-content/{productId}/{lan}', 'ProductContentController@listProductContent');
 Route::post('products/delete-product-content', 'ProductContentController@deleteProductContent');
 Route::get('products/list-all-product', 'ProductContentController@listAllProducts');
 Route::get('products/productFiles/{file_name}', function ($filename) {
@@ -154,6 +154,8 @@ Route::get('aboutus/aboutUsFiles/{file_name}', function ($filename) {
     $mime = \File::mimeType($path);
     return \Response::make($image, 200)->header('Content-Type', $mime);
 });
+
+Route::get('contact-us/list-contact-us-info', 'ContactUsController@listContactUsInfo');
 
 ///
 /// ============================================================================================================================

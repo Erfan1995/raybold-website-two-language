@@ -6,4 +6,5 @@ export interface BlogInfoType {
   blog_status_id: number;
   id: number;
   created_at: string;
+  language: string;
 }

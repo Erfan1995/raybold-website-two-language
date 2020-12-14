@@ -51,7 +51,7 @@ export class AddServiceContentComponent implements OnInit {
   }
 
   listServiceContent() {
-    this.servicesService.listServiceContent(this.serviceId).subscribe(
+    this.servicesService.listServiceContent(this.serviceId, this.language).subscribe(
       (result) => {
         this.serviceContent = result;
         this.serviceContent.reverse();
@@ -85,8 +85,8 @@ export class AddServiceContentComponent implements OnInit {
       is_main_file: ['',
         []
       ],
-      service_id: this.serviceId
-
+      service_id: this.serviceId,
+      language: this.language
     });
   }
 
@@ -112,7 +112,7 @@ export class AddServiceContentComponent implements OnInit {
       content_id: editData.content_id,
       former_file_path: editData.file_path,
       file_id: editData.file_id,
-      service_details_files_id: editData.service_details_files_id
+      service_details_files_id: editData.service_details_files_id,
 
     });
   }

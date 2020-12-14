@@ -46,6 +46,7 @@ class ProductController extends Controller
             $data = Product::findOrFail($request->get('id'));
             $data->title = $request->get('title');
             $data->link = $request->get('link');
+            $data->language = $request->get('language');
             $data->save();
             return response()->json($data);
         } catch (\Exception $exception) {
@@ -95,6 +96,7 @@ class ProductController extends Controller
         return Validator::make($data, [
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'link' => ['required', 'string', 'min:3', 'max:255'],
+            'language' => ['string'],
 
         ]);
     }

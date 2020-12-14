@@ -23,6 +23,7 @@ class ProjectController extends Controller
             $insertedData = ProjectModel::create([
                 "title" => $request->get('title'),
                 "link" => $request->get('link'),
+                "language" => $request->get('language'),
                 "service_id" => $request->get('service_id'),
             ]);
             return response()->json($insertedData);
@@ -43,6 +44,7 @@ class ProjectController extends Controller
             $updateData = ProjectModel::findOrFail($request->get('id'));
             $updateData->title = $request->get('title');
             $updateData->link = $request->get('link');
+            $updateData->language = $request->get('language');
             $updateData->service_id = $request->get('service_id');;
             $updateData->save();
             DB::commit();
@@ -166,6 +168,7 @@ class ProjectController extends Controller
         return Validator::make($data, [
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'service_id' => ['required'],
+            'language' => ['string'],
             'link' => [],
         ]);
     }
@@ -183,6 +186,7 @@ class ProjectController extends Controller
         return Validator::make($data, [
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'service_id' => ['required'],
+            'language' => ['string'],
             'link' => [],
         ]);
     }
@@ -190,7 +194,7 @@ class ProjectController extends Controller
 
     public function projectList()
     {
-        $data = ProjectModel::select('id', 'title', 'service_id', 'link')
+        $data = ProjectModel::select('id', 'title', 'service_id', 'link', 'language')
             ->latest('projects.created_at')->get();
         return response()->json($data);
     }

@@ -2,6 +2,7 @@ export interface IProduct {
   id: number;
   title: string;
   link: string;
+  language: string;
 }
 
 export interface IProductFile {

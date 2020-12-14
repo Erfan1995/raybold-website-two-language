@@ -14,6 +14,7 @@ export interface IProject {
   file: string;
   path: string;
   file_id: number;
+  language: string;
 }
 
 @Component({
@@ -116,6 +117,10 @@ export class ProjectsComponent implements OnInit {
       service_id: [null,
         [
           Validators.required
+        ]],
+      language: [null,
+        [
+          Validators.required
         ]]
     });
   }
@@ -123,9 +128,6 @@ export class ProjectsComponent implements OnInit {
   initCreateProjectFileForm(): void {
     this.projectFileForm = this.formBuilder.group({
       file: [null, [
-        Validators.required
-      ]],
-      isMainFile: [null, [
         Validators.required
       ]],
       project_id: [this.projectId],
@@ -145,6 +147,10 @@ export class ProjectsComponent implements OnInit {
         Validators.maxLength(254),
       ]],
       service_id: [data && data.service_id,
+        [
+          Validators.required
+        ]],
+      language: [null,
         [
           Validators.required
         ]],
@@ -176,6 +182,7 @@ export class ProjectsComponent implements OnInit {
             if (item.id === projectForm.value.id) {
               item.title = projectForm.value.title;
               item.link = projectForm.value.link;
+              item.language = projectForm.value.language;
               item.service_id = projectForm.value.service_id;
             }
           });

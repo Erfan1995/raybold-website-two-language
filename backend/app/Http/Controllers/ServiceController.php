@@ -57,6 +57,7 @@ class ServiceController extends Controller
         try {
             $serviceCategory = ServiceInfoModel::find($request->get('id'));
             $serviceCategory->title = $request->get('title');
+            $serviceCategory->language = $request->get('language');
             $serviceCategory->service_category_id = $request->get('service_category_id');
             $serviceCategory->save();
             return response()->json($serviceCategory);

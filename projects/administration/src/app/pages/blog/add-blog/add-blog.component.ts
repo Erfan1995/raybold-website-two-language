@@ -60,6 +60,11 @@ export class AddBlogComponent implements OnInit {
           Validators.required
         ]
       ],
+      language: ['',
+        [
+          Validators.required
+        ]
+      ],
       blog_resource: ['',
         []
       ]
@@ -77,6 +82,7 @@ export class AddBlogComponent implements OnInit {
             blog_resource: blog.blog_resource,
             blog_status_id: blog.blog_status_id,
             created_at: blog.created_at,
+            language: blog.language,
             id: blog.id,
             title: blog.title,
             user_id: blog.user_id
@@ -108,6 +114,7 @@ export class AddBlogComponent implements OnInit {
             blog_status_id: result.blog_status_id,
             blog_resource: result.blog_resource,
             user_id: result.user_id,
+            language: result.language,
             created_at: result.created_at
           });
         }
@@ -138,6 +145,7 @@ export class AddBlogComponent implements OnInit {
               item.title = result.title;
               item.blog_category_id = result.blog_category_id;
               item.blog_resource = result.blog_resource;
+              item.language = result.language;
             }
           });
         }
@@ -162,13 +170,13 @@ export class AddBlogComponent implements OnInit {
     );
   }
 
-  openBlogTagsDialog(blogId) {
+  openBlogTagsDialog(blogId, language) {
     const dialogRef = this.dialog.open(BlogTagsDialogComponent, {
       height: '700px',
       width: '600px',
       panelClass: 'custom-dialog-container',
       backdropClass: 'backdropBackground',
-      data: {editData: blogId}
+      data: {editData: blogId, lan: language}
     });
   }
 

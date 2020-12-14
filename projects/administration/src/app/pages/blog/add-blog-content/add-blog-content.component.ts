@@ -30,6 +30,7 @@ export class AddBlogContentComponent implements OnInit {
   fileType;
   updateMode = false;
   addOrUpdateButton = 'اضافه نمودن محتوا';
+  language;
 
   constructor(private activatedRoute: ActivatedRoute,
               private dropDownServices: DropDownService,
@@ -44,6 +45,7 @@ export class AddBlogContentComponent implements OnInit {
   ngOnInit(): void {
     this.blogId = this.activatedRoute.snapshot.params.id;
     this.blogTitle = this.activatedRoute.snapshot.params.title;
+    this.language = this.activatedRoute.snapshot.params.language;
     this.listBlogContent();
     this.initAddBlogContent();
   }
@@ -81,7 +83,8 @@ export class AddBlogContentComponent implements OnInit {
         []
       ],
       is_main_file: [],
-      blog_id: this.blogId
+      blog_id: this.blogId,
+      language: this.language
 
     });
   }

@@ -56,8 +56,8 @@ export class BlogService {
     return this.httpServices._post(this.baseUrl + 'update-blog-status', formData);
   }
 
-  lisTags(blogId): Observable<any> {
-    return this.httpServices.get(this.baseUrl + 'get-blog-tag' + '/' + blogId);
+  lisTags(blogId, lan): Observable<any> {
+    return this.httpServices.get(this.baseUrl + 'get-blog-tag' + '/' + blogId + '/' + lan);
   }
 
   addBlogTag(formData): Observable<any> {

@@ -16,6 +16,8 @@
                           <h3 class="ml-5">{{productTitle}}</h3>
                           <h5 class="ml-5"><small>شما می توانید در قسمت پایین برای محصول بالا محتوا بنوسید </small>
                           </h5>
+                          <h5 class="ml-5"><small>{{language}}</small>
+                          </h5>
                           <br>
                           <div class="tab-content pl-0">
                             <div class="tab-pane active" id="user-status" aria-labelledby="user-status-tab"
@@ -75,14 +77,15 @@
 
                                     <div class="row">
                                       <div class="col-md-12 padding-10">
-                                        <img width="500" height="400" class="margin-top-20 contentImage" [src]="fileSrc">
-<!--                                        <img width="500" height="400" class="margin-top-20 contentImage" [src]="fileSrc"-->
-<!--                                             *ngIf="fileSrc && fileType[0] === 'image'">-->
-<!--                                        <video width="500" height="420" controls-->
-<!--                                               *ngIf="fileSrc && fileType[0]==='video'"-->
-<!--                                               class="margin-top-20">-->
-<!--                                          <source [src]="fileSrc">-->
-<!--                                        </video>-->
+                                        <img width="500" height="400" class="margin-top-20 contentImage"
+                                             [src]="fileSrc">
+                                        <!--                                        <img width="500" height="400" class="margin-top-20 contentImage" [src]="fileSrc"-->
+                                        <!--                                             *ngIf="fileSrc && fileType[0] === 'image'">-->
+                                        <!--                                        <video width="500" height="420" controls-->
+                                        <!--                                               *ngIf="fileSrc && fileType[0]==='video'"-->
+                                        <!--                                               class="margin-top-20">-->
+                                        <!--                                          <source [src]="fileSrc">-->
+                                        <!--                                        </video>-->
                                       </div>
                                     </div>
                                     <div class="row">
@@ -136,19 +139,19 @@
                                  src="{{content?.file_path}}"
                                  alt=""
                                  style=" height: 300px; width:500px">
-<!--                            <img *ngIf="content.file_path!== null-->
-<!--                            && (content.file_path.split('.')[1]==='jpg' || content.file_path.split('.')[1]==='png' )"-->
-<!--                                 class="margin-top-20 "-->
-<!--                                 src="{{content.file_path}}"-->
-<!--                                 alt=""-->
-<!--                                 style=" height: 300px; width:500px">-->
-<!--                            <video width="500" height="420" controls-->
-<!--                                   *ngIf="content.file_path !== null &&-->
-<!--                                    (content.file_path.split('.')[1]==='mp4' || content.file_path.split('.')[1]==='ogg')"-->
-<!--                                   class="margin-top-20">-->
-<!--                              <source src="{{content.file_path}}" type="video/mp4">-->
-<!--                              <source src="{{content.file_path}}" type="video/ogg">-->
-<!--                            </video>-->
+                            <!--                            <img *ngIf="content.file_path!== null-->
+                            <!--                            && (content.file_path.split('.')[1]==='jpg' || content.file_path.split('.')[1]==='png' )"-->
+                            <!--                                 class="margin-top-20 "-->
+                            <!--                                 src="{{content.file_path}}"-->
+                            <!--                                 alt=""-->
+                            <!--                                 style=" height: 300px; width:500px">-->
+                            <!--                            <video width="500" height="420" controls-->
+                            <!--                                   *ngIf="content.file_path !== null &&-->
+                            <!--                                    (content.file_path.split('.')[1]==='mp4' || content.file_path.split('.')[1]==='ogg')"-->
+                            <!--                                   class="margin-top-20">-->
+                            <!--                              <source src="{{content.file_path}}" type="video/mp4">-->
+                            <!--                              <source src="{{content.file_path}}" type="video/ogg">-->
+                            <!--                            </video>-->
                           </div>
                         </div>
                       </div>

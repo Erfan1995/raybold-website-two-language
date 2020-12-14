@@ -26,7 +26,7 @@
                                  role="tabpanel">
                               <form [formGroup]="blogInfoForm" (ngSubmit)="addBlog(blogInfoForm.value)">
                                 <div class="row">
-                                  <div class="col-4">
+                                  <div class="col-3">
                                     <label class="text-bold-600"> عنوان بلاگ <span
                                       class="required">&nbsp;*</span></label>
                                     <div class="form-group row">
@@ -45,7 +45,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-4">
+                                  <div class="col-3">
                                     <label>نوعیت بلاگ<span class="required">&nbsp;*</span></label>
                                     <div class="form-group row">
                                       <div class=" col-sm-11 col-10">
@@ -66,8 +66,31 @@
                                       </div>
                                     </div>
                                   </div>
-
-                                  <div class="col-4">
+                                  <div class="col-3">
+                                    <label>نوعیت زبان<span class="required">&nbsp;*</span></label>
+                                    <div class="form-group row">
+                                      <div class=" col-sm-11 col-10">
+                                        <select class="form-control border-0 shadow-none is-invalid"
+                                                formControlName="language"
+                                                [ngClass]="{'is-invalid': (blogInfoForm.get('language').dirty ||
+                                                blogInfoForm.get('language').touched) && f.language.errors}"
+                                                required>
+                                          <option selected disabled value="">نوعیت زبان</option>
+                                          <option>
+                                            da
+                                          </option>
+                                          <option>
+                                            en
+                                          </option>
+                                        </select>
+                                        <div *ngIf=" f.language.errors" class="invalid-feedback text-left">
+                                          <div
+                                            *ngIf="f.language.errors.required"> {{errorMessages.required}}</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-3">
                                     <label class="text-bold-600"> منبع </label>
                                     <div class="form-group row">
                                       <div class="col-sm-11 col-10">
@@ -114,6 +137,7 @@
                                   </th>
                                   <th>عنوان بلاگ</th>
                                   <th>نوعیت بلاگ</th>
+                                  <th>نوعیت زبان</th>
                                   <th>تاریخ ایجاد</th>
                                   <th>اضافه نمودن محتوا</th>
                                   <th>اضافه نمودن تگ</th>
@@ -129,16 +153,17 @@
                                   </td>
                                   <td>{{blogInfo?.title}}</td>
                                   <td>{{dropDownServices.get('blogCategory', blogInfo.blog_category_id)?.title}}</td>
+                                  <td>{{blogInfo?.language}}</td>
                                   <td class="">{{blogInfo?.created_at| date: 'dd/MM/yyyy'}}</td>
                                   <td>
                                     <button class="btn btn-warning"
-                                            routerLink="../blog-content/{{blogInfo.id}}/{{blogInfo.title}}">
+                                            routerLink="../blog-content/{{blogInfo.id}}/{{blogInfo.title}}/{{blogInfo.language}}">
                                       محتوای بلاگ
                                     </button>
                                   </td>
                                   <td>
                                     <button class="btn btn-warning"
-                                            (click)="openBlogTagsDialog(blogInfo.id)">
+                                            (click)="openBlogTagsDialog(blogInfo.id, blogInfo.language)">
                                       تگ های بلاگ
                                     </button>
                                   </td>

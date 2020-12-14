@@ -40,8 +40,8 @@ export class ServicesService {
     return this.baseUrl + 'serviceContentFile/' + fileName;
   }
 
-  listServiceContent(serviceId: number): Observable<any> {
-    return this.httpServices.get(this.baseUrl + 'list-service-content' + '/' + serviceId);
+  listServiceContent(serviceId: number, language): Observable<any> {
+    return this.httpServices.get(this.baseUrl + 'list-service-content' + '/' + serviceId + '/' + language);
   }
 
   deleteServiceContent(value): Observable<any> {

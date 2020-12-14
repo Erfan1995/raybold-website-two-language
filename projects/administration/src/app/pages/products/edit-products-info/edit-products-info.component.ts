@@ -44,6 +44,11 @@ export class EditProductsInfoComponent implements OnInit {
           Validators.required,
         ]
       ],
+      language: [this.data.editData.language,
+        [
+          Validators.required,
+        ]
+      ],
       id: this.data.editData.id
 
     });
@@ -63,7 +68,8 @@ export class EditProductsInfoComponent implements OnInit {
         this.closeDialog({
           id: value.id,
           title: result.title,
-          link: result.link
+          link: result.link,
+          language: result.language
         });
         this.notificationService.success(generalMessages.successUpdated);
       }, (error: HttpErrorResponse) => {

@@ -19,6 +19,7 @@ class CustomerController extends Controller
             "title" => $data->title,
             "link" => $data->link,
             "review" => $data->review,
+            "language" => $data->language,
             "files" => $request->file('file'),
         ])->validate();
 
@@ -35,6 +36,7 @@ class CustomerController extends Controller
                 "title" => $data->title,
                 "link" => $data->link,
                 "review" => $data->review,
+                "language" => $data->language,
                 "file_id" => $data->file_id,
             ]);
             Storage::disk('local')->put('customerFiles/' . $filePath, \Illuminate\Support\Facades\File::get($customerFile));
@@ -59,6 +61,7 @@ class CustomerController extends Controller
             "title" => $data->title,
             "link" => $data->link,
             "review" => $data->review,
+            "language" => $data->language,
             "files" => $request->file('file'),
         ])->validate();
 
@@ -123,6 +126,7 @@ class CustomerController extends Controller
             'review' => ['required', 'string', 'min:3', 'max:500'],
             'files' => ['required', 'mimes:mp4,mp3,mpga,jpeg,png,svg,jpg'],
             'link' => ['required', 'string', 'min:3', 'max:255'],
+            'language' => ['string'],
         ]);
     }
 
@@ -133,13 +137,15 @@ class CustomerController extends Controller
             'review' => ['required', 'string', 'min:3', 'max:500'],
             'files' => ['nullable', 'mimes:mp4,mp3,mpga,jpeg,png,svg,jpg'],
             'link' => ['required', 'string', 'min:3', 'max:255'],
+            'language' => ['string'],
+
         ]);
     }
 
 
     public function customerList()
     {
-        $data = File::select('files.path', 'customers.id', 'title','review', 'link', 'file_id')
+        $data = File::select('files.path', 'customers.id', 'title', 'review', 'language', 'link', 'file_id')
             ->join('customers', 'customers.file_id', '=', 'files.id')
             ->latest('customers.created_at')->get();
         return response()->json($data);

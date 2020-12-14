@@ -31,6 +31,7 @@ export class AddProductContentComponent implements OnInit {
   fileSize;
   updateMode = false;
   addOrUpdateButton = 'اضافه نمودن محتوا';
+  language;
 
   constructor(private activatedRoute: ActivatedRoute,
               private dropDownServices: DropDownService,
@@ -44,12 +45,13 @@ export class AddProductContentComponent implements OnInit {
   ngOnInit(): void {
     this.productId = this.activatedRoute.snapshot.params.id;
     this.productTitle = this.activatedRoute.snapshot.params.title;
+    this.language = this.activatedRoute.snapshot.params.language;
     this.initAddProductContent();
     this.listProductContent();
   }
 
   listProductContent() {
-    this.productService.listProductContent(this.productId).subscribe(
+    this.productService.listProductContent(this.productId, this.language).subscribe(
       (result) => {
         this.productContent = result;
         this.productContent.reverse();
@@ -83,8 +85,8 @@ export class AddProductContentComponent implements OnInit {
       is_main_file: ['',
         []
       ],
-      product_id: this.productId
-
+      product_id: this.productId,
+      language: this.language
     });
   }
 
