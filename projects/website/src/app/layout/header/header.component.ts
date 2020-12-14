@@ -21,7 +21,8 @@ export class HeaderComponent implements OnInit {
   constructor(private headerService: HeaderService,
               private router: Router,
               private dynamicScriptLoader: DynamicScriptLoaderService,
-              public translate: TranslateService, private getLang: GetLangService) {
+              public translate: TranslateService,
+              private getLang: GetLangService) {
     getLang.configLang();
   }
 

@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpService} from '../../services/http.service';
 import {environment as localEnvironment} from '../../../environments/environment';
 import {environment as productionEnvironment} from '../../../environments/environment.prod';
+import {GetLangService} from '../../services/get-lang.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class HeaderService {
   baseUrl = 'api/header/';
   private env = localEnvironment || productionEnvironment;
 
-  constructor(private httpServices: HttpService) {
+  constructor(private httpServices: HttpService, private langService: GetLangService) {
+    this.baseUrl += this.langService.getLang() + '/';
   }
 
   listServices(): Observable<any> {

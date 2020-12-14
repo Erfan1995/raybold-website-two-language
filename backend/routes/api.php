@@ -166,8 +166,8 @@ Route::get('contact-us/list-contact-us-info', 'ContactUsController@listContactUs
 //});
 
 //Headers
-Route::get('header/list-services', 'ServiceController@listHeaderServices');
-Route::get('header/list-projects-service', 'ServiceController@listProjectServices');
+Route::get('header/{lang}/list-services', 'ServiceController@listHeaderServices');
+Route::get('header/{lang}/list-projects-service', 'ServiceController@listProjectServices');
 
 
 //Home

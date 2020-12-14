@@ -118,6 +118,7 @@ class ProductController extends Controller
                 ->join('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
                 ->join('files', 'files.id', '=', 'product_details_files.files_id')
                 ->where('product_details_files.is_main_file', '=', 1)
+                ->where('products.language', '=', $lang)
                 ->get();
             return response()->json($data);
         } catch (\Exception $exception) {
@@ -137,7 +138,7 @@ class ProductController extends Controller
                 ->join('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
                 ->join('files', 'product_details_files.files_id', '=', 'files.id')
                 ->where([
-                    ['product_details_files.is_main_file', '=', 1],
+                    ['product_details_files.is_main_file', '=', 1], ['products.language', '=', $lang]
                 ])
                 ->latest('products.created_at')->get();
             return response()->json($data);

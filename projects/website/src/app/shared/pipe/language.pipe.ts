@@ -11,11 +11,11 @@ export class LanguagePipe implements PipeTransform {
   }
 
   transform(value: string) {
-    if (value === 'dr') {
-      return 'HEADER.DARI';
+    if (value === 'da') {
+      return 'DARI';
     }
     if (value === 'en') {
-      return 'HEADER.ENGLISH';
+      return 'ENGLISH';
     }
   }
 

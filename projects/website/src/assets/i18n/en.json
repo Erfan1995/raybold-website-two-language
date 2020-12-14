@@ -1,10 +1,12 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular with ngx-translate!",
-    "SELECT": "Change language"
-  },
-  "HEADER": {
-    "DARI": "Dari",
-    "ENGLISH": "English"
-  }
+  "DARI": "Dari",
+  "ENGLISH": "English",
+  "ABOUT_US": "About Us",
+  "LANGUAGE": "Language",
+  "CONTACT_US": "Contact Us",
+  "BLOG": "Blog",
+  "PRODUCTS": "Products",
+  "PORTFOLIO": "Portfolio",
+  "SERVICES": "Services",
+  "HOME": "Home"
 }

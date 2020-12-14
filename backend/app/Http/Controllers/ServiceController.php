@@ -19,7 +19,7 @@ class ServiceController extends Controller
     public function listServiceInfo()
     {
         try {
-            $data = ServiceInfoModel::select('services.title','services.language', 'services.id', 'service_category_id', 'service_category.title as service_category')
+            $data = ServiceInfoModel::select('services.title', 'services.language', 'services.id', 'service_category_id', 'service_category.title as service_category')
                 ->join('service_category', 'services.service_category_id', '=', 'service_category.id')
                 ->latest('services.created_at')->get();
             return response()->json($data);
@@ -115,18 +115,22 @@ class ServiceController extends Controller
     ///
     /// Website
 
-    public function listHeaderServices()
+    public function listHeaderServices($lang)
     {
         try {
             DB::beginTransaction();
             $serviceCategories = ServiceCategoryModel::select('title', 'id')
+                ->where('service_category.language', '=', $lang)
                 ->get();
             $jsonResult = array();
             for ($i = 0; $i < count($serviceCategories); $i++) {
                 $jsonResult[$i]['service_category_name'] = $serviceCategories[$i]->title;
                 $jsonResult[$i]['category_id'] = $serviceCategories[$i]->id;
                 $jsonResult[$i]['services'] = ServiceInfoModel::select('title', 'id as service_id')
-                    ->where('services.service_category_id', '=', $serviceCategories[$i]->id)
+                    ->where([
+                        ['services.service_category_id', '=', $serviceCategories[$i]->id],
+                        ['services.language', '=', $lang]
+                    ])
                     ->get();
             }
             DB::commit();
@@ -182,10 +186,11 @@ class ServiceController extends Controller
         }
     }
 
-    public function listProjectServices()
+    public function listProjectServices($lang)
     {
         try {
             $data = ServiceInfoModel::select('title', 'id as service_id')
+                ->where('services.language', '=', $lang)
                 ->get();
             return response()->json($data);
         } catch (\Exception $exception) {
