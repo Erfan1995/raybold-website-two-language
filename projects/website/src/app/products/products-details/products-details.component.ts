@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ProductsServices} from '../products.services';
+import {Meta, Title} from '@angular/platform-browser';
+import {SetSocialMediaTagsService} from '../../services/set-social-media-tags.service';
 
 @Component({
   selector: 'app-products-details',
@@ -12,9 +14,16 @@ export class ProductsDetailsComponent implements OnInit {
   productTitle;
   productContent;
   productList;
+  url;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private productService: ProductsServices) {
+              private productService: ProductsServices,
+              private setMetaData: SetSocialMediaTagsService
+              // private title: Title,
+              // private meta: Meta
+  ) {
+
+
   }
 
   ngOnInit(): void {
@@ -22,6 +31,12 @@ export class ProductsDetailsComponent implements OnInit {
     this.productTitle = this.activatedRoute.snapshot.params.title;
     this.getProductDetails();
     this.getProductList();
+    this.url = window.location.href;
+    this.setMetaData.setFacebookTags(
+      this.url,
+      this.productTitle,
+      ' this is some text herethis is some text herethis is some text herethis is some text herethis is some text herethis is some text herethis is some text here ',
+      'https://backend.raybold.co/public/api/products/productFiles/2020-12-01-06-26-34am662.jpg');
   }
 
   getProductDetails(productId = null, productName = null) {
@@ -54,5 +69,4 @@ export class ProductsDetailsComponent implements OnInit {
       }
     );
   }
-
 }

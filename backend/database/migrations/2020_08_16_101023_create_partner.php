@@ -17,7 +17,6 @@ class CreatePartner extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('link');
-            $table->string('language')->unsigned();
             $table->integer('files_id')->unsigned();
             $table->foreign('files_id')->references('id')->on('files');
             $table->timestamps();

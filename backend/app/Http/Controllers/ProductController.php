@@ -106,8 +106,9 @@ class ProductController extends Controller
         return response()->json($data);
     }
 
-    public function listAllProducts()
+    public function listAllProducts($lang)
     {
+
         try {
             $data = Product::select('link', 'products.id as product_id', 'products.title', 'content', 'path',
                 'files.id', 'product_details_files.is_main_file')
@@ -124,8 +125,9 @@ class ProductController extends Controller
         }
     }
 
-    public function listProductsForWebsite()
+    public function listProductsForWebsite($lang)
     {
+
         try {
             $data = Product::select('products.title', 'products.id as products_id',
                 'content', 'path', 'product_details.title as subtitle')

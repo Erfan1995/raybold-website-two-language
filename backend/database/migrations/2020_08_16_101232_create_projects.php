@@ -19,7 +19,6 @@ class CreateProjects extends Migration
             $table->foreign('service_id')->references('id')->on('services');
             $table->string('link')->nullable();
             $table->string('title');
-            $table->string('language')->unsigned();
             $table->timestamps();
         });
     }

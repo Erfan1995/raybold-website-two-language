@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HeaderService} from './header.service';
 import {Router} from '@angular/router';
 import {DynamicScriptLoaderService} from '../../services/DynamicScriptLoaderService';
-import {TranslateService} from '@ngx-translate/core';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import {GetLangService} from '../../services/get-lang.service';
 
 @Component({
   selector: 'app-header',
@@ -20,15 +21,8 @@ export class HeaderComponent implements OnInit {
   constructor(private headerService: HeaderService,
               private router: Router,
               private dynamicScriptLoader: DynamicScriptLoaderService,
-              public translate: TranslateService
-  ) {
-
-
-    translate.addLangs(['en', 'dr']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|dr/) ? browserLang : 'en');
+              public translate: TranslateService, private getLang: GetLangService) {
+    getLang.configLang();
   }
 
   ngOnInit(): void {

@@ -5,6 +5,7 @@ import {ProductsDetailsComponent} from './products-details/products-details.comp
 import {ProductsRoutingModule} from './products-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {SetSocialMediaTagsService} from '../services/set-social-media-tags.service';
 
 
 @NgModule({
@@ -14,6 +15,9 @@ import {LazyLoadImageModule} from 'ng-lazyload-image';
     ProductsRoutingModule,
     SharedModule,
     LazyLoadImageModule
+  ],
+  providers: [
+    SetSocialMediaTagsService
   ]
 })
 export class ProductsModule {
