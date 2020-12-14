@@ -91,7 +91,7 @@
           </a>
           <ul class="navigation-dropdown">
             <li class="navigation-dropdown-item"  *ngFor="let lang of translate.getLangs()">
-              <a class="navigation-dropdown-link" (click)="changeLang(lang)" >{{ lang | language | translate }}</a>
+              <span class="navigation-dropdown-link" (click)="changeLang(lang)" >{{ lang | language | translate }}</span>
             </li>
           </ul>
         </li>

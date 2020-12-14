@@ -9,6 +9,7 @@ import {FormatStringPipe} from './pipe/format-string.pipe';
 import {ConfirmationDialogComponent} from './confirmation-dialog/confirmation-dialog.component';
 import {FormatTimePipe} from './pipe/format-time.pipe';
 import { LanguagePipe } from './pipe/language.pipe';
+import { FbLikeShareComponent } from './fb-like-share/fb-like-share.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LanguagePipe } from './pipe/language.pipe';
     ConfirmationDialogComponent,
     FormatTimePipe,
     LanguagePipe,
+    FbLikeShareComponent,
   ],
   entryComponents: [
     LoadingComponent,
@@ -27,7 +29,8 @@ import { LanguagePipe } from './pipe/language.pipe';
     SanitizeHtmlPipe,
     FormatStringPipe,
     FormatTimePipe,
-    LanguagePipe
+    LanguagePipe,
+    FbLikeShareComponent
   ],
   imports: [
     CommonModule,

@@ -2,11 +2,10 @@
 .navigation-dropdown{
   margin-top: -20px;
   margin-right: -30px;
-  width: 100px;
+  width: 150px;
 }
 .navigation-dropdown-item{
   height: 40px;
-  direction: rtl;
 }
 .navigation-dropdown-link{
   cursor: pointer;

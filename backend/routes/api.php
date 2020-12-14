@@ -191,8 +191,8 @@ Route::post('blog/store-blog-comment', 'BlogCommentController@storeBlogComments'
 Route::get('blog/list-blog-comment/{blogId}', 'BlogCommentController@listBlogComments');
 
 //product
-Route::get('products/list-products-info', 'ProductController@listAllProducts');
-Route::get('products/list-products-website', 'ProductController@listProductsForWebsite');
+Route::get('products/{lang}/list-products-info', 'ProductController@listAllProducts');
+Route::get('products/{lang}/list-products-website', 'ProductController@listProductsForWebsite');
 
 //projects
 Route::get('projects/list-projects-by-service/{serviceId}/{offset}', 'ProjectController@getProjectsByService');

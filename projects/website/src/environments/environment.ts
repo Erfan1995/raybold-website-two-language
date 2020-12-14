@@ -3,11 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   baseUrl: {
     frontEnd: {
-       // main: 'https://raybold.co/'
-       main: 'http://localhost:4200/'
+       main: 'https://raybold.co/'
+       // main: 'http://localhost:4200/'
     },
     backend: {
        // main: 'https://backend.raybold.co/public/'

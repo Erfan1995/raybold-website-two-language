@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment as localEnvironment} from '../../environments/environment';
 import {environment as productionEnvironment} from '../../environments/environment.prod';
-import {Observable} from 'rxjs/index';
+import {Observable} from 'rxjs';
 
 export interface IHttpResponse {
     body: any;
@@ -20,46 +20,36 @@ export class HttpService {
     env = localEnvironment || productionEnvironment;
 
     constructor(private http: HttpClient) {
-
         this.baseUrl = this.env.baseUrl.backend.main;
     }
-
 
     _post(url: string, data, options?: {}): Observable<any> {
         data = this.prepareDataFormat(data);
         return this.http.post(this.baseUrl + url, data, options);
     }
-
     postSpecial(url: string, data, options?: {}): Observable<any> {
         return this.http.post(this.baseUrl + url, data, options);
     }
-
     get(url: string, options?: {}): Observable<any> {
         return this.http.get(this.baseUrl + url, options);
     }
-
     delete(url: string, options?: {}): Observable<any> {
         return this.http.delete(this.baseUrl + url, options);
     }
-
     head(url: string, options?: {}): Observable<any> {
         return this.http.head(this.baseUrl + url, options);
     }
-
    _put(url: string, data, options?: {}): Observable<any> {
         data = this.prepareDataFormat(data);
         return this.http.put(this.baseUrl + url, data, options);
     }
-
     options(url: string, options?: {}): Observable<any> {
         return this.http.options(this.baseUrl + url, options);
     }
-
     patch(url: string, data, options?: {}): Observable<any> {
         data = this.prepareDataFormat(data);
         return this.http.patch(this.baseUrl + url, data, options);
     }
-
     jsonp(url: string, options = ''): Observable<any> {
         return this.http.jsonp(this.baseUrl + url, options);
     }
