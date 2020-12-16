@@ -22,11 +22,11 @@ export class FooterComponent implements OnInit {
       subscribe: ['', []]
     });
 
-    this.footerService.listServices().subscribe(
-      result => {
-        this.services = result;
-      }
-    );
+    // this.footerService.listServices().subscribe(
+    //   result => {
+    //     this.services = result;
+    //   }
+    // );
   }
 
   subscribe(value) {

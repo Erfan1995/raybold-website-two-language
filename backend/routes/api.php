@@ -171,9 +171,9 @@ Route::get('header/{lang}/list-projects-service', 'ServiceController@listProject
 
 
 //Home
-Route::get('home/list-products', 'ProductController@listAllProducts');
-Route::get('home/list-customers-review', 'CustomerController@customerList');
-Route::get('home/list-latest-blog', 'BlogController@listLatestBlog');
+Route::get('home/{lang}/list-products', 'ProductController@listAllProducts');
+Route::get('home/{lang}/list-customers-review', 'CustomerController@customerListWebsite');
+Route::get('home/{lang}/list-latest-blog', 'BlogController@listLatestBlog');
 
 
 //Services

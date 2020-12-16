@@ -25,7 +25,7 @@
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4 mb-lg-0 mt-4 ">
           <div class="widget widget_links">
             <h5 class="widget-title pr-4">
-              شرکت
+              {{'COMPANY'|translate}}
             </h5>
             <ul>
               <li>
@@ -34,7 +34,7 @@
                     <use xlink:href="#icon-triangle-arrow"></use>
                   </svg>
 
-                  درباره ما
+                  {{'SERVICES'|translate}}
 
                 </a>
               </li>
@@ -44,7 +44,8 @@
                     <use xlink:href="#icon-triangle-arrow"></use>
                   </svg>
 
-                  خدمات
+                  {{'PRODUCTS'|translate}}
+
 
                 </a>
               </li>
@@ -54,7 +55,8 @@
                     <use xlink:href="#icon-triangle-arrow"></use>
                   </svg>
 
-                  نمونه های کاری
+                  {{'PORTFOLIO'|translate}}
+
 
                 </a>
               </li>
@@ -64,7 +66,8 @@
                     <use xlink:href="#icon-triangle-arrow"></use>
                   </svg>
 
-                  بلاگ
+                  {{'BLOG'|translate}}
+
 
                 </a>
               </li>
@@ -73,7 +76,7 @@
                   <svg class="crumina-icon">
                     <use xlink:href="#icon-triangle-arrow"></use>
                   </svg>
-                  ارتباط با ما
+                  {{'CONTACT_US'|translate}}
 
                 </a>
               </li>
@@ -82,7 +85,7 @@
                   <svg class="crumina-icon">
                     <use xlink:href="#icon-triangle-arrow"></use>
                   </svg>
-                  درباره ما
+                  {{'ABOUT_US'|translate}}
 
                 </a>
               </li>
@@ -125,9 +128,11 @@
           <span class="footer-subscribe-panel-subtitle">به گروپ ما بپیوندید تا ما شما را با اخبار و پیشنهادات خود متعجب بسازیم.</span>
         </div>
         <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12 mb-0 mb-lg-0">
-          <form class="footer-subscribe-form direction-rtl" [formGroup]="subscribeForm" (ngSubmit)="subscribe(subscribeForm.value)">
+          <form class="footer-subscribe-form direction-rtl" [formGroup]="subscribeForm"
+                (ngSubmit)="subscribe(subscribeForm.value)">
             <div class="input-btn--inline">
-              <input class="input--dark" formControlName="subscribe" type="text" placeholder="ایمیل آدرس خودرا وارد کنید!">
+              <input class="input--dark" formControlName="subscribe" type="text"
+                     placeholder="ایمیل آدرس خودرا وارد کنید!">
               <button type="button" class="crumina-button button--lime button--l">عضو شوید</button>
             </div>
           </form>

@@ -159,7 +159,7 @@ class BlogController extends Controller
     /// website
     ///
     ///
-    public function listLatestBlog()
+    public function listLatestBlog($lang)
     {
         try {
             $data = BlogModel::select('blog.title', 'user_id', 'full_name', 'blog_status_id', 'blog_category_id', 'blog_resource', 'blog.created_at',
@@ -170,7 +170,8 @@ class BlogController extends Controller
                 ->join('users', 'blog.user_id', '=', 'users.id')
                 ->where([
                     ['blog_details_files.is_main_file', '=', 1],
-                    ['blog.blog_status_id', '=', 2]
+                    ['blog.blog_status_id', '=', 2],
+                    ['blog.language', '=', $lang]
                 ])
                 ->limit(3)
                 ->latest('created_at')->get();

@@ -3,6 +3,7 @@ import {environment as localEnvironment} from '../../environments/environment';
 import {environment as productionEnvironment} from '../../environments/environment.prod';
 import {Observable} from 'rxjs';
 import {HttpService} from '../services/http.service';
+import {GetLangService} from '../services/get-lang.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class HomeService {
   baseUrl = 'api/home/';
   private env = localEnvironment || productionEnvironment;
 
-  constructor(private httpServices: HttpService) {
+  constructor(private httpServices: HttpService, private langService: GetLangService) {
+    this.baseUrl += this.langService.getLang() + '/';
+
   }
 
   listProducts(): Observable<any> {

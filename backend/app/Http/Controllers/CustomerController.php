@@ -143,10 +143,19 @@ class CustomerController extends Controller
     }
 
 
-    public function customerList()
+    public function customerList($lang)
     {
         $data = File::select('files.path', 'customers.id', 'title', 'review', 'language', 'link', 'file_id')
             ->join('customers', 'customers.file_id', '=', 'files.id')
+            ->latest('customers.created_at')->get();
+        return response()->json($data);
+    }
+
+    public function customerListWebsite($lang)
+    {
+        $data = File::select('files.path', 'customers.id', 'title', 'review', 'language', 'link', 'file_id')
+            ->join('customers', 'customers.file_id', '=', 'files.id')
+            ->where('customers.language', '=', $lang)
             ->latest('customers.created_at')->get();
         return response()->json($data);
     }
