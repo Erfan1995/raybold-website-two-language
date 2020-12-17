@@ -4,22 +4,22 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
-          <h1 class="page-title text-white">لست بلاگ ها</h1>
+          <h1 class="page-title text-white">{{"OUR_BLOG"|translate}}</h1>
           <p class="fw-medium text-white text-center">
-            خواندن بلاگها در افزایش اگاهی تان به شما کمک می کند
+            {{"OUR_BLOG_TEXT"|translate}}
           </p>
           <br>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto">
-              <h4 class="fw-medium text-white text-center">دنبال چه می گردید؟</h4>
+              <h4 class="fw-medium text-white text-center">{{"BLOG_SEARCH"|translate}}</h4>
               <form class="search-popup-form right-direction" [formGroup]="blogSearchForm"
                     (ngSubmit)="searchBlog(blogSearchForm.value)">
                 <div class="input-btn--inline mb-3 direction-rtl">
                   <input formControlName="tag_name" class="input--dark" type="text"
-                         placeholder="کلمه مورد نظر خودرا اینجا بنویسید">
-                  <button type="submit" class="crumina-button button--primary button--l">جستجو</button>
+                         placeholder="{{'BLOG_SEARCH_FIELD'|translate}}">
+                  <button type="submit" class="crumina-button button--primary button--l">{{"SEARCH"|translate}}</button>
                 </div>
               </form>
             </div>
@@ -36,11 +36,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../home">خانه</a>
+              <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a>بلاگ</a>
+              <a>{{"BLOG"|translate}}</a>
             </li>
           </ul>
         </div>
@@ -62,19 +62,20 @@
               <h6>{{blog.title}}</h6>
               <p [innerHTML]="blog.content"></p>
               <div class="author-posted">
-                <p class="author">نویسنده:{{blog.full_name}}</p>
+                <p class="author">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
                 <p>{{blog.created_at| date: 'MMM d, y'}}</p>
               </div>
               <div class="author-content">
                 <a routerLink="./blog-details/{{blog.id}}/{{blog.title}}/{{blog.blog_category_id}}"
-                   class="author-name h6"> بیشتر بخوانید ...</a>
+                   class="author-name h6">{{"READ_MORE"|translate}}</a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-12">
           <div class="text-center padding-10">
-            <button *ngIf="showButton===true" class="btn btn-primary" (click)="viewMoreBlog()">مشاهده بلاگ های بیشتر
+            <button *ngIf="showButton===true" class="btn btn-primary"
+                    (click)="viewMoreBlog()">{{"VIEW_MORE_BLOGS"|translate}}
             </button>
           </div>
         </div>

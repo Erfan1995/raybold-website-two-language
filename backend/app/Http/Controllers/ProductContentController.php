@@ -204,6 +204,25 @@ class ProductContentController extends Controller
         }
     }
 
+    public function listProductContentWebsite($lang, $productId)
+    {
+        try {
+            $data = ProductDetailsModel::select('title', 'product_id', 'content', 'path as file_path',
+                'product_details_files.id as product_details_files_id', 'product_details_files.is_main_file',
+                'product_details.id as content_id', 'product_details.language', 'files.id as file_id')
+                ->leftJoin('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
+                ->leftJoin('files', 'product_details_files.files_id', '=', 'files.id')
+                ->where('product_details.product_id', '=', $productId)
+                ->where('product_details.language', '=', $lang)
+                ->latest('product_details.created_at')->get();
+            return response()->json($data);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => $exception->getMessage()
+            ], 500);
+        }
+    }
+
     public function deleteProductContent(Request $request)
     {
         try {

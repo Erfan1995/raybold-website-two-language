@@ -205,6 +205,25 @@ class ServiceContentController extends Controller
         }
     }
 
+    public function listWebsiteServiceContent($lang, $serviceId)
+    {
+        try {
+            $data = ServiceDetailsModel::select('subtitle', 'service_id', 'content', 'path as file_path', 'services_details.language',
+                'services_details_files.id as service_details_files_id', 'services_details_files.is_main_file',
+                'services_details.id as content_id', 'files.id as file_id')
+                ->leftJoin('services_details_files', 'services_details.id', '=', 'services_details_files.service_details_id')
+                ->leftJoin('files', 'services_details_files.files_id', '=', 'files.id')
+                ->where('services_details.service_id', '=', $serviceId)
+                ->where('services_details.language', '=', $lang)
+                ->latest('services_details.created_at')->get();
+            return response()->json($data);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => $exception->getMessage()
+            ], 500);
+        }
+    }
+
     public function deleteServiceContent(Request $request)
     {
         try {

@@ -184,7 +184,7 @@ class BlogController extends Controller
         }
     }
 
-    public function listBlogWithOffset($offset)
+    public function listBlogWithOffset($lang, $offset)
     {
         try {
             $data = BlogModel::select('blog.title', 'user_id', 'full_name', 'blog_status_id', 'blog_category_id', 'blog_resource', 'blog.created_at',
@@ -195,7 +195,8 @@ class BlogController extends Controller
                 ->join('users', 'blog.user_id', '=', 'users.id')
                 ->where([
                     ['blog_details_files.is_main_file', '=', 1],
-                    ['blog.blog_status_id', '=', 2]
+                    ['blog.blog_status_id', '=', 2],
+                    ['blog.language', '=', $lang]
                 ])
                 ->limit(6)
                 ->offset($offset)
@@ -208,7 +209,7 @@ class BlogController extends Controller
         }
     }
 
-    public function searchBlog(Request $request)
+    public function searchBlog($lang, Request $request)
     {
         try {
             $data = BlogModel::select('blog.title', 'user_id', 'full_name', 'blog_status_id', 'blog_category_id', 'blog_resource', 'blog.created_at',
@@ -222,8 +223,7 @@ class BlogController extends Controller
                     ['blog_details_files.is_main_file', '=', 1],
                     ['blog.blog_status_id', '=', 2],
                     ['blog_tags.name', 'like', '%' . $request->get('tag_name') . '%'],
-
-
+                    ['blog.language', '=', $lang]
                 ])
                 ->latest('created_at')->get();
             return response()->json($data);
@@ -262,7 +262,7 @@ class BlogController extends Controller
         }
     }
 
-    public function listRelatedBlog($categoryId)
+    public function listRelatedBlog($lang, $categoryId)
     {
         try {
             $data = BlogModel::select('blog.title', 'user_id', 'full_name', 'blog_category_id', 'blog_resource', 'blog.created_at',
@@ -273,7 +273,8 @@ class BlogController extends Controller
                 ->join('users', 'blog.user_id', '=', 'users.id')
                 ->where([
                     ['blog_details_files.is_main_file', '=', 1],
-                    ['blog.blog_status_id', '=', 2]
+                    ['blog.blog_status_id', '=', 2],
+                    ['blog.language', '=', $lang]
                 ])
                 ->where('blog.blog_category_id', '=', $categoryId)
                 ->limit(5)

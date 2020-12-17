@@ -7,6 +7,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [ServiceComponent, ServicesDetailsComponent],
@@ -16,7 +17,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     MatDialogModule,
     SharedModule,
     ReactiveFormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    TranslateModule
   ]
 })
 export class ServiceModule {

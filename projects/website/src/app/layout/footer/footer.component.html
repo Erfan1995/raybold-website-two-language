@@ -99,7 +99,7 @@
             <a href="/home" class="site-logo mr-3">
               <img loading="lazy" src="assets/img/demo-content/list-item/color-logo.png" alt="logo" width="185">
             </a>
-            <p class="ml-6">راههای ارتباطی دگر ما را نیز دنبال کنید</p>
+            <p class="ml-6">{{"FOLLOW_US"|translate}}</p>
             <ul class="socials">
               <li class="ml-2">
                 <a href="https://www.facebook.com/raybold20">
@@ -124,16 +124,16 @@
     <div class="container">
       <div class="row align-items-start text-right">
         <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 mb-4 mb-lg-0">
-          <h5 class="footer-subscribe-panel-title text-white">خبرنامه ما را سبسکرایب نمایید!</h5>
-          <span class="footer-subscribe-panel-subtitle">به گروپ ما بپیوندید تا ما شما را با اخبار و پیشنهادات خود متعجب بسازیم.</span>
+          <h5 class="footer-subscribe-panel-title text-white">{{"SUBSCRIBE_TEXT1"|translate}}</h5>
+          <span class="footer-subscribe-panel-subtitle">{{"SUBSCRIBE_TEXT"|translate}}</span>
         </div>
         <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12 mb-0 mb-lg-0">
           <form class="footer-subscribe-form direction-rtl" [formGroup]="subscribeForm"
                 (ngSubmit)="subscribe(subscribeForm.value)">
             <div class="input-btn--inline">
               <input class="input--dark" formControlName="subscribe" type="text"
-                     placeholder="ایمیل آدرس خودرا وارد کنید!">
-              <button type="button" class="crumina-button button--lime button--l">عضو شوید</button>
+                     placeholder="{{'ENTER_EMAIL_ADDRESS'|translate}}">
+              <button type="button" class="crumina-button button--lime button--l">{{"SUBSCRIBE"|translate}}</button>
             </div>
           </form>
         </div>

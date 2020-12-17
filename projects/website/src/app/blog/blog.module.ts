@@ -6,6 +6,7 @@ import {BlogRoutingModule} from './blog-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {LazyLoadImageModule} from 'ng-lazyload-image';
     BlogRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    TranslateModule
   ]
 })
 export class BlogModule {

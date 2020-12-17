@@ -61,7 +61,6 @@ Route::get('service/list-service-info', 'ServiceController@listServiceInfo');
 Route::post('service/add-service-content', 'ServiceContentController@addServiceContent');
 Route::post('service/update-service-content', 'ServiceContentController@updateServiceContent');
 Route::get('service/list-service-content/{serviceId}/{language}', 'ServiceContentController@listServiceContent');
-Route::get('website-service/list-service-content/{serviceId}', 'ServiceContentController@listServiceContent');
 Route::post('service/delete-service-content', 'ServiceContentController@deleteServiceContent');
 Route::get('service/list-all-service', 'ServiceContentController@listAllServices');
 Route::get('service/serviceContentFile/{file_name}', function ($filename) {
@@ -177,22 +176,26 @@ Route::get('home/{lang}/list-latest-blog', 'BlogController@listLatestBlog');
 
 
 //Services
-Route::get('website-service/list-service-base-category/{categoryId}', 'ServiceController@listServicesForWebsite');
-Route::get('website-service/all-services', 'ServiceController@listAllServicesForWebsite');
+Route::get('website-service/{lang}/list-service-base-category/{categoryId}', 'ServiceController@listServicesForWebsite');
+Route::get('website-service/{lang}/all-services', 'ServiceController@listAllServicesForWebsite');
+Route::get('website-service/{lang}/list-service-content/{serviceId}', 'ServiceContentController@listWebsiteServiceContent');
+
 
 //about us
 Route::get('about-us/info', 'AboutUsController@aboutUsInfo');
 //blog
-Route::get('blog/list-blog/{offset}', 'BlogController@listBlogWithOffset');
-Route::post('blog/list-searched-blog', 'BlogController@searchBlog');
+Route::get('blog/{lang}/list-blog/{offset}', 'BlogController@listBlogWithOffset');
+Route::post('blog/{lang}/list-searched-blog', 'BlogController@searchBlog');
 Route::get('blog/list-blog-content-tags/{blogId}', 'BlogController@listBlogContentAndTags');
-Route::get('blog/list-related-blog/{categoryId}', 'BlogController@listRelatedBlog');
+Route::get('blog/{lang}/list-related-blog/{categoryId}', 'BlogController@listRelatedBlog');
 Route::post('blog/store-blog-comment', 'BlogCommentController@storeBlogComments');
 Route::get('blog/list-blog-comment/{blogId}', 'BlogCommentController@listBlogComments');
 
 //product
 Route::get('products/{lang}/list-products-info', 'ProductController@listAllProducts');
 Route::get('products/{lang}/list-products-website', 'ProductController@listProductsForWebsite');
+Route::get('products/{lang}/list-product-content-website/{productId}', 'ProductContentController@listProductContentWebsite');
+
 
 //projects
 Route::get('projects/list-projects-by-service/{serviceId}/{offset}', 'ProjectController@getProjectsByService');

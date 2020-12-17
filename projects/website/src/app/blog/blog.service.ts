@@ -3,6 +3,7 @@ import {environment as localEnvironment} from '../../environments/environment';
 import {environment as productionEnvironment} from '../../environments/environment.prod';
 import {HttpService} from '../services/http.service';
 import {Observable} from 'rxjs';
+import {GetLangService} from '../services/get-lang.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class BlogService {
   baseUrl = 'api/blog/';
   private env = localEnvironment || productionEnvironment;
 
-  constructor(private httpServices: HttpService) {
+  constructor(private httpServices: HttpService, private langService: GetLangService) {
+    this.baseUrl += this.langService.getLang() + '/';
+
   }
 
   listBlog(offSet): Observable<any> {
@@ -20,7 +23,7 @@ export class BlogService {
   }
 
   blogFilePath(fileName: string) {
-    return this.env.baseUrl.backend.main + this.baseUrl + 'blogContentFile/' + fileName;
+    return this.env.baseUrl.backend.main + 'api/blog/' + 'blogContentFile/' + fileName;
   }
 
   listSearchedBlog(formData): Observable<any> {
@@ -28,7 +31,7 @@ export class BlogService {
   }
 
   getBlogDetails(blogId: number): Observable<any> {
-    return this.httpServices.get(this.baseUrl + 'list-blog-content-tags' + '/' + blogId);
+    return this.httpServices.get('api/blog/' + 'list-blog-content-tags' + '/' + blogId);
   }
 
   listRelatedBlog(categoryId): Observable<any> {
@@ -36,10 +39,10 @@ export class BlogService {
   }
 
   storeBlogComments(formData): Observable<any> {
-    return this.httpServices._post(this.baseUrl + 'store-blog-comment', formData);
+    return this.httpServices._post('api/blog/' + 'store-blog-comment', formData);
   }
 
   listBlogComment(blogId): Observable<any> {
-    return this.httpServices.get(this.baseUrl + 'list-blog-comment/' + blogId);
+    return this.httpServices.get('api/blog/' + 'list-blog-comment/' + blogId);
   }
 }

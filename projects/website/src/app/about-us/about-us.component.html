@@ -4,9 +4,10 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
-          <h1 class="page-title text-white">ما کی هستیم؟</h1>
-          <p class="page-text text-white right-direction">ما یک تیم از انجنیران نرم افزار و دیزاینرهای گرافیک می باشیم
-            که در دو بخش خدمات نرم افزاری و گرافیکی فعالیت می کنیم.</p>
+          <h1 class="page-title text-white">{{"WHO_WE_ARE"|translate}}</h1>
+          <p class="page-text text-white right-direction">
+            {{"WHO_WE_ARE_TEXT"|translate}}
+          </p>
         </div>
       </div>
     </div>
@@ -17,11 +18,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../home">خانه</a>
+              <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a>درباره ما</a>
+              <a>{{"ABOUT_US"|translate}}</a>
             </li>
           </ul>
         </div>
@@ -32,7 +33,7 @@
     <div class="container">
       <div class="row" *ngFor="let aboutUs of aboutUsInfo">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center mb-5 ml-auto mr-auto">
-          <h2>در باره ما بیشتربدانید</h2>
+          <h2>{{"KNOW_US"|translate}}</h2>
           <p class="fs-18 fw-medium" [innerHTML]="aboutUs.content"></p>
           <img [src]="aboutUs.path" alt="">
         </div>
@@ -46,7 +47,7 @@
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                   <div class="tabs--time-line-content text-right">
                     <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2018</div>-->
-                    <h3 class="tabs--time-line-title">بنیانگذاری شرکت</h3>
+                    <h3 class="tabs--time-line-title">{{"COMPANY_FOUNDATION"|translate}}</h3>
                     <p class="right-direction">
                       شرکت نرم افزار و گرافیک ری بولد در سال ۲۰۱۸ میلادی توسط سه تن از فارغ التحصیلان رشته کمپیوتر ساینس
                       دانشگاه پولی تخنیک کابل بنیانگذاری شد.
