@@ -17,6 +17,7 @@ class CreateAboutUs extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
+            $table->string('language');
             $table->timestamps();
         });
     }

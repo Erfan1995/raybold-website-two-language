@@ -25,6 +25,7 @@ class ProductContentController extends Controller
                 'product_id' => $data->product_id,
                 'title' => $data->title,
                 'content' => $data->content,
+                'language' => $data->language,
                 'is_main_file' => $data->is_main_file,
                 'file_path' => $request->file('file')
             ])->validate();
@@ -37,7 +38,8 @@ class ProductContentController extends Controller
                 $insertedContentData = $this->addProductContentFunc([
                     'title' => $data->title,
                     'product_id' => $data->product_id,
-                    'content' => $data->content
+                    'content' => $data->content,
+                    'language' => $data->language,
                 ]);
                 $insertedFile = FileModel::create([
                     'path' => $data->file_path
@@ -74,6 +76,7 @@ class ProductContentController extends Controller
                     'title' => $request->get('title'),
                     'product_id' => $request->get('product_id'),
                     'content' => $request->get('content'),
+                    'language' => $request->get('language'),
                 ]);
                 return response()->json([
                     'title' => $insertedContentData->title,
@@ -92,7 +95,6 @@ class ProductContentController extends Controller
     public function updateProductContent(Request $request)
     {
         $file_id = null;
-        Log::info($request->all());
         if ($request->file('file')) {
             $data = json_decode($request->get('integratedFormData'));
             $this->productContentValidator([
@@ -102,7 +104,6 @@ class ProductContentController extends Controller
                 'is_main_file' => $data->is_main_file,
                 'file_path' => $request->file('file')
             ])->validate();
-            Log::info($data->file_path);
             $file = $request->file('file');
             Storage::makeDirectory('productFiles');
             $filePath = date("Y-m-d-h-i-sa") . rand(1, 1000) . "." . $file->getClientOriginalExtension();
@@ -119,7 +120,6 @@ class ProductContentController extends Controller
                     $insertedFile = FileModel::create([
                         'path' => $data->file_path
                     ]);
-                    Log::info($data->former_file_path);
                     $file_id = $insertedFile->id;
                     $serviceDetailsFiles = ProductDetailsFilesModel::create([
                         'product_details_id' => $data->content_id,
@@ -185,15 +185,35 @@ class ProductContentController extends Controller
         }
     }
 
-    public function listProductContent($productId)
+    public function listProductContent($productId, $lan)
     {
         try {
             $data = ProductDetailsModel::select('title', 'product_id', 'content', 'path as file_path',
                 'product_details_files.id as product_details_files_id', 'product_details_files.is_main_file',
-                'product_details.id as content_id', 'files.id as file_id')
+                'product_details.id as content_id', 'product_details.language', 'files.id as file_id')
                 ->leftJoin('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
                 ->leftJoin('files', 'product_details_files.files_id', '=', 'files.id')
                 ->where('product_details.product_id', '=', $productId)
+                ->where('product_details.language', '=', $lan)
+                ->latest('product_details.created_at')->get();
+            return response()->json($data);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => $exception->getMessage()
+            ], 500);
+        }
+    }
+
+    public function listProductContentWebsite($lang, $productId)
+    {
+        try {
+            $data = ProductDetailsModel::select('title', 'product_id', 'content', 'path as file_path',
+                'product_details_files.id as product_details_files_id', 'product_details_files.is_main_file',
+                'product_details.id as content_id', 'product_details.language', 'files.id as file_id')
+                ->leftJoin('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
+                ->leftJoin('files', 'product_details_files.files_id', '=', 'files.id')
+                ->where('product_details.product_id', '=', $productId)
+                ->where('product_details.language', '=', $lang)
                 ->latest('product_details.created_at')->get();
             return response()->json($data);
         } catch (\Exception $exception) {
@@ -266,15 +286,16 @@ class ProductContentController extends Controller
             'title' => $data['title'],
             'product_id' => $data['product_id'],
             'content' => $data['content'],
+            'language' => $data['language'],
         ]);
     }
 
     protected function productContentValidator(array $data)
     {
         return Validator::make($data, [
-            'title' => ['string'],
             'product_id' => ['required', 'numeric'],
             'content' => ['required', 'string'],
+            'language' => ['string'],
             'file_path' => ['mimes:mp4,mov,flv,ogg,jpg,png,jpeg'],
             'is_main_file' => []
         ]);

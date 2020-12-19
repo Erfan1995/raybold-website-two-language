@@ -1,9 +1,9 @@
-<nav id="navigation" class="site-header navigation navigation-justified header--sticky " >
+<nav id="navigation" class="site-header navigation navigation-justified header--sticky ">
   <div class="container">
-    <div class="navigation-header" >
+    <div class="navigation-header">
       <div class="navigation-logo">
       </div>
-      <div class="navigation-button-toggler" >
+      <div class="navigation-button-toggler">
         <i class="hamburger-icon"></i>
       </div>
     </div>
@@ -13,13 +13,13 @@
       <ul class="navigation-menu right-direction">
         <li class="navigation-item  is-active">
           <a class="navigation-link" routerLink="/home">
-            صفحه اصلی
+            {{'HOME'|translate}}
           </a>
         </li>
         <!--services-->
         <li class="navigation-item">
           <a class="navigation-link " routerLink="../services">
-            خدمات
+            {{'SERVICES'|translate}}
             <span class="submenu-indicator"></span>
           </a>
           <div class="navigation-megamenu">
@@ -44,7 +44,7 @@
         <!--projects-->
         <li class="navigation-item">
           <a class="navigation-link " routerLink="../projects">
-            نمونه کارها
+            {{'PORTFOLIO'|translate}}
             <span class="submenu-indicator"></span>
           </a>
           <div class="navigation-megamenu">
@@ -69,37 +69,37 @@
         <!--products-->
         <li class="navigation-item ">
           <a class="navigation-link" routerLink="../products">
-            محصولات
+            {{'PRODUCTS'|translate}}
           </a>
         </li>
         <!--blog-->
         <li class="navigation-item">
-          <a class="navigation-link" routerLink="../blog">بلاگ</a>
+          <a class="navigation-link" routerLink="../blog">{{'BLOG'| translate}}</a>
         </li>
         <!--contact-->
         <li class="navigation-item">
-          <a class="navigation-link" routerLink="../contact-us">ارتباط با ما</a>
+          <a class="navigation-link" routerLink="../contact-us">{{'CONTACT_US'|translate}}</a>
         </li>
         <!--about us-->
         <li class="navigation-item">
-          <a class="navigation-link" routerLink="../about-us">درباره ما</a>
+          <a class="navigation-link" routerLink="../about-us"> {{'ABOUT_US'|translate}}</a>
         </li>
 
         <li class="navigation-item">
           <a class="navigation-link" href="#">
-            زبان
+            {{'LANGUAGE'|translate}}
           </a>
           <ul class="navigation-dropdown">
-            <li class="navigation-dropdown-item"  *ngFor="let lang of translate.getLangs()">
-              <span class="navigation-dropdown-link" (click)="changeLang(lang)" >{{ lang | language | translate }}</span>
+            <li class="navigation-dropdown-item" *ngFor="let lang of translate.getLangs()">
+              <span class="navigation-dropdown-link" (click)="changeLang(lang)">{{ lang | language | translate }}</span>
             </li>
           </ul>
         </li>
-<!--        <li class="navigation-item">-->
-<!--          <select #langSelect class="language-select" (change)="" >-->
-<!--            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>-->
-<!--          </select>-->
-<!--        </li>-->
+        <!--        <li class="navigation-item">-->
+        <!--          <select #langSelect class="language-select" (change)="" >-->
+        <!--            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>-->
+        <!--          </select>-->
+        <!--        </li>-->
 
       </ul>
       <div class="navigation-body-header">

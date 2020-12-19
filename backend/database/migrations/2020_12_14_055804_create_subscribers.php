@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogTags extends Migration
+class CreateSubscribers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateBlogTags extends Migration
      */
     public function up()
     {
-        Schema::create('blog_tags', function (Blueprint $table) {
+        Schema::create('subscribers', function (Blueprint $table) {
+            //
             $table->increments('id');
-            $table->string('name');
-            $table->string('language');
-            $table->integer('blog_id')->unsigned();
-            $table->foreign('blog_id')->references('id')->on('blog');
-            $table->timestamps();
+            $table->string('email');
         });
     }
 
@@ -30,6 +27,8 @@ class CreateBlogTags extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_tags');
+        Schema::create('subscribers', function (Blueprint $table) {
+            //
+        });
     }
 }

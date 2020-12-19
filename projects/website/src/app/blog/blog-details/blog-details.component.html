@@ -12,7 +12,7 @@
             <div *ngIf="blog?.is_main_file && blog.is_main_file !='0'">
               <p class="page-title text-white right-direction" [innerHTML]="blog?.content"></p>
               <div class="author-posted">
-                <p class="right-direction">نویسنده:{{blog.full_name}}</p>
+                <p class="right-direction">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
                 <p>{{blog.created_at| date: 'MMM d, y'}}</p>
               </div>
             </div>
@@ -27,11 +27,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../../home">خانه</a>
+              <a href="../../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a href="../blog">بلاگ</a>
+              <a href="../blog">{{"BLOG"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
@@ -73,7 +73,7 @@
           <div class="row">
             <div class="container height-100 ">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <p class="fs-14 c-placeholder mt-2 text-right">لطفا نظریات تان را از طریق کمنت با ما شریک سازید</p>
+                <p class="fs-14 c-placeholder mt-2 text-right">{{"COMMENTS"|translate}}</p>
                 <form class="submit-request-form right-direction" [formGroup]="commentsForm"
                       (ngSubmit)="sendComments(commentsForm.value)">
                   <div class="row">
@@ -90,12 +90,13 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <div class="form-item">
                         <textarea class="input--grey input--squared" formControlName="comment"
-                                  placeholder="نظریات تان را اینجا نبویسید"
+                                  placeholder="{{'WRITE_COMMENTS'|translate}}"
                                   rows="4"></textarea>
                       </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-center pb-4">
-                      <button type="submit" class="crumina-button button--primary button--l">ارسال نظریات</button>
+                      <button type="submit"
+                              class="crumina-button button--primary button--l">{{"SHARE_YOUR_COMMENTS"|translate}}</button>
                     </div>
                   </div>
                 </form>
@@ -118,7 +119,7 @@
 
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto align-center m-0">
-                <h4 style="background-color: #eee;border-radius: 5px " class="p-3">بلاگ های مرتبط</h4>
+                <h4 style="background-color: #eee;border-radius: 5px " class="p-3">{{"RELATED_BLOGS"|translate}}</h4>
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4 sorting-item technology business text-right "
                    data-mh="blog-item" *ngFor="let blog of blogList">
@@ -139,7 +140,7 @@
                       <p><span [innerHTML]="blog.content|formatString"></span></p>
                     </div>
                     <div class="author-posted">
-                      <p class="author">نویسنده:{{blog.full_name}}</p>
+                      <p class="author">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
 
                     </div>
                   </div>

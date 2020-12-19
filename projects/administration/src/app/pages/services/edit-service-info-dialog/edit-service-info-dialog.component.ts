@@ -47,6 +47,11 @@ export class EditServiceInfoDialogComponent implements OnInit {
           Validators.required,
         ]
       ],
+      language: [this.data.editData.language,
+        [
+          Validators.required,
+        ]
+      ],
       id: this.data.editData.id
 
     });
@@ -66,6 +71,7 @@ export class EditServiceInfoDialogComponent implements OnInit {
         this.closeDialog({
           id: value.id,
           title: result.title,
+          language: result.language,
           service_category_id: result.service_category_id
         });
         this.notificationService.success(generalMessages.successUpdated);

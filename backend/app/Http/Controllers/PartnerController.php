@@ -18,6 +18,7 @@ class PartnerController extends Controller
         $this->validator([
             "title" => $data->title,
             "link" => $data->link,
+            "language" => $data->language,
             "files" => $request->file('file'),
         ])->validate();
 
@@ -33,6 +34,7 @@ class PartnerController extends Controller
             $insertedData = Partner::create([
                 "title" => $data->title,
                 "link" => $data->link,
+                "language" => $data->language,
                 "files_id" => $data->files_id,
             ]);
             Storage::disk('local')->put('partnerFiles/' . $filePath, \Illuminate\Support\Facades\File::get($partnerFile));
@@ -56,6 +58,7 @@ class PartnerController extends Controller
         $this->updateValidator([
             "title" => $data->title,
             "link" => $data->link,
+            "language" => $data->language,
             "files" => $request->file('file'),
         ])->validate();
 
@@ -118,6 +121,7 @@ class PartnerController extends Controller
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'files' => ['required', 'mimes:mp4,mp3,mpga,jpeg,png,svg,jpg'],
             'link' => ['required', 'string', 'min:3', 'max:255'],
+            'language' => ['string'],
         ]);
     }
 
@@ -127,13 +131,14 @@ class PartnerController extends Controller
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'files' => ['nullable', 'mimes:mp4,mp3,mpga,jpeg,png,svg,jpg'],
             'link' => ['required', 'string', 'min:3', 'max:255'],
+            'language' => ['string'],
         ]);
     }
 
 
     public function partnerList()
     {
-        $data = File::select('files.path', 'partner.id', 'title', 'link', 'files_id')
+        $data = File::select('files.path', 'partner.id', 'title', 'language', 'link', 'files_id')
             ->join('partner', 'partner.files_id', '=', 'files.id')
             ->latest('partner.created_at')->get();
         return response()->json($data);

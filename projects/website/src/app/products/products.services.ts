@@ -21,7 +21,7 @@ export class ProductsServices {
   }
 
   getProductContent(productId: number): Observable<any> {
-    return this.httpServices.get(this.baseUrl + 'list-product-content/' + productId);
+    return this.httpServices.get(this.baseUrl + 'list-product-content-website/' + productId);
   }
 
   listProducts(): Observable<any> {
@@ -29,6 +29,6 @@ export class ProductsServices {
   }
 
   FilePath(fileName: string) {
-    return this.env.baseUrl.backend.main + this.baseUrl + 'productFiles/' + fileName;
+    return this.env.baseUrl.backend.main + 'api/products/' + 'productFiles/' + fileName;
   }
 }

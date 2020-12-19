@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ViewProductsComponent
   },
   {
-    path: 'add-product-content/:id/:title',
+    path: 'add-product-content/:id/:title/:language',
     component: AddProductContentComponent
   },
 

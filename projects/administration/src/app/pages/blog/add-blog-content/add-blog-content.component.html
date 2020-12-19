@@ -16,6 +16,8 @@
                           <h3 class="ml-5">{{blogTitle}}</h3>
                           <h5 class="ml-5"><small>شما می توانید در قسمت پایین برای بلاگ بالا محتوا بنوسید </small>
                           </h5>
+                          <h5 class="ml-5"><small>{{language}}</small>
+                          </h5>
                           <br>
                           <div class="tab-content pl-0">
                             <div class="tab-pane active" id="user-status" aria-labelledby="user-status-tab"
@@ -73,9 +75,10 @@
                                     </div>
 
                                     <div class="row">
-                                      <div class="col-md-12 padding-10" >
-                                        <img width="500" height="400" class="margin-top-20 contentImage" [src]="imageSrc" *ngIf="imageSrc"
-                                             >
+                                      <div class="col-md-12 padding-10">
+                                        <img width="500" height="400" class="margin-top-20 contentImage"
+                                             [src]="imageSrc" *ngIf="imageSrc"
+                                        >
                                       </div>
                                     </div>
                                     <div class="row">
@@ -125,7 +128,8 @@
                             </div>
                             <h4 class="margin-top-20">{{content?.title}}</h4>
                             <p><span class="text-left" [innerHTML]=" content?.content  |sanitizeHtml "></span></p>
-                            <img width="500" height="400" *ngIf="content?.image_path !== null" class="margin-top-20 " src="{{content?.image_path}}"
+                            <img width="500" height="400" *ngIf="content?.image_path !== null" class="margin-top-20 "
+                                 src="{{content?.image_path}}"
                                  alt="">
                           </div>
                         </div>

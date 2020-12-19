@@ -22,14 +22,14 @@ export class AboutUsComponent implements OnInit {
   }
 
   getAboutUsInfo() {
-    this.aboutUsService.getAboutUsInfo().subscribe(
-      (result) => {
-        this.aboutUsInfo = result;
-        this.aboutUsInfo.forEach((item) => {
-          item.path = this.aboutUsService.FilePath(item.path);
-        });
-      }
-    );
+    // this.aboutUsService.getAboutUsInfo().subscribe(
+    //   (result) => {
+    //     this.aboutUsInfo = result;
+    //     this.aboutUsInfo.forEach((item) => {
+    //       item.path = this.aboutUsService.FilePath(item.path);
+    //     });
+    //   }
+    // );
   }
 
   getCustomerReview() {

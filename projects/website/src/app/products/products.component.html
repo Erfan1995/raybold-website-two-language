@@ -4,17 +4,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
-          <h1 class="page-title text-white">محصولات ری بولد</h1>
+          <h1 class="page-title text-white">{{"RAYBOLD_PRODUCTS"|translate}}</h1>
           <br>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto">
               <p class="fw-medium text-white text-center right-direction">
-                شرکت ری بولد با در نظرداشت ضرورتهای جامعه و مشتریان خویش تعدادی از محصولات ساوفتویری کاربردی خودرا به
-                شما معرفی می کند.این سیستم ها از لحاظ کیفی، کاربردی، و سهولت در استفاده رضایت اکثر مشتریان خویش را کسب
-                کرده است.
-
+                {{"PRODUCT_PAGE_TEXT"|translate}}
               </p>
             </div>
           </div>
@@ -30,11 +27,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../home">خانه</a>
+              <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a href="#">محصولات</a>
+              <a href="#">{{"PRODUCTS"|translate}}</a>
             </li>
           </ul>
         </div>
@@ -59,7 +56,7 @@
                 <div class="pricing-notice mt-3" [innerHTML]="product.content"></div>
 
                 <a routerLink="./products-details/{{product.product_id}}/{{product.title}}"
-                   class="crumina-button button--lime button--bordered button--xl w-100">جزییات</a>
+                   class="crumina-button button--lime button--bordered button--xl w-100">{{"DETAILS"|translate}}</a>
 
 
               </div>

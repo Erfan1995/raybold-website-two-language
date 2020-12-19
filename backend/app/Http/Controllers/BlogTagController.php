@@ -27,11 +27,12 @@ class BlogTagController extends Controller
         }
     }
 
-    public function listBlogTag($blogId)
+    public function listBlogTag($blogId,$lan)
     {
         try {
             $data = BlogTagModel::select('name', 'blog_id', 'created_at', 'id')
                 ->where('blog_tags.blog_id', '=', $blogId)
+                ->where('blog_tags.language', '=', $lan)
                 ->latest('created_at')->get();
             Log::info($data);
             return response()->json($data);

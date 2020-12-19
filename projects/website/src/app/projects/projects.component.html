@@ -4,12 +4,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
-          <h1 class="page-title text-white"> {{serviceTitle}}</h1>
-          <p class="fw-medium text-white text-center right-direction">خلاقیت و نوآوری در ساخت محصول، امتیازی است که ما
-            به عنوان یک شرکت
-            برنامه نویسی وگرافیک به آن افتخار می‌کنیم. طراحان و برنامه نویسان ری بولد، همگام با مشتری، داستان ساخت
-            پروژه‌ها
-            را شروع می‌کنند.</p>
+          <h1 *ngIf="serviceId" class="page-title text-white"> {{serviceTitle}}</h1>
+          <h1 *ngIf="!serviceId" class="page-title text-white"> {{"PORTFOLIO"|translate}}</h1>
+          <p class="fw-medium text-white text-center right-direction">{{"PORTFOLIO_TEXT"|translate}}</p>
         </div>
       </div>
     </div>
@@ -21,11 +18,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../home">خانه</a>
+              <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a>نمونه کارها</a>
+              <a>{{"PORTFOLIO"|translate}}</a>
             </li>
           </ul>
         </div>

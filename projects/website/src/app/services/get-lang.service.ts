@@ -28,7 +28,7 @@ export class GetLangService {
   }
 
   configLang() {
-    this.translate.addLangs(['en', 'dr']);
+    this.translate.addLangs(['en', 'da']);
     this.setDefaultLang();
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       localStorage.setItem('lang', event.lang);

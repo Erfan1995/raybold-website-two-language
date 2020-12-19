@@ -4,9 +4,10 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
-          <h1 class="page-title text-white">ما کی هستیم؟</h1>
-          <p class="page-text text-white right-direction">ما یک تیم از انجنیران نرم افزار و دیزاینرهای گرافیک می باشیم
-            که در دو بخش خدمات نرم افزاری و گرافیکی فعالیت می کنیم.</p>
+          <h1 class="page-title text-white">{{"WHO_WE_ARE"|translate}}</h1>
+          <p class="page-text text-white right-direction">
+            {{"WHO_WE_ARE_TEXT"|translate}}
+          </p>
         </div>
       </div>
     </div>
@@ -17,11 +18,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../home">خانه</a>
+              <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a>درباره ما</a>
+              <a>{{"ABOUT_US"|translate}}</a>
             </li>
           </ul>
         </div>
@@ -32,30 +33,24 @@
     <div class="container">
       <div class="row" *ngFor="let aboutUs of aboutUsInfo">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center mb-5 ml-auto mr-auto">
-          <h2>در باره ما بیشتربدانید</h2>
+          <h2>{{"KNOW_US"|translate}}</h2>
           <p class="fs-18 fw-medium" [innerHTML]="aboutUs.content"></p>
           <img [src]="aboutUs.path" alt="">
         </div>
       </div>
       <div class="row tabs tabs--time-line align-items-center">
-
         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="time-2018" role="tabpanel" aria-labelledby="time-2018-tab">
               <div class="row align-items-center">
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                   <div class="tabs--time-line-content text-right">
-                    <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2018</div>-->
-                    <h3 class="tabs--time-line-title">بنیانگذاری شرکت</h3>
+                    <h3 class="tabs--time-line-title">{{"COMPANY_FOUNDATION"|translate}}</h3>
                     <p class="right-direction">
-                      شرکت نرم افزار و گرافیک ری بولد در سال ۲۰۱۸ میلادی توسط سه تن از فارغ التحصیلان رشته کمپیوتر ساینس
-                      دانشگاه پولی تخنیک کابل بنیانگذاری شد.
-
+                      {{"COMPANY_FOUNDATION_TEXT1"|translate}}
                     </p>
                     <p class="right-direction">
-                      با آنکه مسیر رشد برای شرکتها خصوصا شرکتهای نوپا در افغانستان بسیار ناهموار میباشد طوریکه اکثر
-                      شرکتهای نوپا در کمتر از یکسال شکست می خورند. اما شرکت ما با باورمندی بر توانایی ها ،‌ اراده،‌ و
-                      تلاش بنیانگذاران آن توانست براین ناهمواری غلبه ومسیرش را برای رسیدن به اهداف بزرگش هموار کند.
+                      {{"COMPANY_FOUNDATION_TEXT2"|translate}}
                     </p>
                     <p>
                     </p>
@@ -81,14 +76,9 @@
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                   <div class="tabs--time-line-content text-right">
                     <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2017</div>-->
-                    <h3 class="tabs--time-line-title">دست آوردها</h3>
+                    <h3 class="tabs--time-line-title">{{"ACHIEVEMENTS"|translate}}</h3>
                     <p class="right-direction">
-                      سال ۲۰۱۹ یک سال پر از دستاورد برای ما بود. برعلاوه اجرای پروژهای خورد و بزرگ دگر،‌ موفق به انجام
-                      پروژه های بزرگ در سطح کشور شویم.به عنوان نمونه می توان از سیستم مدیریت انتخابات سال ۲۰۱۹ که برای
-                      تیم دولت ساز ساخته بودیم نام برد. این سیستم که به منظور جمع آوری گزارشات نتایج انتخابات از تمام
-                      ولایات کشور ساخته شده بود متشکل از اپلیشکن موبایل(اندروید و آیفون) و اپلیکشن وب بود.
-                      یکی از دستاورد مهم دگر ما ساخت سافتویر زیتون بود. این سافتویر برای مدیریت حاضری الکترونیکی ساخته
-                      شده بود. دلیل ساخت آن مشکلاتی بود که کاربران و مسؤلان مدیریت حاضری روبرو می شدند.
+                      {{"ACHIEVEMENTS_TEXT"|translate}}
                     </p>
                   </div>
                 </div>
@@ -106,15 +96,12 @@
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 text-right right-direction">
                   <div class="tabs--time-line-content">
                     <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2019</div>-->
-                    <h3 class="tabs--time-line-title">شروع خدمات گرافیکی</h3>
+                    <h3 class="tabs--time-line-title">{{"START_GRAPHIC_SERVICES"|translate}}</h3>
                     <p>
-                      در اوایل سال ۲۰۲۰ به دنبال ارائه موفق خدمات نرم افزاری، ما با در نظرداشت ضروریات جامعه و صاحبان
-                      کسب و کار تصمیم به آغاز ارائه خدمات گرافیکی گرفتیم. خوشبختانه در این مدت توانیستیم رضایت مشتریان
-                      را جلب کنیم.افتخار داریم که دامنه خدمات ما هرروز گسترده تر می شود.
+                      {{"START_GRAPHIC_SERVICES_TEXT1"|translate}}
                     </p>
                     <p>
-                      اکنون ما در تمام بخشهای گرافیکی با داشتن تیم توانا و باتجربه آماده هرگونه همکاری جهت رشد بهتر کسب
-                      و کار مشتریان خویش می باشیم.
+                      {{"START_GRAPHIC_SERVICES_TEXT2"|translate}}
                     </p>
                   </div>
                 </div>
@@ -164,12 +151,12 @@
       </div>
     </div>
   </section>
-  <section class="large-section-padding bg-green-themes">
+  <section class="large-section-padding bg-blue-themes">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center mb-5 ml-auto mr-auto">
-          <h2 class="text-white">تا به امروز در ری بولد چی گذشته است</h2>
-          <p class="fs-18 fw-medium text-white">ما با افتخار دست آوردهای تیم خودرا به شکل مختصر به شما نشان میدهیم</p>
+          <h2 class="text-white">{{"WHAT_HAPPENED"|translate}}</h2>
+          <p class="fs-18 fw-medium text-white">{{"WHAT_HAPPENED_TEXT"|translate}}</p>
         </div>
       </div>
 
@@ -179,30 +166,27 @@
             <div class="nav nav-tabs" id="tabs-with-slider" role="tablist">
               <a class="nav-item nav-link active " id="simplified-cloud-tab" data-toggle="tab" href="#simplified-cloud"
                  role="tab" aria-controls="simplified-cloud" aria-selected="true">
-                <img [defaultImage]="'assets/img/loader-2.svg'"
-                     lazyLoad="assets/img/demo-content/icons/tab-icon2.png" alt="customers">
-
-                مشتری ها
+                <img loading="lazy" src="assets/img/demo-content/icons/customer.png" alt="tab">
+                {{"CLIENTS"|translate}}
                 <span class="font-size-large">
                   +40
                 </span>
               </a>
               <a class="nav-item nav-link" id="instant-setup-tab" data-toggle="tab" href="#instant-setup" role="tab"
                  aria-controls="instant-setup" aria-selected="false">
-                <img [defaultImage]="'assets/img/loader-2.svg'"
-                     lazyLoad="assets/img/demo-content/icons/tab-icon3.png" alt="customers">
-                محصولات
+                <img loading="lazy" src="assets/img/demo-content/icons/product.png" alt="tab">
+                {{"PRODUCTS"|translate}}
+
                 <span class="font-size-large">
                   +5
                 </span>
               </a>
               <a class="nav-item nav-link " id="boost-website-speed-tab" data-toggle="tab"
                  href="#boost-website-speed" role="tab" aria-controls="boost-website-speed" aria-selected="false">
-                <img [defaultImage]="'assets/img/loader-2.svg'"
-                     lazyLoad="assets/img/demo-content/icons/tab-icon4.png" alt="customers">
-                پروژه ها
+                <img loading="lazy" src="assets/img/demo-content/icons/project.png" alt="tab">
+                {{"PROJECTS"|translate}}
                 <span class="font-size-large">
-                  +30
+                   +30
                 </span>
               </a>
             </div>
@@ -216,37 +200,36 @@
                   <div class="swiper-wrapper">
                     <div class="row align-items-center">
                       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-                        <h3 class="text-white">مشتریان ما</h3>
-                        <p class="text-white">ری بولد در طول چندین سال خدمات موفق خویش توانسته است اعتماد تعداد زیادی از
-                          مشتریانش را جلب کرده و روابط دوامدار و دوستانه ای را شکل دهد. </p>
-                        <p class="text-white">این مشتریان در بخشهای ذیل کتگوری بندی می شود:</p>
+                        <h3 class="text-white"> {{"CLIENTS"|translate}}</h3>
+                        <p class="text-white">{{"CLIENTS_TEXT"|translate}} </p>
+                        <p class="text-white">{{"CLIENTS_CATEGORY"|translate}}</p>
                         <ul class="list--standard list--icon-blue">
                           <li>
                             <svg class="crumina-icon">
                               <use xlink:href="#icon-single-arrow"></use>
                             </svg>
                             <span>&nbsp;&nbsp;</span>
-                            <span class="text-white">مشتریان خدمات نرم افزاری</span>
+                            <span class="text-white">{{"SOFTWARE_CLIENTS"|translate}}</span>
                           </li>
                           <li>
                             <svg class="crumina-icon">
                               <use xlink:href="#icon-single-arrow"></use>
                             </svg>
                             <span>&nbsp;&nbsp;</span>
-                            <span class="text-white">مشتریان خدمات گرافیکی</span>
+                            <span class="text-white">{{"GRAPHIC_CLIENTS"|translate}}</span>
                           </li>
                           <li>
                             <svg class="crumina-icon">
                               <use xlink:href="#icon-single-arrow"></use>
                             </svg>
                             <span>&nbsp;&nbsp;</span>
-                            <span class="text-white">مشتریان خدمات مشاوره</span>
+                            <span class="text-white">{{"CONSULTANCY_CLIENTS"|translate}}</span>
                           </li>
                         </ul>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4 mb-md-0">
-                        <img [defaultImage]="'assets/img/loader-2.svg'"
-                             lazyLoad="assets/img/demo-content/icons/tab-icon5.png" alt="customers">
+                        <img loading="lazy" [defaultImage]="'assets/img/loader-2.svg'"
+                             lazyLoad="assets/img/demo-content/images/customers.png" alt="products">
 
                       </div>
                     </div>
@@ -261,44 +244,46 @@
                 <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
                   <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-                      <h3 class="text-white">محصولات</h3>
-                      <p class="text-white">تیم ری بولد با در نظرداشت ضرورت های نرم افزاری جامعه و ایجاد سهولت برای
-                        صاحبان کسب وکار و سازمانها تعدادی از سیستم های کاربردی را تهیه کرده است</p>
-                      <p class="text-white">این سیستم ها </p>
+                      <h3 class="text-white">{{"PRODUCTS"|translate}}</h3>
+                      <p class="text-white">
+                        {{"PRODUCTS_TEXT"|translate}}
+                      </p>
+                      <p class="text-white">{{"OUR_PRODUCTS"|translate}}</p>
                       <ul class="list--standard list--icon-blue">
                         <li>
                           <svg class="crumina-icon">
                             <use xlink:href="#icon-single-arrow"></use>
                           </svg>
                           <span>&nbsp;&nbsp;</span>
-                          <span class="text-white">سیستم حاضری بایومتریک</span>
+                          <span class="text-white">{{"BIOMETRIC_SYSTEM"|translate}}</span>
                         </li>
                         <li>
                           <svg class="crumina-icon">
                             <use xlink:href="#icon-single-arrow"></use>
                           </svg>
                           <span>&nbsp;&nbsp;</span>
-                          <span class="text-white">سیستم مدیریت شفاخانه</span>
+                          <span class="text-white">{{"HOSPITAL_SYSTEM"|translate}}</span>
                         </li>
                         <li>
                           <svg class="crumina-icon">
                             <use xlink:href="#icon-single-arrow"></use>
                           </svg>
                           <span>&nbsp;&nbsp;</span>
-                          <span class="text-white">سیستم مدیریت رستورانت</span>
+                          <span class="text-white">{{"RESTAURANT_SYSTEM"|translate}}</span>
                         </li>
                         <li>
                           <svg class="crumina-icon">
                             <use xlink:href="#icon-single-arrow"></use>
                           </svg>
                           <span>&nbsp;&nbsp;</span>
-                          <span class="text-white">سیستم مدیریت مکتب</span>
+                          <span class="text-white">{{"SCHOOL_SYSTEM"|translate}}</span>
                         </li>
                       </ul>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-md-0">
-                      <img [defaultImage]="'assets/img/loader-2.svg'"
-                           lazyLoad="assets/img/demo-content/icons/tab-icon5.png" alt="customers">
+                      <img loading="lazy" [defaultImage]="'assets/img/loader-2.svg'"
+                           lazyLoad="assets/img/demo-content/images/products.png" alt="products">
+
                     </div>
 
                   </div>
@@ -313,15 +298,14 @@
                 <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
                   <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-                      <h3 class="text-white">پروژه ها</h3>
-                      <p class="text-white">تیم ری بولد افتخار دارد که از آغاز کار خویش به عنوان شرکت نرم افزاری و
-                        گرافیکی
-                        تا اکنون توانسته است پروژه های با کیفیت و مورد پسند مشتریان خویش را در بخش نرم افزار و گرافیک به
-                        موفقیت تکمیل کند. </p>
+                      <h3 class="text-white">{{"PROJECTS"|translate}}</h3>
+                      <p class="text-white">
+                        {{"PROJECT_TEXT"|translate}}
+                      </p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-md-0">
-                      <img [defaultImage]="'assets/img/loader-2.svg'"
-                           lazyLoad="assets/img/demo-content/icons/tab-icon5.png" alt="customers">
+                      <img loading="lazy" [defaultImage]="'assets/img/loader-2.svg'"
+                           lazyLoad="assets/img/demo-content/images/projects.png" alt="products">
                     </div>
 
                   </div>
@@ -463,7 +447,7 @@
     <div class="container right-direction ">
       <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto align-center">
-          <h2>مشتریان ما درباره ما چه می گویند</h2>
+          <h2>{{"WHAT_OUR_CLIENTS_SAY"|translate}}</h2>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 right-direction">
           <div

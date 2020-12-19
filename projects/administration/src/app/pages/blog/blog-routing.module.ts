@@ -25,7 +25,7 @@ const routes: Routes = [
     canActivate: [AdminBloggerAuthGuardService]
   },
   {
-    path: 'blog-content/:id/:title',
+    path: 'blog-content/:id/:title/:language',
     component: AddBlogContentComponent
   }
 ];

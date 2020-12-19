@@ -33,7 +33,7 @@ Route::post('blog/delete-blog-info', 'BlogController@deleteBlogInfo');
 Route::post('blog/update-blog-status', 'BlogController@updateBlogStatus');
 
 Route::post('blog/add-blog-tag', 'BlogTagController@addBlogTag');
-Route::get('blog/get-blog-tag/{blogId}', 'BlogTagController@listBlogTag');
+Route::get('blog/get-blog-tag/{blogId}/{lan}', 'BlogTagController@listBlogTag');
 Route::post('blog/update-blog-tag', 'BlogTagController@updateBlogTag');
 Route::post('blog/delete-blog-tag', 'BlogTagController@deleteBlogTag');
 
@@ -60,8 +60,7 @@ Route::get('service/list-service-info', 'ServiceController@listServiceInfo');
 //service Content
 Route::post('service/add-service-content', 'ServiceContentController@addServiceContent');
 Route::post('service/update-service-content', 'ServiceContentController@updateServiceContent');
-Route::get('service/list-service-content/{serviceId}', 'ServiceContentController@listServiceContent');
-Route::get('website-service/list-service-content/{serviceId}', 'ServiceContentController@listServiceContent');
+Route::get('service/list-service-content/{serviceId}/{language}', 'ServiceContentController@listServiceContent');
 Route::post('service/delete-service-content', 'ServiceContentController@deleteServiceContent');
 Route::get('service/list-all-service', 'ServiceContentController@listAllServices');
 Route::get('service/serviceContentFile/{file_name}', function ($filename) {
@@ -86,7 +85,7 @@ Route::get('products/list-products', 'ProductController@productList');
 //product content
 Route::post('products/add-product-content', 'ProductContentController@addProductContent');
 Route::post('products/update-product-content', 'ProductContentController@updateProductContent');
-Route::get('products/list-product-content/{productId}', 'ProductContentController@listProductContent');
+Route::get('products/list-product-content/{productId}/{lan}', 'ProductContentController@listProductContent');
 Route::post('products/delete-product-content', 'ProductContentController@deleteProductContent');
 Route::get('products/list-all-product', 'ProductContentController@listAllProducts');
 Route::get('products/productFiles/{file_name}', function ($filename) {
@@ -155,6 +154,8 @@ Route::get('aboutus/aboutUsFiles/{file_name}', function ($filename) {
     return \Response::make($image, 200)->header('Content-Type', $mime);
 });
 
+Route::get('contact-us/list-contact-us-info', 'ContactUsController@listContactUsInfo');
+
 ///
 /// ============================================================================================================================
 ///Website
@@ -164,33 +165,37 @@ Route::get('aboutus/aboutUsFiles/{file_name}', function ($filename) {
 //});
 
 //Headers
-Route::get('header/list-services', 'ServiceController@listHeaderServices');
-Route::get('header/list-projects-service', 'ServiceController@listProjectServices');
+Route::get('header/{lang}/list-services', 'ServiceController@listHeaderServices');
+Route::get('header/{lang}/list-projects-service', 'ServiceController@listProjectServices');
 
 
 //Home
-Route::get('home/list-products', 'ProductController@listAllProducts');
-Route::get('home/list-customers-review', 'CustomerController@customerList');
-Route::get('home/list-latest-blog', 'BlogController@listLatestBlog');
+Route::get('home/{lang}/list-products', 'ProductController@listAllProducts');
+Route::get('home/{lang}/list-customers-review', 'CustomerController@customerListWebsite');
+Route::get('home/{lang}/list-latest-blog', 'BlogController@listLatestBlog');
 
 
 //Services
-Route::get('website-service/list-service-base-category/{categoryId}', 'ServiceController@listServicesForWebsite');
-Route::get('website-service/all-services', 'ServiceController@listAllServicesForWebsite');
+Route::get('website-service/{lang}/list-service-base-category/{categoryId}', 'ServiceController@listServicesForWebsite');
+Route::get('website-service/{lang}/all-services', 'ServiceController@listAllServicesForWebsite');
+Route::get('website-service/{lang}/list-service-content/{serviceId}', 'ServiceContentController@listWebsiteServiceContent');
+
 
 //about us
 Route::get('about-us/info', 'AboutUsController@aboutUsInfo');
 //blog
-Route::get('blog/list-blog/{offset}', 'BlogController@listBlogWithOffset');
-Route::post('blog/list-searched-blog', 'BlogController@searchBlog');
+Route::get('blog/{lang}/list-blog/{offset}', 'BlogController@listBlogWithOffset');
+Route::post('blog/{lang}/list-searched-blog', 'BlogController@searchBlog');
 Route::get('blog/list-blog-content-tags/{blogId}', 'BlogController@listBlogContentAndTags');
-Route::get('blog/list-related-blog/{categoryId}', 'BlogController@listRelatedBlog');
+Route::get('blog/{lang}/list-related-blog/{categoryId}', 'BlogController@listRelatedBlog');
 Route::post('blog/store-blog-comment', 'BlogCommentController@storeBlogComments');
 Route::get('blog/list-blog-comment/{blogId}', 'BlogCommentController@listBlogComments');
 
 //product
 Route::get('products/{lang}/list-products-info', 'ProductController@listAllProducts');
 Route::get('products/{lang}/list-products-website', 'ProductController@listProductsForWebsite');
+Route::get('products/{lang}/list-product-content-website/{productId}', 'ProductContentController@listProductContentWebsite');
+
 
 //projects
 Route::get('projects/list-projects-by-service/{serviceId}/{offset}', 'ProjectController@getProjectsByService');

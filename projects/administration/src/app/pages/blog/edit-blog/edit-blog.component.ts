@@ -46,6 +46,11 @@ export class EditBlogComponent implements OnInit {
           Validators.required
         ]
       ],
+      language: [data.language,
+        [
+          Validators.required
+        ]
+      ],
       blog_resource: [data.blog_resource,
         []
       ],
@@ -61,6 +66,7 @@ export class EditBlogComponent implements OnInit {
           title: result.title,
           blog_category_id: result.blog_category_id,
           blog_resource: result.blog_resource,
+          language: result.language,
           blog_status_id: this.data.editData.blog_status_id,
           user_id: this.data.editData.user_id
         });

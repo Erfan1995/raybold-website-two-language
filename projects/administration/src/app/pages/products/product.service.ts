@@ -58,8 +58,8 @@ export class ProductService {
     return this.env.baseUrl.backend.main + '' + this.baseUrl + 'productFiles/' + fileName;
   }
 
-  listProductContent(productId): Observable<any> {
-    return this.httpServices.get(this.baseUrl + 'list-product-content/' + productId);
+  listProductContent(productId, lan): Observable<any> {
+    return this.httpServices.get(this.baseUrl + 'list-product-content/' + productId + '/' + lan);
   }
 
   deleteProductContent(value): Observable<any> {
@@ -73,6 +73,7 @@ export class ProductService {
   updateProductContent(formData): Observable<any> {
     return this.httpServices._post(this.baseUrl + 'update-product-content', formData);
   }
+
   listAllProducts(): Observable<any> {
     return this.httpServices.get(this.baseUrl + 'list-all-product');
   }

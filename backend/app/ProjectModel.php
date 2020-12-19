@@ -12,5 +12,6 @@ class ProjectModel extends Model
         'link',
         'title',
         'service_id',
+        'language'
     ];
 }

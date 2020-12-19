@@ -56,6 +56,9 @@ export class AddProductsComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(254),
       ]],
+      language: [null, [
+        Validators.required,
+      ]],
     });
   }
 
@@ -88,6 +91,7 @@ export class AddProductsComponent implements OnInit {
             if (result.id === item.id) {
               item.title = result.title;
               item.link = result.link;
+              item.language = result.language;
             }
           });
         }

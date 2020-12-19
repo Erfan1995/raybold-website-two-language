@@ -46,6 +46,7 @@ class ProductController extends Controller
             $data = Product::findOrFail($request->get('id'));
             $data->title = $request->get('title');
             $data->link = $request->get('link');
+            $data->language = $request->get('language');
             $data->save();
             return response()->json($data);
         } catch (\Exception $exception) {
@@ -95,6 +96,7 @@ class ProductController extends Controller
         return Validator::make($data, [
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'link' => ['required', 'string', 'min:3', 'max:255'],
+            'language' => ['string'],
 
         ]);
     }
@@ -116,6 +118,7 @@ class ProductController extends Controller
                 ->join('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
                 ->join('files', 'files.id', '=', 'product_details_files.files_id')
                 ->where('product_details_files.is_main_file', '=', 1)
+                ->where('products.language', '=', $lang)
                 ->get();
             return response()->json($data);
         } catch (\Exception $exception) {
@@ -135,7 +138,7 @@ class ProductController extends Controller
                 ->join('product_details_files', 'product_details.id', '=', 'product_details_files.product_details_id')
                 ->join('files', 'product_details_files.files_id', '=', 'files.id')
                 ->where([
-                    ['product_details_files.is_main_file', '=', 1],
+                    ['product_details_files.is_main_file', '=', 1], ['products.language', '=', $lang]
                 ])
                 ->latest('products.created_at')->get();
             return response()->json($data);

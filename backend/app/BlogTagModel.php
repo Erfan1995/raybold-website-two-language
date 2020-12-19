@@ -10,6 +10,7 @@ class BlogTagModel extends Model
     protected $table = "blog_tags";
     protected $fillable = [
         'name',
-        'blog_id'
+        'blog_id',
+        'language'
     ];
 }

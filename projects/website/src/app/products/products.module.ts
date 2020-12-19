@@ -6,6 +6,7 @@ import {ProductsRoutingModule} from './products-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
 import {SetSocialMediaTagsService} from '../services/set-social-media-tags.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {SetSocialMediaTagsService} from '../services/set-social-media-tags.servi
     CommonModule,
     ProductsRoutingModule,
     SharedModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    TranslateModule
   ],
   providers: [
     SetSocialMediaTagsService

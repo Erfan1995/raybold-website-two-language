@@ -74,6 +74,9 @@ export class PartnersComponent implements OnInit {
       file: [null, [
         Validators.required,
       ]],
+      language: [null, [
+        Validators.required,
+      ]],
     });
   }
 
@@ -89,6 +92,9 @@ export class PartnersComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(254),
+      ]],
+      language: [null, [
+        Validators.required,
       ]],
       file: [''],
       id: [data && data.id],
@@ -128,6 +134,7 @@ export class PartnersComponent implements OnInit {
             if (item.id === partnerForm.value.id) {
               item.title = partnerForm.value.title;
               item.link = partnerForm.value.link;
+              item.language = partnerForm.value.language;
               if (res.path) {
                 item.path = this.partnerService.filePath(res.path);
               }

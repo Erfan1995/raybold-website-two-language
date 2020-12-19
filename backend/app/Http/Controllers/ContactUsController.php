@@ -28,6 +28,18 @@ class ContactUsController extends Controller
         }
     }
 
+    public function listContactUsInfo()
+    {
+        try {
+            $data = ContactUsModel::select('full_name', 'email', 'phone', 'content', 'created_at')->get();
+            return response()->json($data);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => $exception->getMessage()
+            ], 500);
+        }
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [

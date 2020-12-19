@@ -26,6 +26,7 @@ class ServiceContentController extends Controller
                 'subtitle' => $data->subtitle,
                 'content' => $data->content,
                 'is_main_file' => $data->is_main_file,
+                'language' => $data->language,
                 'file_path' => $request->file('file')
             ])->validate();
             $file = $request->file('file');
@@ -37,7 +38,8 @@ class ServiceContentController extends Controller
                 $insertedContentData = $this->addServiceContentFunc([
                     'subtitle' => $data->subtitle,
                     'service_id' => $data->service_id,
-                    'content' => $data->content
+                    'content' => $data->content,
+                    'language' => $data->language
                 ]);
                 $insertedFile = FileModel::create([
                     'path' => $data->file_path
@@ -74,6 +76,8 @@ class ServiceContentController extends Controller
                     'subtitle' => $request->get('subtitle'),
                     'service_id' => $request->get('service_id'),
                     'content' => $request->get('content'),
+                    'language' => $request->get('language'),
+
                 ]);
                 return response()->json([
                     'subtitle' => $insertedContentData->subtitle,
@@ -182,15 +186,35 @@ class ServiceContentController extends Controller
         }
     }
 
-    public function listServiceContent($serviceId)
+    public function listServiceContent($serviceId, $language)
     {
         try {
-            $data = ServiceDetailsModel::select('subtitle', 'service_id', 'content', 'path as file_path',
+            $data = ServiceDetailsModel::select('subtitle', 'service_id', 'content', 'path as file_path', 'services_details.language',
                 'services_details_files.id as service_details_files_id', 'services_details_files.is_main_file',
                 'services_details.id as content_id', 'files.id as file_id')
                 ->leftJoin('services_details_files', 'services_details.id', '=', 'services_details_files.service_details_id')
                 ->leftJoin('files', 'services_details_files.files_id', '=', 'files.id')
                 ->where('services_details.service_id', '=', $serviceId)
+                ->where('services_details.language', '=', $language)
+                ->latest('services_details.created_at')->get();
+            return response()->json($data);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => $exception->getMessage()
+            ], 500);
+        }
+    }
+
+    public function listWebsiteServiceContent($lang, $serviceId)
+    {
+        try {
+            $data = ServiceDetailsModel::select('subtitle', 'service_id', 'content', 'path as file_path', 'services_details.language',
+                'services_details_files.id as service_details_files_id', 'services_details_files.is_main_file',
+                'services_details.id as content_id', 'files.id as file_id')
+                ->leftJoin('services_details_files', 'services_details.id', '=', 'services_details_files.service_details_id')
+                ->leftJoin('files', 'services_details_files.files_id', '=', 'files.id')
+                ->where('services_details.service_id', '=', $serviceId)
+                ->where('services_details.language', '=', $lang)
                 ->latest('services_details.created_at')->get();
             return response()->json($data);
         } catch (\Exception $exception) {
@@ -260,21 +284,25 @@ class ServiceContentController extends Controller
 
     private function addServiceContentFunc(array $data)
     {
+        Log::info($data);
         return ServiceDetailsModel::create($data, [
             'subtitle' => $data['subtitle'],
             'service_id' => $data['service_id'],
             'content' => $data['content'],
+            'language' => $data['language']
         ]);
     }
 
     protected function serviceContentValidator(array $data)
     {
+        Log::info($data);
         return Validator::make($data, [
             'subtitle' => [],
             'service_id' => ['required', 'numeric'],
             'content' => ['required', 'string'],
             'file_path' => ['mimes:mp4,mov,flv,ogg,jpg,png,jpeg'],
-            'is_main_file' => []
+            'is_main_file' => [],
+            'language' => ['string']
         ]);
     }
 

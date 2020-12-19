@@ -1,16 +1,71 @@
+<!-- BEGIN: Content-->
 <div class="app-content content">
   <div class="content-overlay"></div>
   <div class="content-wrapper">
-    <div class="users-list-filter px-1">
-
+    <div class="content-header row">
     </div>
-    <div class="content-body">
+    <div class="content-body"><!-- page user profile start -->
+      <section class="page-user-profile">
+        <div class="row">
+          <div class="col-12">
+            <!-- user profile content section start -->
+            <div class="row">
+              <!-- user profile nav tabs content start -->
+              <div class="col-lg-12">
+                <div class="row">
 
-      <!-- Decks section start -->
-      <p>contact us</p>
-      <!-- Decks section end -->
-
-
+                  <!-- user profile nav tabs feed middle section start -->
+                  <div class="col-lg-12">
+                    <!-- user profile nav tabs feed middle section post card start -->
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="content-body"><!-- invoice list -->
+                          <section class="invoice-list-wrapper">
+                            <!-- create invoice button-->
+                            <!-- Options and filter dropdown button-->
+                            <div class="table-responsive">
+                              <table class="table dt-responsive nowrap">
+                                <thead>
+                                <tr>
+                                  <th>
+                                    <span class="align-middle">شماره</span>
+                                  </th>
+                                  <th>نام</th>
+                                  <th>ایمیل</th>
+                                  <th>شماره تماس</th>
+                                  <th>تاریخ</th>
+                                  <th>محتوا</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let product of contactUsInfo;let i=index">
+                                  <td>
+                                    <span class="bullet bullet-success bullet-sm"></span>
+                                    <small class="text-muted">{{i + 1 }}</small>
+                                  </td>
+                                  <td>{{product?.full_name}}</td>
+                                  <td>{{product?.email}}</td>
+                                  <td>{{product?.phone}}</td>
+                                  <td>{{product?.created_at| date: 'dd/MM/yyyy'}}</td>
+                                  <td>
+                                    <button (click)="contentDetails(product.content)"
+                                            class="btn btn-warning">محتوا</button>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@ class ServiceController extends Controller
     public function listServiceInfo()
     {
         try {
-            $data = ServiceInfoModel::select('services.title', 'services.id', 'service_category_id', 'service_category.title as service_category')
+            $data = ServiceInfoModel::select('services.title', 'services.language', 'services.id', 'service_category_id', 'service_category.title as service_category')
                 ->join('service_category', 'services.service_category_id', '=', 'service_category.id')
                 ->latest('services.created_at')->get();
             return response()->json($data);
@@ -36,10 +36,12 @@ class ServiceController extends Controller
         try {
             $insertedData = ServiceInfoModel::create([
                 'title' => $request->get('title'),
+                'language' => $request->get('language'),
                 'service_category_id' => $request->get('service_category_id')
             ]);
             return response()->json([
                 'title' => $insertedData->title,
+                'language' => $insertedData->language,
                 'id' => $insertedData->id,
                 'service_category_id' => $insertedData->service_category_id
             ]);
@@ -55,6 +57,7 @@ class ServiceController extends Controller
         try {
             $serviceCategory = ServiceInfoModel::find($request->get('id'));
             $serviceCategory->title = $request->get('title');
+            $serviceCategory->language = $request->get('language');
             $serviceCategory->service_category_id = $request->get('service_category_id');
             $serviceCategory->save();
             return response()->json($serviceCategory);
@@ -112,18 +115,22 @@ class ServiceController extends Controller
     ///
     /// Website
 
-    public function listHeaderServices()
+    public function listHeaderServices($lang)
     {
         try {
             DB::beginTransaction();
             $serviceCategories = ServiceCategoryModel::select('title', 'id')
+                ->where('service_category.language', '=', $lang)
                 ->get();
             $jsonResult = array();
             for ($i = 0; $i < count($serviceCategories); $i++) {
                 $jsonResult[$i]['service_category_name'] = $serviceCategories[$i]->title;
                 $jsonResult[$i]['category_id'] = $serviceCategories[$i]->id;
                 $jsonResult[$i]['services'] = ServiceInfoModel::select('title', 'id as service_id')
-                    ->where('services.service_category_id', '=', $serviceCategories[$i]->id)
+                    ->where([
+                        ['services.service_category_id', '=', $serviceCategories[$i]->id],
+                        ['services.language', '=', $lang]
+                    ])
                     ->get();
             }
             DB::commit();
@@ -136,7 +143,7 @@ class ServiceController extends Controller
         }
     }
 
-    public function listServicesForWebsite($categoryId)
+    public function listServicesForWebsite($lang, $categoryId)
     {
         try {
             $data = ServiceInfoModel::select('services.title', 'services.id as service_id', 'service_category_id',
@@ -147,7 +154,8 @@ class ServiceController extends Controller
                 ->join('service_category', 'services.service_category_id', '=', 'service_category.id')
                 ->where([
                     ['services_details_files.is_main_file', '=', 1],
-                    ['service_category_id', '=', $categoryId]
+                    ['service_category_id', '=', $categoryId],
+                    ['services.language', '=', $lang]
                 ])
                 ->latest('services.created_at')->get();
             return response()->json($data);
@@ -158,7 +166,7 @@ class ServiceController extends Controller
         }
     }
 
-    public function listAllServicesForWebsite()
+    public function listAllServicesForWebsite($lang)
     {
         try {
             $data = ServiceInfoModel::select('services.title', 'services.id as service_id', 'service_category_id',
@@ -169,6 +177,7 @@ class ServiceController extends Controller
                 ->join('service_category', 'services.service_category_id', '=', 'service_category.id')
                 ->where([
                     ['services_details_files.is_main_file', '=', 1],
+                    ['services.language', '=', $lang]
                 ])
                 ->latest('services.created_at')->get();
             return response()->json($data);
@@ -179,10 +188,11 @@ class ServiceController extends Controller
         }
     }
 
-    public function listProjectServices()
+    public function listProjectServices($lang)
     {
         try {
             $data = ServiceInfoModel::select('title', 'id as service_id')
+                ->where('services.language', '=', $lang)
                 ->get();
             return response()->json($data);
         } catch (\Exception $exception) {

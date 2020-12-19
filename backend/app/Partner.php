@@ -11,5 +11,6 @@ class Partner extends Model
         'link',
         'title',
         'files_id',
+        'language'
     ];
 }

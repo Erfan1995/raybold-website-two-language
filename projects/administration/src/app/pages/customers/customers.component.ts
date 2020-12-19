@@ -15,6 +15,7 @@ export interface ICustomer {
   path: string;
   file_id: number;
   review: string;
+  language: string;
 }
 
 @Component({
@@ -74,6 +75,9 @@ export class CustomersComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(254),
       ]],
+      language: [null, [
+        Validators.required,
+      ]],
       file: [null, [
         Validators.required,
       ]],
@@ -106,6 +110,7 @@ export class CustomersComponent implements OnInit {
       file: [''],
       id: [data && data.id],
       file_id: [data && data.file_id],
+      language: [data && data.language]
     });
   }
 
@@ -141,6 +146,7 @@ export class CustomersComponent implements OnInit {
             if (item.id === customerForm.value.id) {
               item.title = customerForm.value.title;
               item.review = customerForm.value.review;
+              item.language = customerForm.value.language;
               item.link = customerForm.value.link;
               if (res.path) {
                 item.path = this.customerService.filePath(res.path);

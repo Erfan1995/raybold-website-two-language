@@ -11,6 +11,7 @@ class ServiceDetailsModel extends Model
     protected $fillable = [
         'subtitle',
         'service_id',
-        'content'
+        'content',
+        'language'
     ];
 }

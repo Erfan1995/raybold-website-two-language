@@ -10,6 +10,7 @@ class ServiceInfoModel extends Model
     protected $table = "services";
     protected $fillable = [
         'service_category_id',
-        'title'
+        'title',
+        'language'
     ];
 }

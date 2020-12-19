@@ -36,7 +36,8 @@ class BlogContentController extends Controller
                 $insertedContentData = $this->addBlogContentFunc([
                     'title' => $data->title,
                     'blog_id' => $data->blog_id,
-                    'content' => $data->content
+                    'content' => $data->content,
+
                 ]);
                 $insertedImage = FileModel::create([
                     'path' => $data->image_path
@@ -298,7 +299,7 @@ class BlogContentController extends Controller
             'blog_id' => ['required', 'numeric'],
             'content' => ['required', 'string'],
             'image_path' => [],
-            'is_main_file' => []
+            'is_main_file' => [],
         ]);
     }
 }

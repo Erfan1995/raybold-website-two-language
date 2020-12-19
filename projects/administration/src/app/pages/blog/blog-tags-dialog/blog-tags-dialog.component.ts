@@ -38,7 +38,7 @@ export class BlogTagsDialogComponent implements OnInit {
   }
 
   listBlogTags() {
-    this.blogService.lisTags(this.data.editData).subscribe(
+    this.blogService.lisTags(this.data.editData, this.data.lan).subscribe(
       result => {
         if (result) {
           this.blogTags = result;
@@ -59,7 +59,8 @@ export class BlogTagsDialogComponent implements OnInit {
         ]
 
       ],
-      blog_id: this.data.editData
+      blog_id: this.data.editData,
+      language: this.data.lan
     });
   }
 
@@ -79,6 +80,7 @@ export class BlogTagsDialogComponent implements OnInit {
   }
 
   addBlogTag(value) {
+    value.language = this.data.lan;
     if (this.updateMode === false) {
       this.blogService.addBlogTag(value).subscribe(
         result => {
@@ -110,9 +112,7 @@ export class BlogTagsDialogComponent implements OnInit {
   }
 
   editBlogTag(value) {
-    console.log(value);
     this.initUpdateBlogTag(value);
-
   }
 
   deleteBlogTag(value) {

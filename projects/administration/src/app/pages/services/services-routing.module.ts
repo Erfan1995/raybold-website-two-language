@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ViewServicesComponent
   },
   {
-    path: 'add-service-content/:id/:title',
+    path: 'add-service-content/:id/:title/:language',
     component: AddServiceContentComponent
   },
 

@@ -19,15 +19,15 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
             <li class="breadcrumbs-item float-right">
-              <a href="../../home">خانه</a>
+              <a href="../../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a href="../products">محصولات</a>
+              <a href="../products">{{"PRODUCTS"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
             <li class="breadcrumbs-item float-right">
-              <a >{{productTitle}}</a>
+              <a>{{productTitle}}</a>
             </li>
           </ul>
         </div>
@@ -58,7 +58,7 @@
 
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto align-center m-0">
-                <h4 style="background-color: #eee;border-radius: 5px " class="p-3">محصولات دیگر</h4>
+                <h4 style="background-color: #eee;border-radius: 5px " class="p-3">{{"MORE_PRODUCTS"|translate}}</h4>
               </div>
 
 
@@ -69,16 +69,16 @@
                   <div class="post-thumb">
                     <img class="full-width" *ngIf="product.path!== null" [defaultImage]="'assets/img/loader-2.svg'"
                          [lazyLoad]="product.path.toString()" alt="products">
-<!--                    <img *ngIf="product.path!== null-->
-<!--                            && (product.path.split('.')[1]==='jpg' || product.path.split('.')[1]==='png') "-->
-<!--                         [src]="product.path" alt="blog">-->
-<!--                    <video class="wp-caption alignnone" controls-->
-<!--                           *ngIf="product.path !== null &&-->
-<!--                                    (product.path.split('.')[1]==='mp4' || product.path.split('.')[1]==='ogg')"-->
-<!--                           class="margin-top-20">-->
-<!--                      <source src="{{product.path}}" type="video/mp4">-->
-<!--                      <source src="{{product.path}}" type="video/ogg">-->
-<!--                    </video>-->
+                    <!--                    <img *ngIf="product.path!== null-->
+                    <!--                            && (product.path.split('.')[1]==='jpg' || product.path.split('.')[1]==='png') "-->
+                    <!--                         [src]="product.path" alt="blog">-->
+                    <!--                    <video class="wp-caption alignnone" controls-->
+                    <!--                           *ngIf="product.path !== null &&-->
+                    <!--                                    (product.path.split('.')[1]==='mp4' || product.path.split('.')[1]==='ogg')"-->
+                    <!--                           class="margin-top-20">-->
+                    <!--                      <source src="{{product.path}}" type="video/mp4">-->
+                    <!--                      <source src="{{product.path}}" type="video/ogg">-->
+                    <!--                    </video>-->
                   </div>
 
                   <div class="post-content">

@@ -17,12 +17,13 @@ import {EditUsersComponent} from './users/edit-users/edit-users.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {SharedModule} from '../shared/shared.module';
 import {NoAccessComponent} from './no-access/no-access.component';
+import { ContactUsDetailsDialogComponent } from './contacts-us/contact-us-details-dialog/contact-us-details-dialog.component';
 
 
 @NgModule({
   declarations: [PagesComponent, HeaderComponent,
     SidebarComponent, UsersComponent, AboutUsComponent, CustomersComponent,
-    PartnersComponent, ProjectsComponent, ContactsUsComponent, EditUsersComponent, NoAccessComponent],
+    PartnersComponent, ProjectsComponent, ContactsUsComponent, EditUsersComponent, NoAccessComponent, ContactUsDetailsDialogComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

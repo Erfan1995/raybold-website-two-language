@@ -20,11 +20,11 @@
                     <div class="card">
                       <div class="card-content">
                         <div class="card-body">
-                          <h2 class="mb-2">افزودن خدمات جدید</h2>
+                          <h2 class="mb-2">افزودن محصول جدید</h2>
                           <br>
                           <form [formGroup]="productForm" (ngSubmit)="addProduct(productForm.value)">
                             <div class="row">
-                              <div class="col-6">
+                              <div class="col-4">
                                 <label>نام محصول<span class="required">&nbsp;*</span></label>
                                 <div class="form-group row">
                                   <div class=" col-sm-11 col-10">
@@ -40,16 +40,36 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-6">
+                              <div class="col-4">
                                 <label class="text-bold-600"> لینک </label>
                                 <div class="form-group row">
                                   <div class="col-sm-11 col-10">
                                     <input type="text" class="form-control" [ngClass]="{'is-invalid': (productForm.get('link').dirty ||
-                          productForm.get('link').touched) && f.link.errors}" formControlName="link" id="product_link">
+                          productForm.get('link').touched) && f.link.errors}" formControlName="link" id="product_link" placeholder="لینک">
                                     <div *ngIf=" f.link.errors" class="invalid-feedback text-left">
                                       <div *ngIf="f.link.errors.required"> {{errorMessages.required}}</div>
                                       <div *ngIf="f.link.errors.minlength"> {{errorMessages.minLength}}</div>
                                       <div *ngIf="f.link.errors.maxlength"> {{errorMessages.bigMaxLength}}</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-4">
+                                <label class="text-bold-600"> زبان </label>
+                                <div class="form-group row">
+                                  <div class="col-sm-11 col-10">
+                                    <select class="form-control" [ngClass]="{'is-invalid': (productForm.get('language').dirty ||
+                          productForm.get('language').touched) && f.language.errors}" formControlName="language" required>
+                                      <option selected disabled value="">نوعیت زبان</option>
+                                      <option>
+                                        da
+                                      </option>
+                                      <option>
+                                        en
+                                      </option>
+                                    </select>
+                                    <div *ngIf=" f.language.errors" class="invalid-feedback text-left">
+                                      <div *ngIf="f.language.errors.required"> {{errorMessages.required}}</div>
                                     </div>
                                   </div>
                                 </div>
@@ -90,6 +110,7 @@
                                   </th>
                                   <th>نام محصول</th>
                                   <th>لینک محصول</th>
+                                  <th>زبان</th>
                                   <th>اضافه نمودن محتوا</th>
                                   <th>ویرایش محصول</th>
                                   <th>حذف محصول</th>
@@ -103,9 +124,10 @@
                                   </td>
                                   <td>{{product?.title}}</td>
                                   <td>{{product?.link}}</td>
+                                  <td>{{product?.language}}</td>
                                   <td>
                                     <button class="btn btn-warning"
-                                            routerLink="../add-product-content/{{product.id}}/{{product.title}}">
+                                            routerLink="../add-product-content/{{product.id}}/{{product.title}}/{{product.language}}">
                                       محتوای محصول
                                     </button>
                                   </td>
