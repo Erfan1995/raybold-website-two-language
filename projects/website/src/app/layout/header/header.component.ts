@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   serviceSubCategory = [];
   index = 0;
   isEqual = true;
-
   constructor(private headerService: HeaderService,
               private router: Router,
               private dynamicScriptLoader: DynamicScriptLoaderService,

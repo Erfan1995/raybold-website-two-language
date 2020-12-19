@@ -103,5 +103,12 @@
   "WHO_WE_ARE": "Who We Are?",
   "WHO_WE_ARE_TEXT": "\nWe are a team of software engineers and graphic designers who work in both software and graphic services.",
   "KNOW_US": "Know us better",
-  "COMPANY_FOUNDATION": "Foundation of Company"
+  "COMPANY_FOUNDATION": "Foundation of Company",
+  "COMPANY_FOUNDATION_TEXT1": "Reybold Software and Graphics Company was founded in 2018 by three computer science graduates of Kabul Polytechnic University.",
+  "COMPANY_FOUNDATION_TEXT2": "\nHowever, the growth path for companies, especially start-ups in Afghanistan, is very uneven, as most start-ups fail in less than a year. But our company, believing in the abilities, \u200C will, \u200C and efforts of its founders, was able to overcome this unevenness and pave the way for achieving its great goals.",
+  "ACHIEVEMENTS": "Achievements",
+  "ACHIEVEMENTS_TEXT": "2019 was a year full of achievements for us. In addition to implementing other small and large projects, we have succeeded in carrying out large projects in the country. For example, we can mention the 2019 election management system that we created for the government-building (Dawlat Saz) team. The system, which was created to collect election results reports from all provinces of the country, consisted of a mobile application (Android and iPhone) and a web application. Another important achievement of ours was the making of Zaitoon Software. This software was built for electronic attendance management. The reason for its development was the problems that users and management officials faced.",
+  "START_GRAPHIC_SERVICES": "Starting of Graphic Services",
+  "START_GRAPHIC_SERVICES_TEXT1": "In the early 2020s, following the successful delivery of software services, we decided to start providing graphic services, taking into account the needs of the community and business owners. Fortunately, we have been able to satisfy our customers during this period. We are proud that our range of services is expanding every day.\n\n",
+  "START_GRAPHIC_SERVICES_TEXT2": "Now we are ready for any cooperation in all type of graphic services with a capable and experienced team for the better growth of our customers' business."
 }
