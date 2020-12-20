@@ -2932,9 +2932,23 @@ input:invalid, textarea:invalid, select:invalid {
 
 .input-btn--inline {
   position: relative; }
-.input-btn--inline .crumina-button {
+.input-btn--inline .crumina-button-da {
   position: absolute;
   left: -1px;
+  top: 0;
+  bottom: 0;
+  max-height: 100%;
+
+}
+.input-btn--inline .crumina-button-en {
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  max-height: 100%; }
+.input-btn--inline .crumina-button {
+  position: absolute;
+  right: -1px;
   top: 0;
   bottom: 0;
   max-height: 100%; }
@@ -3788,6 +3802,68 @@ ul ol li {
   color: var(--white-color);
   outline: none;
   border: 3px solid; }
+.crumina-button-da {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50px;
+  padding: 5px 10px;
+  position: relative;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--white-color);
+  outline: none;
+  border: 3px solid; }
+.crumina-button-en {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50px;
+  padding: 5px 10px;
+  position: relative;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--white-color);
+  outline: none;
+  border: 3px solid; }
+.crumina-button-da:after {
+  content: '';
+  display: block;
+  border-radius: 50px;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  -webkit-box-shadow: inset 0 3px 0 0 rgba(33, 35, 43, 0.3);
+  box-shadow: inset 0 3px 0 0 rgba(33, 35, 43, 0.3);
+  opacity: 0;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease; }
+.crumina-button-en:after {
+  content: '';
+  display: block;
+  border-radius: 50px;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  -webkit-box-shadow: inset 0 3px 0 0 rgba(33, 35, 43, 0.3);
+  box-shadow: inset 0 3px 0 0 rgba(33, 35, 43, 0.3);
+  opacity: 0;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease; }
 .crumina-button:after {
   content: '';
   display: block;
@@ -3804,6 +3880,10 @@ ul ol li {
   -o-transition: all .3s ease;
   transition: all .3s ease; }
 .crumina-button + .btn {
+  margin-left: 30px; }
+.crumina-button-en + .btn {
+  margin-left: 30px; }
+.crumina-button-da + .btn {
   margin-left: 30px; }
 .crumina-button:hover {
   outline: none;

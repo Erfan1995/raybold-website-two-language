@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AboutUsService} from './about-us.service';
 import {DynamicScriptLoaderService} from '../services/DynamicScriptLoaderService';
+import {GetLangService} from '../services/get-lang.service';
 
 @Component({
   selector: 'app-about-us',
@@ -10,10 +11,13 @@ import {DynamicScriptLoaderService} from '../services/DynamicScriptLoaderService
 export class AboutUsComponent implements OnInit {
   aboutUsInfo;
   customerReview;
+  lang;
 
   constructor(private aboutUsService: AboutUsService,
               private dynamicScriptLoader: DynamicScriptLoaderService,
+              private langService: GetLangService
   ) {
+    this.lang = this.langService.getLang();
   }
 
   ngOnInit(): void {

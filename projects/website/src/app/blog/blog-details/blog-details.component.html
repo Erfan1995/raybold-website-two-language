@@ -10,9 +10,9 @@
           <h1 class="page-title text-white">{{blogName}}</h1>
           <div *ngFor="let blog of blogDetails">
             <div *ngIf="blog?.is_main_file && blog.is_main_file !='0'">
-              <p class="page-title text-white right-direction" [innerHTML]="blog?.content"></p>
+              <p class="page-title text-white {{'right_direction'|translate}}" [innerHTML]="blog?.content"></p>
               <div class="author-posted">
-                <p class="right-direction">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
+                <p class="{{'right_direction'|translate}}">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
                 <p>{{blog.created_at| date: 'MMM d, y'}}</p>
               </div>
             </div>
@@ -22,19 +22,19 @@
     </div>
   </section>
   <div class="crumina-breadcrumbs breadcrumbs--dark-themes">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../blog">{{"BLOG"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a>{{blogName}}</a>
             </li>
           </ul>
@@ -43,10 +43,10 @@
     </div>
   </div>
   <section class="medium-section-padding pb120 ">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pt-3 mb-md-0 wp-caption">
-          <article class="entry  post post-standard has-post-thumbnail post-standard-details text-right mb-5"
+          <article class="entry  post post-standard has-post-thumbnail post-standard-details {{'text_right'|translate}} mb-5"
                    *ngFor="let blog of blogDetails">
             <div *ngIf="!blog?.is_main_file || blog?.is_main_file  === '0' ">
               <div>
@@ -61,7 +61,7 @@
           </article>
 
           <div>
-            <div class="text-right">
+            <div class="{{'text_right'|translate}}">
               <ul class="tag-list">
                 <li class="pl-3 pr-3 pt-1 pb-1 m-1 text-center" *ngFor="let tag of blogTags">
                   <a (click)="navigateToBlog(tag.name)">#{{tag.name}}</a>
@@ -73,8 +73,8 @@
           <div class="row">
             <div class="container height-100 ">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <p class="fs-14 c-placeholder mt-2 text-right">{{"COMMENTS"|translate}}</p>
-                <form class="submit-request-form right-direction" [formGroup]="commentsForm"
+                <p class="fs-14 c-placeholder mt-2 {{'text_right'|translate}}">{{"COMMENTS"|translate}}</p>
+                <form class="submit-request-form {{'right_direction'|translate}}" [formGroup]="commentsForm"
                       (ngSubmit)="sendComments(commentsForm.value)">
                   <div class="row">
                     <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -102,7 +102,7 @@
                 </form>
               </div>
             </div>
-            <div class="container text-right " *ngFor="let comment of comments">
+            <div class="container {{'text_right'|translate}} " *ngFor="let comment of comments">
               <!--              <div >-->
               <!--                <img class="author float-right" height="50" width="50"-->
               <!--                     src="assets/img/demo-content/avatars/author1.png" alt="">-->
@@ -115,7 +115,7 @@
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <aside aria-label="sidebar" class="sidebar sidebar-right">
+          <aside aria-label="sidebar" class="sidebar {{'sidebar_right'|translate}}">
 
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto align-center m-0">
@@ -131,7 +131,7 @@
                   </div>
 
                   <div class="post-content">
-                    <div class="row text-right">
+                    <div class="row {{'text_right'|translate}}">
                       <a (click)="getBlogDetails(blog.id,blog.title)" class="post-title h6 col-sm-6">{{blog.title}}</a>
                       <p class="col-sm-6">{{blog.created_at| date: 'MMM d, y'}}</p>
                     </div>

@@ -6,22 +6,22 @@
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
           <h1 *ngIf="serviceId" class="page-title text-white"> {{serviceTitle}}</h1>
           <h1 *ngIf="!serviceId" class="page-title text-white"> {{"PORTFOLIO"|translate}}</h1>
-          <p class="fw-medium text-white text-center right-direction">{{"PORTFOLIO_TEXT"|translate}}</p>
+          <p class="fw-medium text-white text-center {{'right_direction'|translate}}">{{"PORTFOLIO_TEXT"|translate}}</p>
         </div>
       </div>
     </div>
   </section>
 
   <div class="crumina-breadcrumbs breadcrumbs--red-themes">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a>{{"PORTFOLIO"|translate}}</a>
             </li>
           </ul>
@@ -31,7 +31,7 @@
   </div>
 
   <section class="medium-section-padding pb120 ">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
 
         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb30 sorting-item business photography" data-mh="blog-item"
@@ -69,7 +69,7 @@
               </div>
             </div>
 
-            <div class="right-direction">
+            <div class="{{'right_direction'|translate}}">
               <div class="post-category-wrap">
                 <a class="post-title h6 align-center">{{project.title}}</a>
               </div>

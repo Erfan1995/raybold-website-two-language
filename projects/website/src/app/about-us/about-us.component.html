@@ -5,7 +5,7 @@
       <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
           <h1 class="page-title text-white">{{"WHO_WE_ARE"|translate}}</h1>
-          <p class="page-text text-white right-direction">
+          <p class="page-text text-white {{'right_direction'|translate}}">
             {{"WHO_WE_ARE_TEXT"|translate}}
           </p>
         </div>
@@ -13,15 +13,15 @@
     </div>
   </section>
   <div class="crumina-breadcrumbs breadcrumbs--blue-themes">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a>{{"ABOUT_US"|translate}}</a>
             </li>
           </ul>
@@ -38,18 +38,18 @@
           <img [src]="aboutUs.path" alt="">
         </div>
       </div>
-      <div class="row tabs tabs--time-line align-items-center">
+      <div class="row tabs tabs--time-line align-items-center {{'left_direction'|translate}}">
         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="time-2018" role="tabpanel" aria-labelledby="time-2018-tab">
               <div class="row align-items-center">
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                  <div class="tabs--time-line-content text-right">
+                  <div class="tabs--time-line-content {{'text_right'|translate}}">
                     <h3 class="tabs--time-line-title">{{"COMPANY_FOUNDATION"|translate}}</h3>
-                    <p class="right-direction">
+                    <p class="{{'right_direction'|translate}}">
                       {{"COMPANY_FOUNDATION_TEXT1"|translate}}
                     </p>
-                    <p class="right-direction">
+                    <p class="{{'right_direction'|translate}}">
                       {{"COMPANY_FOUNDATION_TEXT2"|translate}}
                     </p>
                     <p>
@@ -74,10 +74,10 @@
                   </div>
                 </div>
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                  <div class="tabs--time-line-content text-right">
+                  <div class="tabs--time-line-content {{'text_right'|translate}}">
                     <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2017</div>-->
                     <h3 class="tabs--time-line-title">{{"ACHIEVEMENTS"|translate}}</h3>
-                    <p class="right-direction">
+                    <p class="{{'right_direction'|translate}}">
                       {{"ACHIEVEMENTS_TEXT"|translate}}
                     </p>
                   </div>
@@ -93,7 +93,8 @@
                          lazyLoad="assets/img/demo-content/tabs-time-line/time-thumb.png" alt="blog">
                   </div>
                 </div>
-                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 text-right right-direction">
+                <div
+                  class="col-lg-7 col-md-6 col-sm-12 col-xs-12 {{'text_right'|translate}} {{'right_direction'|translate}}">
                   <div class="tabs--time-line-content">
                     <!--                    <div class="tabs&#45;&#45;time-line-subtitle">November, 2019</div>-->
                     <h3 class="tabs--time-line-title">{{"START_GRAPHIC_SERVICES"|translate}}</h3>
@@ -109,15 +110,16 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 mb-4 mb-lg-0">
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 mb-4 mb-lg-0 ">
           <div class="nav nav-tabs" id="myTab" role="tablist">
             <a class="nav-item nav-link active" id="time-2018-tab" data-toggle="tab" href="#time-2018" role="tab"
                aria-controls="time-2018" aria-selected="false">
               2018
-              <div class="nav-item--point">
+              <div class="nav-item--point ml-3 mr-3">
                 <div class="nav-item--arrow-wrap">
                   <svg class="crumina-icon">
-                    <use xlink:href="#icon-arrow-left"></use>
+                    <use *ngIf="this.lang === 'en' " xlink:href="#icon-arrow-right"></use>
+                    <use *ngIf="this.lang === 'da' " xlink:href="#icon-arrow-left"></use>
                   </svg>
                 </div>
               </div>
@@ -125,10 +127,11 @@
             <a class="nav-item nav-link" id="time-2019-tab" data-toggle="tab" href="#time-2019" role="tab"
                aria-controls="time-2019" aria-selected="false">
               2019
-              <div class="nav-item--point">
+              <div class="nav-item--point ml-3 mr-3">
                 <div class="nav-item--arrow-wrap">
                   <svg class="crumina-icon">
-                    <use xlink:href="#icon-arrow-left"></use>
+                    <use *ngIf="this.lang === 'en' " xlink:href="#icon-arrow-right"></use>
+                    <use *ngIf="this.lang === 'da' " xlink:href="#icon-arrow-left"></use>
                   </svg>
                 </div>
               </div>
@@ -136,10 +139,11 @@
             <a class="nav-item nav-link" id="time-2020-tab" data-toggle="tab" href="#time-2020" role="tab"
                aria-controls="time-2020" aria-selected="false">
               2020
-              <div class="nav-item--point">
+              <div class="nav-item--point ml-3 mr-3">
                 <div class="nav-item--arrow-wrap">
                   <svg class="crumina-icon">
-                    <use xlink:href="#icon-arrow-left"></use>
+                    <use *ngIf="this.lang === 'en' " xlink:href="#icon-arrow-right"></use>
+                    <use *ngIf="this.lang === 'da' " xlink:href="#icon-arrow-left"></use>
                   </svg>
                 </div>
               </div>
@@ -160,7 +164,7 @@
         </div>
       </div>
 
-      <div class="row  right-direction">
+      <div class="row  {{'right_direction'|translate}}">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="tabs tabs--style6">
             <div class="nav nav-tabs" id="tabs-with-slider" role="tablist">
@@ -192,14 +196,14 @@
             </div>
           </div>
 
-          <div class="tab-content right-direction" id="myTabContent6">
+          <div class="tab-content {{'right_direction'|translate}}" id="myTabContent6">
             <div class="tab-pane fade show active" id="simplified-cloud" role="tabpanel"
                  aria-labelledby="simplified-cloud-tab">
               <div class="crumina-module crumina-module-slider pagination-bottom-center">
                 <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
                   <div class="swiper-wrapper">
                     <div class="row align-items-center">
-                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 {{'text_right'|translate}}">
                         <h3 class="text-white"> {{"CLIENTS"|translate}}</h3>
                         <p class="text-white">{{"CLIENTS_TEXT"|translate}} </p>
                         <p class="text-white">{{"CLIENTS_CATEGORY"|translate}}</p>
@@ -243,7 +247,7 @@
 
                 <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
                   <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 {{'text_right'|translate}}">
                       <h3 class="text-white">{{"PRODUCTS"|translate}}</h3>
                       <p class="text-white">
                         {{"PRODUCTS_TEXT"|translate}}
@@ -297,7 +301,7 @@
 
                 <div class="swiper-container" data-show-items="1" data-prev-next="1" data-space-between="0">
                   <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 {{'text_right'|translate}}">
                       <h3 class="text-white">{{"PROJECTS"|translate}}</h3>
                       <p class="text-white">
                         {{"PROJECT_TEXT"|translate}}
@@ -444,12 +448,12 @@
 
   <!--  Customer Review-->
   <section class="large-section-padding">
-    <div class="container right-direction ">
+    <div class="container {{'right_direction'|translate}} ">
       <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto align-center">
           <h2>{{"WHAT_OUR_CLIENTS_SAY"|translate}}</h2>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 right-direction">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 {{'right_direction'|translate}}">
           <div
             class="crumina-module crumina-module-slider crumina-slider--testimonial navigation-center-both-sides pagination-bottom-center">
 

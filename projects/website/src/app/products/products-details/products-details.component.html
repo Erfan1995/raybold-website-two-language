@@ -14,19 +14,19 @@
   </section>
 
   <div class="crumina-breadcrumbs breadcrumbs--dark-themes ">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../products">{{"PRODUCTS"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a>{{productTitle}}</a>
             </li>
           </ul>
@@ -35,10 +35,10 @@
     </div>
   </div>
   <section class="medium-section-padding pb120 ">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mb-4 mb-md-0 wp-caption">
-          <article class="entry  post post-standard has-post-thumbnail post-standard-details text-right"
+          <article class="entry  post post-standard has-post-thumbnail post-standard-details {{'text_right'|translate}}"
                    *ngFor="let product of productContent">
             <div *ngIf="product.is_main_file !== '1' || product.is_main_file === null">
               <div class="">
@@ -54,7 +54,7 @@
 
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <aside aria-label="sidebar" class="sidebar sidebar-right">
+          <aside aria-label="sidebar" class="sidebar {{'sidebar_right'|translate}}">
 
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto align-center m-0">
@@ -62,7 +62,7 @@
               </div>
 
 
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4 sorting-item technology business text-right "
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4 sorting-item technology business {{'text_right'|translate}} "
                    data-mh="blog-item" *ngFor="let product of productList">
                 <article *ngIf="product.products_id!== productId" class="entry post post-standard has-post-thumbnail">
 

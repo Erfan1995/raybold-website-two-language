@@ -25,11 +25,11 @@ export class AboutUsService {
   }
 
   FilePath(fileName: string) {
-    return this.env.baseUrl.backend.main + 'api/aboutus/' + 'aboutUsFiles/' + fileName;
+    return this.env.baseUrl.backend.main + 'api/about-us/' + 'aboutUsFiles/' + fileName;
   }
 
   listCustomersReview(): Observable<any> {
-    return this.httpServices.get('api/home/' + this.lang + '/list-customers-review');
+    return this.httpServices.get('api/home/' + this.lang + 'list-customers-review');
   }
 
   customerFilePath(fileName: string) {

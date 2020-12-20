@@ -14,12 +14,12 @@
           <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 m-auto">
               <h4 class="fw-medium text-white text-center">{{"BLOG_SEARCH"|translate}}</h4>
-              <form class="search-popup-form right-direction" [formGroup]="blogSearchForm"
+              <form class="search-popup-form {{'right_direction'|translate}}" [formGroup]="blogSearchForm"
                     (ngSubmit)="searchBlog(blogSearchForm.value)">
-                <div class="input-btn--inline mb-3 direction-rtl">
+                <div class="input-btn--inline mb-3 ">
                   <input formControlName="tag_name" class="input--dark" type="text"
                          placeholder="{{'BLOG_SEARCH_FIELD'|translate}}">
-                  <button type="submit" class="crumina-button button--primary button--l">{{"SEARCH"|translate}}</button>
+                  <button type="submit" class="{{'crumina_button'|translate}} button--primary button--l">{{"SEARCH"|translate}}</button>
                 </div>
               </form>
             </div>
@@ -31,15 +31,15 @@
   </section>
 
   <div class="crumina-breadcrumbs breadcrumbs--dark-themes">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a>{{"BLOG"|translate}}</a>
             </li>
           </ul>
@@ -49,10 +49,10 @@
   </div>
 
   <section class="medium-section-padding pb120 ">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
 
-        <div class="col-lg-4 text-right" *ngFor="let blog of blogList">
+        <div class="col-lg-4 {{'text_right'|translate}}" *ngFor="let blog of blogList">
           <div class="swiper-slide">
             <div class="crumina-module crumina-testimonial-item testimonial--with-border">
               <div class="avatar">
@@ -65,7 +65,7 @@
                 <p class="author">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
                 <p>{{blog.created_at| date: 'MMM d, y'}}</p>
               </div>
-              <div class="author-content">
+              <div class="author-content {{'right_direction'|translate}}">
                 <a routerLink="./blog-details/{{blog.id}}/{{blog.title}}/{{blog.blog_category_id}}"
                    class="author-name h6">{{"READ_MORE"|translate}}</a>
               </div>

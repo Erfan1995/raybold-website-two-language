@@ -172,7 +172,8 @@
                   <h2 class="slider-content-title {{'text_right'|translate}}"
                       data-swiper-parallax="-100">{{"LOGO_IMPORTANCE_TITLE"|translate}}</h2>
 
-                  <p class="slider-content-text {{'text_right'|translate}}" data-swiper-parallax="-200">{{"LOGO_IMPORTANCE"|translate}}
+                  <p class="slider-content-text {{'text_right'|translate}}"
+                     data-swiper-parallax="-200">{{"LOGO_IMPORTANCE"|translate}}
                   </p>
 
                   <ul class="slider-list">
@@ -671,13 +672,13 @@
 
   <section class="pt120">
     <div class="container">
-      <div class="row mb-5 align-items-end">
+      <div class="row mb-5 align-items-end {{'right_direction'|translate}}">
         <div class="{{'float_right'|translate}} {{'text_right'|translate}}">
           <h2>{{"OUR_PRODUCTS"|translate}}</h2>
           <p class="fs-16  {{'right_direction'|translate}}">{{"PRODUCTS_TEXT"|translate}}</p>
           <p class=" {{'right_direction'|translate}}">{{"CHECKOUT_PRODUCTS"|translate}}</p>
         </div>
-        <div class="{{'float_left' | translate}} {{'text_left'|translate}} {{'right_direction'|translate}}">
+        <div class="{{'float_left' | translate}}">
           <a class="crumina-button button--green button--l button--bordered"
              routerLink="/products">{{"MORE_PRODUCTS"|translate}}</a>
         </div>
@@ -757,7 +758,8 @@
         </div>
       </div>
       <div class="row {{'right_direction'|translate}}">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb30 {{'text_right'|translate}}" *ngFor="let blog of latestBlog">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb30 {{'text_right'|translate}}"
+             *ngFor="let blog of latestBlog">
           <article class="entry post post-standard has-post-thumbnail">
             <div class="post-thumb">
               <img [defaultImage]="'assets/img/loader-2.svg'"
@@ -775,7 +777,7 @@
               </div>
               <div class="post-additional-info">
                 <div class="author-posted">
-                  <p class="author">نوشته شده توسط:{{blog.full_name}}</p>
+                  <p class="author">{{"AUTHOR"|translate}}{{blog.full_name}}</p>
                 </div>
               </div>
             </div>

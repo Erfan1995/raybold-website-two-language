@@ -5,7 +5,7 @@
       <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-auto align-center">
           <h1 class="page-title text-white">{{"CONTACT_INFO"|translate}}</h1>
-          <p class="page-text text-white">
+          <p class="page-text text-white {{'right_direction'|translate}}">
             {{"CONTACT_US_TEXT"|translate}}
           </p>
         </div>
@@ -14,15 +14,15 @@
   </section>
 
   <div class="crumina-breadcrumbs breadcrumbs--green-themes">
-    <div class="container right-direction">
+    <div class="container {{'right_direction'|translate}}">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="breadcrumbs">
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a href="../home">{{"HOME"|translate}}</a>
               <span class="crumina-icon">»</span>
             </li>
-            <li class="breadcrumbs-item float-right">
+            <li class="breadcrumbs-item {{'float_right'|translate}}">
               <a>{{"CONTACT_US"|translate}}</a>
             </li>
           </ul>
@@ -35,9 +35,9 @@
   <section class="pt120">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center m-auto">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 align-center m-auto {{'right_direction'|translate}}">
           <h2>{{"ADDRESS"|translate}}</h2>
-          <div class="pull-right margin-top-120">
+          <div class="{{'pull_right'|translate}} margin-top-120">
             <div itemprop="location" itemscope class="js-map-text is-active">
               <h3 itemprop="name" class="-header">Afghanistan - Kabul</h3>
               <div class="-content">
@@ -70,12 +70,12 @@
 
   <section class="large-section-padding">
     <div class="container">
-      <div class="row align-items-center right-direction">
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-right ">
+      <div class="row align-items-center {{'right_direction'|translate}}">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 {{'text_right'|translate}} ">
           <h2 class="mb-5">{{"SEND_MESSAGE"|translate}}</h2>
 
           <form [formGroup]="contactUsForm" (ngSubmit)="sendMessage(contactUsForm.value)"
-                class="send-message-form crumina-submit right-direction" method="post"
+                class="send-message-form crumina-submit {{'right_direction'|translate}}" method="post"
                 data-nonce="crumina-submit-form-nonce"
                 data-type="standard" action="https://html.crumina.net/hostsite/modules/forms/submit.php">
             <div class="row">
@@ -89,6 +89,9 @@
                     <div *ngIf="f.name.errors.required"> {{errorMessages.required}}</div>
                   </div>
                 </div>
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="form-item">
                   <input class="input--grey input--squared" formControlName="email" name="email" type="email"
                          placeholder="{{'EMAIL_ADDRESS'|translate}}"
@@ -118,7 +121,7 @@
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-item">
-                  <textarea formControlName="message" class="text-right input--grey input--squared"
+                  <textarea formControlName="message" class="{{'text_right'|translate}} input--grey input--squared"
                             tagName="textarea" cols="6"
                             placeholder="{{'WRITE_MESSAGE'|translate}}">
 

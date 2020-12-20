@@ -10,7 +10,7 @@
     <div class="navigation-body ">
       <div class="navigation-body-section navigation-additional-menu">
       </div>
-      <ul class="navigation-menu right-direction">
+      <ul class="navigation-menu {{'right_direction'|translate}}">
         <li class="navigation-item  is-active">
           <a class="navigation-link" routerLink="/home">
             {{'HOME'|translate}}
@@ -24,18 +24,16 @@
           </a>
           <div class="navigation-megamenu">
             <div class="navigation-megamenu-container">
-              <div class="navigation-row">
+              <div class="navigation-row ">
                 <div class="navigation-col-3 p-2" *ngFor="let service of services">
                   <h5 class="{{'text_right'|translate}}">{{service.service_category_name}}</h5>
-                  <ul class="navigation-list">
-                    <li *ngFor="let serviceItem of service.services">
+                  <ul class="navigation-list ">
+                    <li *ngFor="let serviceItem of service.services" class="{{'right_direction'|translate}}">
                       <a class="cursor-pointer"
                          routerLink="../services/services-details/{{serviceItem.service_id}}/{{serviceItem.title}}/{{service.category_id}}">{{serviceItem.title}}</a>
                     </li>
-
                   </ul>
                 </div>
-
               </div>
             </div>
           </div>
