@@ -199,7 +199,7 @@ class ProjectController extends Controller
         return response()->json($data);
     }
 
-    public function getProjectsByService($serviceId, $offset)
+    public function getProjectsByService($lang, $serviceId, $offset)
     {
         try {
             DB::beginTransaction();
@@ -207,7 +207,10 @@ class ProjectController extends Controller
                 'service_category.id as service_category_id')
                 ->join('services', 'service_category.id', '=', 'services.service_category_id')
                 ->join('projects', 'services.id', '=', 'projects.service_id')
-                ->where('services.id', '=', $serviceId)
+                ->where([
+                    ['services.id', '=', $serviceId],
+                    ['projects.language', '=', $lang]
+                ])
                 ->limit(6)
                 ->offset($offset)
                 ->get();
@@ -229,11 +232,12 @@ class ProjectController extends Controller
         }
     }
 
-    public function listProjectWithOffset($offset)
+    public function listProjectWithOffset($lang, $offset)
     {
         try {
             DB::beginTransaction();
-            $data = ProjectModel::select('projects.link', 'projects.title', 'projects.id as project_id')
+            $data = ProjectModel::select('projects.link', 'projects.title', 'projects.id as project_id', 'language')
+                ->where('projects.language', '=', $lang)
                 ->limit(6)
                 ->offset($offset)
                 ->latest('created_at')->get();

@@ -198,7 +198,7 @@ Route::get('products/{lang}/list-product-content-website/{productId}', 'ProductC
 
 
 //projects
-Route::get('projects/list-projects-by-service/{serviceId}/{offset}', 'ProjectController@getProjectsByService');
-Route::get('projects/list-projects-by-offset/{offset}', 'ProjectController@listProjectWithOffset');
+Route::get('projects/{lang}/list-projects-by-service/{serviceId}/{offset}', 'ProjectController@getProjectsByService');
+Route::get('projects/{lang}/list-projects-by-offset/{offset}', 'ProjectController@listProjectWithOffset');
 //contact us
 Route::post('contact-us/store-message', 'ContactUsController@storeMessages');
