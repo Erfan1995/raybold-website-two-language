@@ -26,7 +26,7 @@
             <div class="navigation-megamenu-container">
               <div class="navigation-row">
                 <div class="navigation-col-3 p-2" *ngFor="let service of services">
-                  <h5 class="text-right">{{service.service_category_name}}</h5>
+                  <h5 class="{{'text_right'|translate}}">{{service.service_category_name}}</h5>
                   <ul class="navigation-list">
                     <li *ngFor="let serviceItem of service.services">
                       <a class="cursor-pointer"

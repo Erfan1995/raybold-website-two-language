@@ -61,6 +61,11 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLang(value) {
+    // const currentRoute = this.router.url;
+    // this.router.navigateByUrl('/').then(() => {
+    //   this.router.navigate([currentRoute]); // navigate to same route
+    // });
     this.translate.use(value);
+    window.location.reload();
   }
 }

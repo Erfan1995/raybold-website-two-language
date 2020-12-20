@@ -3691,7 +3691,6 @@ ul ol li {
   list-style: none;
   font-weight: 500;
   margin-bottom: 10px;
-  direction: rtl;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10668,3 +10667,5 @@ section {
     padding: 15px 0; } }
 
 /*# sourceMappingURL=maps/main.min.css.map */
+
+

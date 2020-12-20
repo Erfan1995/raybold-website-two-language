@@ -113,8 +113,11 @@
   "START_GRAPHIC_SERVICES_TEXT2": "اکنون ما در تمام بخشهای گرافیکی با داشتن تیم توانا و باتجربه آماده هرگونه همکاری جهت رشد بهتر کسب و کار مشتریان خویش می باشیم.",
   "VIEW_MORE_PROJECTS": "مشاهده پروزهای بیشتر",
   "OFFICE_LOCATION": "پل سرخ، کوچه تخنیک، مارکیت افغان تاور،‌منزل دوم،‌دفتر شماره ۲۹",
-  "KABUL": "کابل"
-
-
-
+  "KABUL": "کابل",
+  "right_direction": "right-direction",
+  "left_direction": "left-direction",
+  "text_right": "text-right",
+  "text_left": "text-left",
+  "float_right": "float-right",
+  "float_left": "float-left"
 }
