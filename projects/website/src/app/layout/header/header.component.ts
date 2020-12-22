@@ -62,14 +62,9 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLang(value) {
-    // const currentRoute = this.router.url;
-    // this.router.navigateByUrl('/').then(() => {
-    //   this.router.navigate([currentRoute]); // navigate to same route
-    // });
     this.translate.use(value);
-    window.location.reload();
     this.router.navigateByUrl('/home').then(nav => {
-      console.log(nav); // true if navigation is successful
+      window.location.reload();
     }, err => {
       console.log(err); // when there's an error
     });

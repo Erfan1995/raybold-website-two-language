@@ -123,7 +123,9 @@
   "sidebar_right": "sidebar-right",
   "pull_right": "pull-right",
   "crumina_button": "crumina-button-en",
-  "icon_arrow_left": "icon-arrow-left"
+  "icon_arrow_left": "icon-arrow-left",
+  "align_left": "align-right"
+
 
 
 }
