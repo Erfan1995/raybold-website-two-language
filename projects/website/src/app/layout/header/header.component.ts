@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   serviceSubCategory = [];
   index = 0;
   isEqual = true;
+
   constructor(private headerService: HeaderService,
               private router: Router,
               private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -67,5 +68,10 @@ export class HeaderComponent implements OnInit {
     // });
     this.translate.use(value);
     window.location.reload();
+    this.router.navigateByUrl('/home').then(nav => {
+      console.log(nav); // true if navigation is successful
+    }, err => {
+      console.log(err); // when there's an error
+    });
   }
 }

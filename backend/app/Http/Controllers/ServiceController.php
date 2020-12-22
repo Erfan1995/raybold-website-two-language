@@ -86,6 +86,7 @@ class ServiceController extends Controller
                     } else {
                         ServiceDetailsModel::where('id', $data[$i]->content_id)->delete();
                     }
+
                 }
             }
             ServiceInfoModel::where('id', $request->get('id'))->delete();
