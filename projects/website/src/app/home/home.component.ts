@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     this.homeService.listProducts().subscribe(
       result => {
         this.products = result;
+        console.log(this.products);
         this.products.forEach((item) => {
           item.path = this.homeService.productFilePath(item.path);
         });

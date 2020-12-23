@@ -237,20 +237,10 @@
     <div class="container">
       <div class="row">
         <div class="row align-items-center">
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 align-center mb-4 mb-lg-0">
-            <h2>همراه با ری بولد در مسیر رشد</h2>
-            <p class="fs-18 ">ما به کیفیت کاری عالی و ارتباط دوامدار با مشتریان خود باورمندیم. و این باور را با ارائه
-              خدمات بهتر، قیمت مناسب و جلب رضایت مشتریان خویش حفظ می کنیم. </p>
-            <p class="fs-18 ">شرکت نرم افزاری و گرافیک ری بولد با هدف خلق زمینه کسب و کار آنلاین حرفه‌ای پویا و منعطف،
-              در
-              کنار شما حضور دارد تا به بهترین شکل در فضای آنلاین حضور داشته باشید.
-              قرار گیری به عنوان یک تیم نرم افزاری و گرافیک در کنار کسب و کار‌ها،‌شرکت‌ها و سازمان‌ها و کاهش هزینه‌های
-              توسعه و نگهداری محصولات و تبلیغات مؤثر، از اهداف شرکت به شمار می‌رود. شرکت نرم افزاری و گرافیک ری بولد با
-              بهره‌مندی
-              از تیم‌های چند تخصصی و تکنولوژی روز دنیا، مفتخر است تا در زمینه طراحی اپلیکیشن موبایل، توسعه وبسایت و
-              سیستم
-              تحت وب،‌سافتویر های مدیریت اطلاعات، پیاده‌سازی پلتفرم‌های کسب و کار،‌ خدمات گرافیکی چون برندینگ،‌ دیزاین
-              انواع موشن و ویدیو های تبلیغاتی و دگر خدمات گرافیکی به همراهان خود ارائه خدمت نماید.</p>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 align-center mb-4 mb-lg-0 ">
+            <h2>{{'ALONG_WITH_RAYBOLD'|translate}}</h2>
+            <p class="fs-18 ">{{'ALONG_WITH_RAYBOLD_TEXT1'|translate}}</p>
+            <p class="fs-18 ">{{'ALONG_WITH_RAYBOLD_TEXT2'|translate}}</p>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <img loading="lazy" [defaultImage]="'assets/img/loader-2.svg'"
@@ -671,7 +661,7 @@
     </div>
     <div class="pricing-tables-border-bottom-wrap">
       <div *ngFor="let product of products;let i=index">
-        <div style="height: 580px" *ngIf="product.is_main_file==='1'"
+        <div style="height: 580px" *ngIf="product.is_main_file=== 1"
              class="crumina-module crumina-pricing-tables-item pricing-tables-item-border-bottom cursor-pointer"
              [class]=product.color>
           <div class="main-pricing-content">
