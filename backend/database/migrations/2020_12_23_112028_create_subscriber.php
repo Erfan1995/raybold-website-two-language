@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubscribers extends Migration
+class CreateSubscriber extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSubscribers extends Migration
      */
     public function up()
     {
-        Schema::create('subscribers', function (Blueprint $table) {
-            //
+        Schema::create('subscriber', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +27,6 @@ class CreateSubscribers extends Migration
      */
     public function down()
     {
-        Schema::create('subscribers', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('subscriber');
     }
 }

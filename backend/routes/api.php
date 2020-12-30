@@ -167,6 +167,7 @@ Route::get('contact-us/list-contact-us-info', 'ContactUsController@listContactUs
 //Headers
 Route::get('header/{lang}/list-services', 'ServiceController@listHeaderServices');
 Route::get('header/{lang}/list-projects-service', 'ServiceController@listProjectServices');
+Route::post('header/subscribe', 'SubscriberController@storeSubscriber');
 
 
 //Home

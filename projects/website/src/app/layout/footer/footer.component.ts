@@ -18,10 +18,8 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscribeForm = this.formBuilder.group({
-      subscribe: ['', []]
-    });
 
+    this.subInitForm();
     // this.footerService.listServices().subscribe(
     //   result => {
     //     this.services = result;
@@ -29,7 +27,21 @@ export class FooterComponent implements OnInit {
     // );
   }
 
+  subInitForm() {
+    this.subscribeForm = this.formBuilder.group({
+      subscribe: ['', []]
+    });
+  }
+
   subscribe(value) {
+    console.log(value);
+    this.footerService.subscribe(value).subscribe(
+      result => {
+        if (result) {
+          this.subInitForm();
+        }
+      }
+    );
   }
 
   get f() {

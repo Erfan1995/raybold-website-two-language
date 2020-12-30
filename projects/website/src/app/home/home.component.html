@@ -673,7 +673,8 @@
             <p class="pricing-description"><span [innerHTML]="product.content|sanitizeHtml"></span></p>
             <a routerLink="/products/products-details/{{product.product_id}}/{{product.title}}" class="pricing-link">
               <svg class="crumina-icon">
-                <use xlink:href="#icon-arrow-left"></use>
+                <use *ngIf="this.lang === 'en' " xlink:href="#icon-arrow-right"></use>
+                <use *ngIf="this.lang === 'da' " xlink:href="#icon-arrow-left"></use>
               </svg>
             </a>
           </div>

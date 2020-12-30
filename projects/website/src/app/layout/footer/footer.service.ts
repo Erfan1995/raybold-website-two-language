@@ -21,4 +21,9 @@ export class FooterService {
   listServices(): Observable<any> {
     return this.httpServices.get(this.baseUrl + 'list-services');
   }
+
+  subscribe(data): Observable<any> {
+    return this.httpServices._post('api/header/' + 'subscribe', data);
+  }
+
 }

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {generalMessages} from '../validation/commonErrorMessages';
 import {NotificationService} from '../services/notification.service';
 import {DynamicScriptLoaderService} from '../services/DynamicScriptLoaderService';
+import {GetLangService} from '../services/get-lang.service';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,14 @@ export class HomeComponent implements OnInit {
   customers;
   latestBlog;
   review;
+  lang;
 
   constructor(private dynamicScriptLoader: DynamicScriptLoaderService,
               private homeService: HomeService,
               private router: Router,
-              private notificationService: NotificationService) {
+              private notificationService: NotificationService,
+              private langService: GetLangService) {
+    this.lang = this.langService.getLang();
   }
 
   ngOnInit(): void {

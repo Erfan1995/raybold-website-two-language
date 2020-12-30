@@ -143,7 +143,7 @@ class CustomerController extends Controller
     }
 
 
-    public function customerList($lang)
+    public function customerList()
     {
         $data = File::select('files.path', 'customers.id', 'title', 'review', 'language', 'link', 'file_id')
             ->join('customers', 'customers.file_id', '=', 'files.id')
